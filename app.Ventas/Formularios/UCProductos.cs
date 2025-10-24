@@ -2,14 +2,12 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace app.Ventas.Formularios
 {
     public partial class UCProductos : UserControl
     {
-        private const string Placeholder = "Buscar Productos";
         public event Action OnAgregarProductoClick;
         private Usuario _usuario;
         public UCProductos()
@@ -162,49 +160,6 @@ namespace app.Ventas.Formularios
         }
 
         #region Eventos del UC
-        private void txtBoxBuscarProductos_TextChanged(object sender, EventArgs e)
-        {
-            string textoBusqueda = txtBoxBuscarProductos.Text.Trim();
-
-            // Ignoramos el placeholder: si está el placeholder o está vacío, mostramos todo
-            if (string.IsNullOrEmpty(textoBusqueda) || textoBusqueda.Equals(Placeholder, StringComparison.OrdinalIgnoreCase))
-            {
-                listarRegistro();
-                return;
-            }
-
-            try
-            {
-                string connectionString = ConexionDB.ObtenerConexion();
-                using (SqlConnection conexion = new SqlConnection(connectionString))
-                {
-                    string consultaSql = @"
-                        SELECT p.ProductoID,
-                               p.Nombre,
-                               p.Precio,
-                               p.Codigo,
-                               p.Existencias,
-                               p.CategoriaID,
-                               c.Nombre AS Categoria
-                        FROM Productos p
-                        LEFT JOIN Categorias c ON p.CategoriaID = c.CategoriaID
-                        WHERE p.Codigo LIKE @texto OR p.Nombre LIKE @texto OR c.Nombre LIKE @texto";
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
-                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.VarChar, 100).Value = "%" + textoBusqueda + "%";
-
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    dgvProductos.DataSource = dt;
-                    formatoGrid();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al buscar registros: " + ex.Message);
-            }
-        }
 
         private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -233,23 +188,6 @@ namespace app.Ventas.Formularios
             }
         }
 
-        private void txtBoxBuscarProductos_Enter(object sender, EventArgs e)
-        {
-            if (txtBoxBuscarProductos.Text.Equals(Placeholder, StringComparison.OrdinalIgnoreCase))
-            {
-                txtBoxBuscarProductos.Text = "";
-                txtBoxBuscarProductos.ForeColor = Color.Black; // color normal al escribir
-            }
-        }
-
-        private void txtBoxBuscarProductos_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtBoxBuscarProductos.Text))
-            {
-                txtBoxBuscarProductos.Text = Placeholder;
-                txtBoxBuscarProductos.ForeColor = Color.Gray;
-            }
-        }
 
         private void cuiTxtBuscar_ContentChanged(object sender, EventArgs e)
         {

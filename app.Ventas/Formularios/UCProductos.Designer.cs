@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBoxBuscarProductos = new System.Windows.Forms.TextBox();
             this.ibtnAgregar = new FontAwesome.Sharp.IconButton();
             this.ibtnEliminar = new FontAwesome.Sharp.IconButton();
             this.lblListado = new System.Windows.Forms.Label();
@@ -46,19 +45,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtBoxBuscarProductos
-            // 
-            this.txtBoxBuscarProductos.ForeColor = System.Drawing.Color.Gray;
-            this.txtBoxBuscarProductos.Location = new System.Drawing.Point(35, 575);
-            this.txtBoxBuscarProductos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBoxBuscarProductos.Name = "txtBoxBuscarProductos";
-            this.txtBoxBuscarProductos.Size = new System.Drawing.Size(556, 29);
-            this.txtBoxBuscarProductos.TabIndex = 1;
-            this.txtBoxBuscarProductos.Text = "Buscar Productos";
-            this.txtBoxBuscarProductos.TextChanged += new System.EventHandler(this.txtBoxBuscarProductos_TextChanged);
-            this.txtBoxBuscarProductos.Enter += new System.EventHandler(this.txtBoxBuscarProductos_Enter);
-            this.txtBoxBuscarProductos.Leave += new System.EventHandler(this.txtBoxBuscarProductos_Leave);
             // 
             // ibtnAgregar
             // 
@@ -244,7 +230,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.cuiPanelContenedor);
-            this.Controls.Add(this.txtBoxBuscarProductos);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UCProductos";
@@ -257,12 +242,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtBoxBuscarProductos;
         private System.Windows.Forms.Label lblListado;
         private FontAwesome.Sharp.IconButton ibtnAgregar;
         private FontAwesome.Sharp.IconButton ibtnEliminar;
