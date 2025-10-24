@@ -1,0 +1,33 @@
+# Ignorar archivos temporales y de configuración local de Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vsp
+*.vshost.*
+*.vsl
+*.dbmdl
+*.log
+*.vsidx
+
+# Ignorar archivos de compilación y binarios generados (se regeneran al compilar)
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+*.exe
+*.pdb
+*.cache
+
+# Ignorar paquetes y dependencias restaurables con NuGet
+packages/
+*.nupkg
+*.lock.json
+project.lock.json
+
+# Ignorar archivos basura del sistema operativo (Windows)
+[Tt]humbs.db
+[Ee]hthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
