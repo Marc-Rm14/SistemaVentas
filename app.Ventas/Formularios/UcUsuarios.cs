@@ -134,44 +134,6 @@ namespace app.Ventas.Formularios
             listarRegistros();
         }
 
-        
-
-        
-
-        private void txtBuscarUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-            
-
-
-            string connectionString = ConexionDB.ObtenerConexion();
-            string consultasSql = @"SELECT u.UsuarioID AS id, u.NombreUsuario AS usuario, u.Contraseña,
-                                      u.NombreCompleto AS nombre, u.RolID, r.NombreRol AS Rol 
-                                      FROM Usuarios u
-                                      INNER JOIN Roles r ON u.RolID = r.RolID
-                                      WHERE u.NombreUsuario LIKE @texto OR u.NombreCompleto LIKE @texto OR r.NombreRol LIKE @texto";
-            try
-            {
-
-                using (SqlConnection conexion = new SqlConnection(connectionString))
-                {
-                    SqlDataAdapter adapter = new SqlDataAdapter(consultasSql, conexion);
-                    //adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.VarChar, 100).Value = "%" +  + "%";
-
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    dgvUsuarios.DataSource = dt;
-
-
-                }
-            }
-            catch (Exception ex) 
-            {
-                MessageBox.Show("Error al buscar registros: " + ex.Message);
-            }
-        }
-
         private void ibtnAgregar_Click(object sender, EventArgs e)
         {
             OnAgregarUsuarioClick?.Invoke();
@@ -198,6 +160,40 @@ namespace app.Ventas.Formularios
             catch (Exception ex)
             {
                 MessageBox.Show("Error al realizar la operacion" + ex);
+            }
+        }
+
+        private void cuiTxtBuscar_ContentChanged(object sender, EventArgs e)
+        {
+            string textoBusqueda = cuiTxtBuscar.Text.Trim();
+
+
+
+            string connectionString = ConexionDB.ObtenerConexion();
+            string consultasSql = @"SELECT u.UsuarioID AS id, u.NombreUsuario AS usuario, u.Contraseña,
+                                      u.NombreCompleto AS nombre, u.RolID, r.NombreRol AS Rol 
+                                      FROM Usuarios u
+                                      INNER JOIN Roles r ON u.RolID = r.RolID
+                                      WHERE u.NombreUsuario LIKE @texto OR u.NombreCompleto LIKE @texto OR r.NombreRol LIKE @texto";
+            try
+            {
+
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(consultasSql, conexion);
+                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.VarChar, 100).Value = "%" + textoBusqueda + "%";
+
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dgvUsuarios.DataSource = dt;
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar registros: " + ex.Message);
             }
         }
     }
