@@ -9,7 +9,7 @@ namespace app.Ventas.Formularios
 {
     public partial class UcUsuarios : UserControl
     {
-        private const string Placeholder = "Buscar Usuario";
+        
         public event Action OnAgregarUsuarioClick;
         public UcUsuarios()
         {
@@ -134,34 +134,14 @@ namespace app.Ventas.Formularios
             listarRegistros();
         }
 
-        private void txtBuscarUsuario_Enter(object sender, EventArgs e)
-        {
-            if (txtBuscarUsuario.Text.Equals(Placeholder, StringComparison.OrdinalIgnoreCase)) 
-            {
-                txtBuscarUsuario.Text = "";
-                txtBuscarUsuario.ForeColor = Color.Black;
-            }
-        }
+        
 
-        private void txtBuscarUsuario_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtBuscarUsuario.Text)) 
-            {
-                txtBuscarUsuario.Text = Placeholder;
-                txtBuscarUsuario.ForeColor = Color.Gray;
-            }
-        }
+        
 
         private void txtBuscarUsuario_TextChanged(object sender, EventArgs e)
         {
-            string textoBusqueda = txtBuscarUsuario.Text.Trim();
 
-            // Ignoramos el placeholder: si está el placeholder o está vacío, mostramos todo
-            if (string.IsNullOrEmpty(textoBusqueda) || textoBusqueda.Equals(Placeholder, StringComparison.OrdinalIgnoreCase))
-            {
-                listarRegistros();
-                return;
-            }
+            
 
 
             string connectionString = ConexionDB.ObtenerConexion();
@@ -176,7 +156,7 @@ namespace app.Ventas.Formularios
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter(consultasSql, conexion);
-                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.VarChar, 100).Value = "%" + textoBusqueda + "%";
+                    //adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.VarChar, 100).Value = "%" +  + "%";
 
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
