@@ -94,16 +94,7 @@ namespace app.Ventas.Formularios
                 
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
-                    string consultaSql = @"
-                        SELECT p.ProductoID,
-                               p.Nombre,
-                               p.Precio,
-                               p.Codigo,
-                               p.Existencias,
-                               p.CategoriaID,
-                               c.Nombre AS Categoria
-                        FROM Productos p
-                        INNER JOIN Categorias c ON p.CategoriaID = c.CategoriaID";
+                    string consultaSql = "SELECT *FROM vw_MostrarRegistroProductos";
                     SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);

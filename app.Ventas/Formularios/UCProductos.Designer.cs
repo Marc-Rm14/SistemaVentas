@@ -126,7 +126,7 @@
             this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel1);
             this.cuiGroupBox1.Location = new System.Drawing.Point(21, 23);
             this.cuiGroupBox1.Name = "cuiGroupBox1";
-            this.cuiGroupBox1.Padding = new System.Windows.Forms.Padding(4, 24, 4, 4);
+            this.cuiGroupBox1.Padding = new System.Windows.Forms.Padding(4, 29, 4, 4);
             this.cuiGroupBox1.Rounding = new System.Windows.Forms.Padding(4);
             this.cuiGroupBox1.Size = new System.Drawing.Size(1025, 566);
             this.cuiGroupBox1.TabIndex = 5;
@@ -139,7 +139,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.ibtnEliminar, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.ibtnAgregar, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(764, 87);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(764, 92);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -154,11 +154,11 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.dgvProductos, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(22, 167);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(22, 172);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(981, 382);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(981, 377);
             this.tableLayoutPanel4.TabIndex = 9;
             // 
             // dgvProductos
@@ -178,9 +178,10 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvProductos.RowHeadersWidth = 51;
             this.dgvProductos.RowTemplate.Height = 28;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(975, 376);
+            this.dgvProductos.Size = new System.Drawing.Size(975, 371);
             this.dgvProductos.TabIndex = 0;
             this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
             // 
@@ -191,7 +192,7 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.cuiTxtBuscar, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(22, 87);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(22, 92);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -218,7 +219,7 @@
             this.cuiTxtBuscar.Name = "cuiTxtBuscar";
             this.cuiTxtBuscar.NormalImageTint = System.Drawing.Color.White;
             this.cuiTxtBuscar.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.cuiTxtBuscar.Padding = new System.Windows.Forms.Padding(22, 11, 22, 0);
+            this.cuiTxtBuscar.Padding = new System.Windows.Forms.Padding(27, 9, 27, 0);
             this.cuiTxtBuscar.PasswordChar = false;
             this.cuiTxtBuscar.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cuiTxtBuscar.PlaceholderText = "Buscar Productos";
@@ -236,7 +237,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.lblListado, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(22, 24);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(22, 29);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -245,7 +246,7 @@
             // 
             // UCProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.cuiPanelContenedor);
