@@ -20,7 +20,7 @@ namespace app.Ventas.Utilidades
             {
                 panel.SuspendLayout();
 
-                foreach (Control controlAnterior in panel.Controls.OfType<Control>().ToList())
+                foreach (var controlAnterior in panel.Controls.Cast<Control>().ToList()) //El OfType<Control>() era redundante 
                 {
                     if (controlAnterior != nuevaVista)
                     {
@@ -28,6 +28,7 @@ namespace app.Ventas.Utilidades
                         controlAnterior.Dispose();
                     }
                 }
+
 
                 if (!panel.Controls.Contains(nuevaVista))
                 {
