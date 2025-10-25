@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace app.Ventas.Formularios
@@ -171,17 +172,14 @@ namespace app.Ventas.Formularios
         {
             bool datosValidos = true;
 
-            foreach (Control control in tableLayoutPanel1.Controls)
+            foreach (var cajaTexto in tableLayoutPanel1.Controls.OfType<TextBox>()) //Nota: Con esto evitamos anidar, desde un inicio iteramos sobre los textbox
             {
-                if (control is TextBox cajaTexto)
+                if (string.IsNullOrWhiteSpace(cajaTexto.Text))
                 {
-                    
-                    if (string.IsNullOrWhiteSpace(cajaTexto.Text))
-                    {
-                        errorIcono.SetError(cajaTexto, "Este campo es obligatorio");
-                        datosValidos = false;
-                    }
+                    errorIcono.SetError(cajaTexto, "Este campo es obligatorio");
+                    datosValidos = false;
                 }
+
             }
 
             return datosValidos;
