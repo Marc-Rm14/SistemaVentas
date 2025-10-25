@@ -95,7 +95,7 @@
             // 
             this.cmbRoles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbRoles.FormattingEnabled = true;
-            this.cmbRoles.Location = new System.Drawing.Point(116, 172);
+            this.cmbRoles.Location = new System.Drawing.Point(116, 176);
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(450, 29);
             this.cmbRoles.TabIndex = 8;
