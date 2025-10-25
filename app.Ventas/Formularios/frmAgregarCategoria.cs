@@ -20,6 +20,8 @@ namespace app.Ventas.Formularios
             txtAgCategoria.Text = nombre;
         }
 
+        #region
+
         private void ActualizarCategoria(int categoriaId, string categoria)
         {
             try
@@ -50,7 +52,7 @@ namespace app.Ventas.Formularios
 
                     MessageBox.Show("Registro Actualizado correctamente", "Información",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                     Close();
 
                 }
@@ -102,7 +104,7 @@ namespace app.Ventas.Formularios
 
                     MessageBox.Show("Registro almacenado correctamente", "Información",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                     Close();
                 }
             }
@@ -113,7 +115,9 @@ namespace app.Ventas.Formularios
 
         }
 
+        #endregion
 
+        #region Botones
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -146,11 +150,11 @@ namespace app.Ventas.Formularios
                     DialogResult resultado = MessageBox.Show("Desea guardar la nueva categoria",
                         "Informacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     // GUARDAR NUEVO PRODUCTO
-                    if (resultado == DialogResult.No) 
+                    if (resultado == DialogResult.No)
                     {
                         return;
                     }
-                    
+
                     GuardarCategoria(nombre);
                     operacionExitosa = true;
 
@@ -166,11 +170,11 @@ namespace app.Ventas.Formularios
                     DialogResult resultado = MessageBox.Show("Desea aplicar los cambios", "Informaciobn",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (resultado == DialogResult.No) return;
-                       
+
                     ActualizarCategoria(categoriaId, nombre);
                     operacionExitosa = true;
-   
-                }    
+
+                }
             }
             catch (Exception ex)
             {
@@ -180,5 +184,11 @@ namespace app.Ventas.Formularios
 
             if (operacionExitosa) registroAgregado?.Invoke(); //Si la Operacion se completo refrecamos. 
         }
+
+        #endregion
+
+
+
+
     }
 }

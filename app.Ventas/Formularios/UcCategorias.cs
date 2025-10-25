@@ -1,15 +1,15 @@
-﻿using System;
+﻿using app.Ventas.Utilidades;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
-using app.Ventas.Utilidades;
 
 namespace app.Ventas.Formularios
 {
     public partial class UcCategorias : UserControl
     {
-        private const string Placeholder = "Buscar Categorias"; //TODO: cambiar al otro control
+        
         public event Action OnAgregarCategoriaClick;
         private Usuario _usuario;
         public UcCategorias()
@@ -24,6 +24,8 @@ namespace app.Ventas.Formularios
             AplicarPermisosInternos();
         }
 
+        
+
         private void AplicarPermisosInternos()
         {
             if (_usuario.Rol == "Vendedor")
@@ -36,6 +38,64 @@ namespace app.Ventas.Formularios
             }
         }
 
+        #region Eventos del UC
+        private void dgvCategorias_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    int categoriaId = Convert.ToInt32(dgvCategorias.Rows[e.RowIndex].Cells["CategoriaID"].Value);
+                    string nombre = Convert.ToString(dgvCategorias.Rows[e.RowIndex].Cells["Categoria"].Value);
+
+                    frmAgregarCategoria frm = new frmAgregarCategoria(categoriaId, nombre);
+                    frm.registroAgregado += listarRegistro;
+                    MostrarModal.MostrarConCapa(this, frm);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex.Message);
+            }
+        }
+
+        private void cuiTxtBuscarCat_ContentChanged(object sender, EventArgs e)
+        {
+            string textoBusqueda1 = cuiTxtBuscarCat.Content.Trim();
+
+            try
+            {
+                string connectionString = ConexionDB.ObtenerConexion();
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    string consultaSql = @"
+                        SELECT Nombre AS Categoria
+                        FROM Categorias
+                        WHERE Nombre LIKE @texto";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
+                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.VarChar, 100).Value = "%" + textoBusqueda1 + "%";
+
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dgvCategorias.DataSource = dt;
+                    formatoGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar registros: " + ex.Message);
+            }
+        }
+
+
+
+
+        #endregion
+
+        #region Metodos
 
         private void listarRegistro()
         {
@@ -81,65 +141,15 @@ namespace app.Ventas.Formularios
             listarRegistro();
         }
 
-        public void refrescarDatos() 
+        public void refrescarDatos()
         {
             listarRegistro();
         }
 
-        private void txtBoxBuscarCategorias_TextChanged(object sender, EventArgs e)
-        {
-            string textoBusqueda = txtBoxBuscarCategorias.Text.Trim();
+        #endregion
 
-            // Ignoramos el placeholder: si está el placeholder o está vacío, mostramos todo
-            if (string.IsNullOrEmpty(textoBusqueda) || textoBusqueda.Equals(Placeholder, StringComparison.OrdinalIgnoreCase))
-            {
-                listarRegistro();
-                return;
-            }
 
-            try
-            {
-                string connectionString = ConexionDB.ObtenerConexion();
-                using (SqlConnection conexion = new SqlConnection(connectionString))
-                {
-                    string consultaSql = @"
-                        SELECT Nombre AS Categoria
-                        FROM Categorias
-                        WHERE Nombre LIKE @texto";
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
-                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.VarChar, 100).Value = "%" + textoBusqueda + "%";
-
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    dgvCategorias.DataSource = dt;
-                    formatoGrid();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al buscar registros: " + ex.Message);
-            }
-        }
-
-        private void txtBoxBuscarCategorias_Enter(object sender, EventArgs e)
-        {
-            if (txtBoxBuscarCategorias.Text.Equals(Placeholder, StringComparison.OrdinalIgnoreCase))
-            {
-                txtBoxBuscarCategorias.Text = "";
-                txtBoxBuscarCategorias.ForeColor = Color.Black; // color normal al escribir
-            }
-        }
-
-        private void txtBoxBuscarCategorias_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtBoxBuscarCategorias.Text))
-            {
-                txtBoxBuscarCategorias.Text = Placeholder;
-                txtBoxBuscarCategorias.ForeColor = Color.Gray;
-            }
-        }
+        #region Botones
 
         private void ibtnEliminarCat_Click(object sender, EventArgs e)
         {
@@ -211,27 +221,9 @@ namespace app.Ventas.Formularios
         {
             OnAgregarCategoriaClick?.Invoke();
         }
+        #endregion
 
-        private void dgvCategorias_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            try
-            {
-                if (e.RowIndex >= 0)
-                {
-                    int categoriaId = Convert.ToInt32(dgvCategorias.Rows[e.RowIndex].Cells["CategoriaID"].Value);
-                    string nombre = Convert.ToString(dgvCategorias.Rows[e.RowIndex].Cells["Categoria"].Value);
-
-                    frmAgregarCategoria frm = new frmAgregarCategoria(categoriaId, nombre);
-                    frm.registroAgregado += listarRegistro;
-                    MostrarModal.MostrarConCapa(this, frm);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error" + ex.Message);
-            }
-        }
+        
     }
-    
+
 }
