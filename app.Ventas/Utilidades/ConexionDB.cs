@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace app.Ventas.Utilidades
 {
@@ -19,7 +15,7 @@ namespace app.Ventas.Utilidades
                 if (string.IsNullOrWhiteSpace(conexion?.servidor) || string.IsNullOrWhiteSpace(conexion?.baseDatos))
                     throw new InvalidOperationException("La conexion no esta configurada.");
 
-                return conexion.cadenaConexion;
+                _cadenaConexion = conexion.cadenaConexion;
             }
             return _cadenaConexion;
         }
