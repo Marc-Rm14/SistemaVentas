@@ -318,7 +318,7 @@ namespace app.Ventas.Formularios
             LimpiarFormularioVenta();
         }
 
-        private void dgvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void lblCliente_Click(object sender, EventArgs e)
         {
 
         }

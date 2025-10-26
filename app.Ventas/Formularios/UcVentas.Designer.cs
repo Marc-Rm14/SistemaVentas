@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            this.cuiPanel3 = new CuoreUI.Controls.cuiPanel();
+            this.dgvDetalles = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.cuiPanel2 = new CuoreUI.Controls.cuiPanel();
-            this.ibtnGuardarVenta = new FontAwesome.Sharp.IconButton();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTotalVenta = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
+            this.ibtnGuardarVenta = new FontAwesome.Sharp.IconButton();
             this.ibtnFactura = new FontAwesome.Sharp.IconButton();
             this.separadorSuperior = new System.Windows.Forms.Panel();
-            this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.cuiPanelTop = new CuoreUI.Controls.cuiPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.ibtnLimpiar = new FontAwesome.Sharp.IconButton();
@@ -45,17 +46,16 @@
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.cmbProductos = new System.Windows.Forms.ComboBox();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cuiPanel3 = new CuoreUI.Controls.cuiPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.cuiPanel1.SuspendLayout();
-            this.cuiPanel2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.cuiPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
+            this.cuiPanel2.SuspendLayout();
             this.cuiPanelTop.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
-            this.cuiPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cuiPanel1
@@ -63,7 +63,7 @@
             this.cuiPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cuiPanel1.BackColor = System.Drawing.SystemColors.Control;
+            this.cuiPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cuiPanel1.Controls.Add(this.cuiPanel3);
             this.cuiPanel1.Controls.Add(this.panel1);
             this.cuiPanel1.Controls.Add(this.cuiPanel2);
@@ -81,88 +81,18 @@
             this.cuiPanel1.Size = new System.Drawing.Size(1221, 672);
             this.cuiPanel1.TabIndex = 0;
             // 
-            // cuiPanel2
+            // cuiPanel3
             // 
-            this.cuiPanel2.Controls.Add(this.tableLayoutPanel2);
-            this.cuiPanel2.Controls.Add(this.ibtnGuardarVenta);
-            this.cuiPanel2.Controls.Add(this.ibtnFactura);
-            this.cuiPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cuiPanel2.Location = new System.Drawing.Point(1017, 108);
-            this.cuiPanel2.Name = "cuiPanel2";
-            this.cuiPanel2.OutlineThickness = 1F;
-            this.cuiPanel2.PanelColor = System.Drawing.Color.White;
-            this.cuiPanel2.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.cuiPanel2.Rounding = new System.Windows.Forms.Padding(15);
-            this.cuiPanel2.Size = new System.Drawing.Size(194, 554);
-            this.cuiPanel2.TabIndex = 23;
-            // 
-            // ibtnGuardarVenta
-            // 
-            this.ibtnGuardarVenta.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.ibtnGuardarVenta.IconColor = System.Drawing.Color.Black;
-            this.ibtnGuardarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnGuardarVenta.Location = new System.Drawing.Point(18, 363);
-            this.ibtnGuardarVenta.Name = "ibtnGuardarVenta";
-            this.ibtnGuardarVenta.Size = new System.Drawing.Size(186, 41);
-            this.ibtnGuardarVenta.TabIndex = 12;
-            this.ibtnGuardarVenta.Text = "Finalizar Venta";
-            this.ibtnGuardarVenta.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.lblTotalVenta, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblCliente, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 38);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(186, 100);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // lblTotalVenta
-            // 
-            this.lblTotalVenta.AutoSize = true;
-            this.lblTotalVenta.Location = new System.Drawing.Point(3, 0);
-            this.lblTotalVenta.Name = "lblTotalVenta";
-            this.lblTotalVenta.Size = new System.Drawing.Size(33, 21);
-            this.lblTotalVenta.TabIndex = 8;
-            this.lblTotalVenta.Text = "C$:";
-            // 
-            // lblCliente
-            // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(3, 50);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(166, 21);
-            this.lblCliente.TabIndex = 10;
-            this.lblCliente.Text = "Seleccione un Cliente";
-            // 
-            // ibtnFactura
-            // 
-            this.ibtnFactura.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.ibtnFactura.IconColor = System.Drawing.Color.Black;
-            this.ibtnFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnFactura.IconSize = 30;
-            this.ibtnFactura.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.ibtnFactura.Location = new System.Drawing.Point(15, 212);
-            this.ibtnFactura.Name = "ibtnFactura";
-            this.ibtnFactura.Size = new System.Drawing.Size(186, 45);
-            this.ibtnFactura.TabIndex = 13;
-            this.ibtnFactura.Text = "Factura";
-            this.ibtnFactura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ibtnFactura.UseVisualStyleBackColor = true;
-            // 
-            // separadorSuperior
-            // 
-            this.separadorSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.separadorSuperior.Location = new System.Drawing.Point(10, 100);
-            this.separadorSuperior.Name = "separadorSuperior";
-            this.separadorSuperior.Size = new System.Drawing.Size(1201, 8);
-            this.separadorSuperior.TabIndex = 22;
+            this.cuiPanel3.Controls.Add(this.dgvDetalles);
+            this.cuiPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cuiPanel3.Location = new System.Drawing.Point(10, 108);
+            this.cuiPanel3.Name = "cuiPanel3";
+            this.cuiPanel3.OutlineThickness = 1F;
+            this.cuiPanel3.PanelColor = System.Drawing.Color.White;
+            this.cuiPanel3.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cuiPanel3.Rounding = new System.Windows.Forms.Padding(8);
+            this.cuiPanel3.Size = new System.Drawing.Size(986, 554);
+            this.cuiPanel3.TabIndex = 25;
             // 
             // dgvDetalles
             // 
@@ -183,9 +113,89 @@
             this.dgvDetalles.ReadOnly = true;
             this.dgvDetalles.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalles.Size = new System.Drawing.Size(949, 510);
+            this.dgvDetalles.Size = new System.Drawing.Size(936, 510);
             this.dgvDetalles.TabIndex = 7;
-            this.dgvDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalles_CellContentClick);
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(996, 108);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(8, 554);
+            this.panel1.TabIndex = 24;
+            // 
+            // cuiPanel2
+            // 
+            this.cuiPanel2.Controls.Add(this.tableLayoutPanel2);
+            this.cuiPanel2.Controls.Add(this.ibtnGuardarVenta);
+            this.cuiPanel2.Controls.Add(this.ibtnFactura);
+            this.cuiPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cuiPanel2.Location = new System.Drawing.Point(1004, 108);
+            this.cuiPanel2.Name = "cuiPanel2";
+            this.cuiPanel2.OutlineThickness = 1F;
+            this.cuiPanel2.Padding = new System.Windows.Forms.Padding(5);
+            this.cuiPanel2.PanelColor = System.Drawing.Color.White;
+            this.cuiPanel2.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cuiPanel2.Rounding = new System.Windows.Forms.Padding(15);
+            this.cuiPanel2.Size = new System.Drawing.Size(207, 554);
+            this.cuiPanel2.TabIndex = 23;
+            // 
+            // lblTotalVenta
+            // 
+            this.lblTotalVenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalVenta.Location = new System.Drawing.Point(3, 50);
+            this.lblTotalVenta.Name = "lblTotalVenta";
+            this.lblTotalVenta.Size = new System.Drawing.Size(191, 50);
+            this.lblTotalVenta.TabIndex = 8;
+            this.lblTotalVenta.Text = "Total General C$:";
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCliente.Location = new System.Drawing.Point(3, 0);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(191, 50);
+            this.lblCliente.TabIndex = 10;
+            this.lblCliente.Text = "Cliente Seleccionado:";
+            this.lblCliente.Click += new System.EventHandler(this.lblCliente_Click);
+            // 
+            // ibtnGuardarVenta
+            // 
+            this.ibtnGuardarVenta.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ibtnGuardarVenta.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ibtnGuardarVenta.IconColor = System.Drawing.Color.Black;
+            this.ibtnGuardarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnGuardarVenta.Location = new System.Drawing.Point(5, 463);
+            this.ibtnGuardarVenta.Name = "ibtnGuardarVenta";
+            this.ibtnGuardarVenta.Size = new System.Drawing.Size(197, 41);
+            this.ibtnGuardarVenta.TabIndex = 12;
+            this.ibtnGuardarVenta.Text = "Finalizar Venta";
+            this.ibtnGuardarVenta.UseVisualStyleBackColor = true;
+            this.ibtnGuardarVenta.Click += new System.EventHandler(this.ibtnGuardarVenta_Click);
+            // 
+            // ibtnFactura
+            // 
+            this.ibtnFactura.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ibtnFactura.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.ibtnFactura.IconColor = System.Drawing.Color.Black;
+            this.ibtnFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnFactura.IconSize = 30;
+            this.ibtnFactura.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.ibtnFactura.Location = new System.Drawing.Point(5, 504);
+            this.ibtnFactura.Name = "ibtnFactura";
+            this.ibtnFactura.Size = new System.Drawing.Size(197, 45);
+            this.ibtnFactura.TabIndex = 13;
+            this.ibtnFactura.Text = "Factura";
+            this.ibtnFactura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ibtnFactura.UseVisualStyleBackColor = true;
+            // 
+            // separadorSuperior
+            // 
+            this.separadorSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.separadorSuperior.Location = new System.Drawing.Point(10, 100);
+            this.separadorSuperior.Name = "separadorSuperior";
+            this.separadorSuperior.Size = new System.Drawing.Size(1201, 8);
+            this.separadorSuperior.TabIndex = 22;
             // 
             // cuiPanelTop
             // 
@@ -234,6 +244,7 @@
             this.ibtnLimpiar.Text = "Limpiar Seleciones";
             this.ibtnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ibtnLimpiar.UseVisualStyleBackColor = true;
+            this.ibtnLimpiar.Click += new System.EventHandler(this.ibtnLimpiar_Click);
             // 
             // IbtnAgregarProducto
             // 
@@ -254,6 +265,8 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
@@ -268,7 +281,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(460, 54);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(563, 54);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // cmbClientes
@@ -280,8 +293,9 @@
             this.cmbClientes.FormattingEnabled = true;
             this.cmbClientes.Location = new System.Drawing.Point(3, 3);
             this.cmbClientes.Name = "cmbClientes";
-            this.cmbClientes.Size = new System.Drawing.Size(175, 29);
+            this.cmbClientes.Size = new System.Drawing.Size(178, 29);
             this.cmbClientes.TabIndex = 3;
+            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
             // 
             // cmbProductos
             // 
@@ -290,38 +304,33 @@
             this.cmbProductos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cmbProductos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbProductos.FormattingEnabled = true;
-            this.cmbProductos.Location = new System.Drawing.Point(187, 3);
+            this.cmbProductos.Location = new System.Drawing.Point(228, 3);
             this.cmbProductos.Name = "cmbProductos";
-            this.cmbProductos.Size = new System.Drawing.Size(141, 29);
+            this.cmbProductos.Size = new System.Drawing.Size(178, 29);
             this.cmbProductos.TabIndex = 2;
             // 
             // numCantidad
             // 
-            this.numCantidad.Location = new System.Drawing.Point(371, 3);
+            this.numCantidad.Location = new System.Drawing.Point(453, 3);
             this.numCantidad.Name = "numCantidad";
             this.numCantidad.Size = new System.Drawing.Size(74, 29);
             this.numCantidad.TabIndex = 4;
             // 
-            // panel1
+            // tableLayoutPanel2
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1009, 108);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(8, 554);
-            this.panel1.TabIndex = 24;
-            // 
-            // cuiPanel3
-            // 
-            this.cuiPanel3.Controls.Add(this.dgvDetalles);
-            this.cuiPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cuiPanel3.Location = new System.Drawing.Point(10, 108);
-            this.cuiPanel3.Name = "cuiPanel3";
-            this.cuiPanel3.OutlineThickness = 1F;
-            this.cuiPanel3.PanelColor = System.Drawing.Color.White;
-            this.cuiPanel3.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.cuiPanel3.Rounding = new System.Windows.Forms.Padding(8);
-            this.cuiPanel3.Size = new System.Drawing.Size(999, 554);
-            this.cuiPanel3.TabIndex = 25;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.lblCliente, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblTotalVenta, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 5);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(197, 100);
+            this.tableLayoutPanel2.TabIndex = 14;
             // 
             // UcVentas
             // 
@@ -333,15 +342,14 @@
             this.Size = new System.Drawing.Size(1278, 723);
             this.Load += new System.EventHandler(this.UcVentas_Load);
             this.cuiPanel1.ResumeLayout(false);
-            this.cuiPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.cuiPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
+            this.cuiPanel2.ResumeLayout(false);
             this.cuiPanelTop.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
-            this.cuiPanel3.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -350,7 +358,6 @@
 
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private System.Windows.Forms.Panel separadorSuperior;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lblTotalVenta;
         private System.Windows.Forms.Label lblCliente;
         private FontAwesome.Sharp.IconButton ibtnGuardarVenta;
@@ -367,5 +374,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private CuoreUI.Controls.cuiPanel cuiPanel3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
