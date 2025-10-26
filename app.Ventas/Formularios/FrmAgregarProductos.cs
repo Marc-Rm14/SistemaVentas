@@ -310,5 +310,10 @@ namespace app.Ventas.Formularios
         {
             UtilsFormularios.ActivarMoverFocoConEnter(this);
         }
+
+        private void FrmAgregarProductos_Shown(object sender, EventArgs e)
+        {
+            txtNombre.Focus();
+        }
     }
 }
