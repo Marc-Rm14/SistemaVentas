@@ -14,7 +14,7 @@ namespace app.Ventas.Formularios
         public FrmAgregarProductos()
         {
             InitializeComponent();
-            this.txtExistencias.KeyPress += new KeyPressEventHandler(txtExistencias_KeyPress);
+            
             CargarCategorias();
             this.CancelButton = btnCancelar;
             txtCodigo.Text = "(Se generará al guardar)"; //NOTA: se genera en base de datos, solo informamos la situacion.
@@ -26,7 +26,7 @@ namespace app.Ventas.Formularios
             InitializeComponent();
             CargarCategorias(); // importante: cargar antes de fijar SelectedValue
             
-            this.txtExistencias.KeyPress += new KeyPressEventHandler(txtExistencias_KeyPress);
+            
 
             txtId.Text = idProducto.ToString();
             txtNombre.Text = nombre;
@@ -208,7 +208,7 @@ namespace app.Ventas.Formularios
             {
                 MessageBox.Show("El formato del precio no es válido", "Validación");
                 errorIcono.SetError(txtPrecio, "Ingrese un numero válido");
-                txtPrecio.Focus();
+                //txtPrecio.Focus();
                 return;
             }
 
@@ -217,7 +217,7 @@ namespace app.Ventas.Formularios
             {
                 MessageBox.Show("Debe seleccionar una categoría", "Validación",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cmbCategorias.Focus();
+                //cmbCategorias.Focus();
                 return;
             }
             int categoriaId = (int)cmbCategorias.SelectedValue;
@@ -230,7 +230,7 @@ namespace app.Ventas.Formularios
             {
                 MessageBox.Show("El formato de las existencias no es valido", "validación");
                 errorIcono.SetError(txtExistencias,"Ingrese un numero entero");
-                txtExistencias.Focus();
+                //txtExistencias.Focus();
                 return;
             }
 
@@ -296,14 +296,7 @@ namespace app.Ventas.Formularios
         #region eventos
 
 
-        private void txtExistencias_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                btnGuardar.PerformClick();
-                e.Handled = true;
-            }
-        }
+       
         #endregion
 
         private void FrmAgregarProductos_Load(object sender, EventArgs e)
