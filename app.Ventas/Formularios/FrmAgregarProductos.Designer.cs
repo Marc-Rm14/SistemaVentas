@@ -167,7 +167,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(410, 61);
-            this.panel1.TabIndex = 3;
+            this.panel1.TabIndex = 5;
             // 
             // btnCancelar
             // 
@@ -182,7 +182,7 @@
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 40);
-            this.btnCancelar.TabIndex = 0;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -214,7 +214,7 @@
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(383, 29);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 0;
             // 
             // txtPrecio
             // 
@@ -225,7 +225,7 @@
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(383, 29);
-            this.txtPrecio.TabIndex = 6;
+            this.txtPrecio.TabIndex = 1;
             // 
             // txtCodigo
             // 
@@ -237,7 +237,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(383, 29);
-            this.txtCodigo.TabIndex = 7;
+            this.txtCodigo.TabIndex = 3;
             // 
             // txtExistencias
             // 
@@ -248,7 +248,7 @@
             this.txtExistencias.Margin = new System.Windows.Forms.Padding(2);
             this.txtExistencias.Name = "txtExistencias";
             this.txtExistencias.Size = new System.Drawing.Size(383, 29);
-            this.txtExistencias.TabIndex = 8;
+            this.txtExistencias.TabIndex = 4;
             // 
             // txtId
             // 
@@ -257,6 +257,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(76, 20);
             this.txtId.TabIndex = 4;
+            this.txtId.TabStop = false;
             this.txtId.Visible = false;
             // 
             // lblTitulo
