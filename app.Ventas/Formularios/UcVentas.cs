@@ -317,5 +317,10 @@ namespace app.Ventas.Formularios
                                                                            //el datagridView que llenamos con la selecciones.
             LimpiarFormularioVenta();
         }
+
+        private void dgvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
