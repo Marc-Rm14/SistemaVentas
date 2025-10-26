@@ -14,10 +14,19 @@ namespace app.Ventas.Utilidades
         
     {
         
-        public int UsuarioID { get; set; }
-        public string NombreUsuario { get; set; }
-        public string NombreCompleto { get; set; }
-        public string Rol { get; set; }
+        public int UsuarioID { get; private set; }
+        public string NombreUsuario { get; private set; }
+        public string NombreCompleto { get; private set; }
+        public string Rol { get; private set; }
+
+
+        public Usuario(int usuarioID, string nombreUsuario, string nombreCompleto, string rol) 
+        {
+            UsuarioID = usuarioID;
+            NombreUsuario = nombreUsuario;
+            NombreCompleto = nombreCompleto;
+            Rol = rol;
+        }
 
         
     }

@@ -46,13 +46,13 @@ namespace app.Ventas.Formularios
                     {
                         if (reader.Read())
                         {
-                            return new Usuario
-                            {
-                                UsuarioID = (int)reader["UsuarioID"],
-                                NombreUsuario = reader["NombreUsuario"].ToString(),
-                                NombreCompleto = reader["NombreCompleto"].ToString(),
-                                Rol = reader["Rol"].ToString()
-                            };
+                            // Ahora usamos el constructor, con esto nos aseguramos que nunca cambien la propiedades en memoria
+                            return new Usuario(
+                                (int)reader["UsuarioID"],
+                                reader["NombreUsuario"].ToString(),
+                                reader["NombreCompleto"].ToString(),
+                                reader["Rol"].ToString()
+                            );
                         }
                     }
                 }
