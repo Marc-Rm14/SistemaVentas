@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace app.Ventas.Utilidades
 {
@@ -16,35 +14,23 @@ namespace app.Ventas.Utilidades
         {
             if (panel == null || nuevaVista == null) return;
 
+            //Si el Uc ya esta mostrado no se hace nada!
+            if (panel.Controls.Count == 1 && panel.Controls[0] == nuevaVista)
+                return;
+
+            panel.SuspendLayout();
             try
             {
-                panel.SuspendLayout();
-
-                foreach (var controlAnterior in panel.Controls.Cast<Control>().ToList()) //El OfType<Control>() era redundante 
-                {
-                    if (controlAnterior != nuevaVista)
-                    {
-                        panel.Controls.Remove(controlAnterior);
-                        controlAnterior.Dispose();
-                    }
-                }
-
-
-                if (!panel.Controls.Contains(nuevaVista))
-                {
-                    nuevaVista.Dock = DockStyle.Fill;
-                    
-                    panel.Controls.Add(nuevaVista);
-                }
-
-                nuevaVista.BringToFront(); 
+                //NOTA: Se simplifico la logica ya que solo mostramos UC en nuestro panel no es necesario hacer ninguna comprbacion
+                //Rapido y eficiente
+                panel.Controls.Clear();  
+                nuevaVista.Dock = DockStyle.Fill;
+                panel.Controls.Add(nuevaVista);
             }
-            finally
+            finally // Finally asegura que se reanude el panel en cualquier caso 
             {
                 panel.ResumeLayout(true);
             }
         }
-
-
     }
 }
