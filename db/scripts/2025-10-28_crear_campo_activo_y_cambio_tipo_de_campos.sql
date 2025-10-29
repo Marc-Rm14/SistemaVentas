@@ -1,3 +1,5 @@
+-- Commit separado para cambios en DB
+
 --NOTA: Con esta configuracion podemos trabajar con con los registros actuales ya que por defecto e campo activo es 1,
 --esto quiere decir que todo el trabajo que tenemos ahora funcionara de la misma manera jeje
 ALTER TABLE Usuarios
