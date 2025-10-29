@@ -63,22 +63,30 @@ namespace app.Ventas.Formularios
 
         private void CargarClientes()
         {
-            string connectionString = ConexionDB.ObtenerConexion();
+            try
+            {
+                string connectionString = ConexionDB.ObtenerConexion();
 
-            string consultaSql = @"SELECT ClienteID, Cedula, NombreCompleto, telefono
+                string consultaSql = @"SELECT ClienteID, Cedula, NombreCompleto, telefono
                                    From Clientes
                                    ORDER BY NombreCompleto";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            using (SqlDataAdapter da = new SqlDataAdapter(consultaSql, conn))
-            {
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlDataAdapter da = new SqlDataAdapter(consultaSql, conn))
+                {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
 
-                cmbClientes.DataSource = dt;
-                cmbClientes.DisplayMember = "NombreCompleto";
-                cmbClientes.ValueMember = "ClienteID";
-                cmbClientes.SelectedIndex = -1;
+                    cmbClientes.DataSource = dt;
+                    cmbClientes.DisplayMember = "NombreCompleto";
+                    cmbClientes.ValueMember = "ClienteID";
+                    cmbClientes.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar categorías: {ex.Message}", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
