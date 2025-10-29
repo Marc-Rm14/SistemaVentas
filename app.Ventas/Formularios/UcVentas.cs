@@ -106,18 +106,17 @@ namespace app.Ventas.Formularios
         }
 
 
-        private void GuardarVenta(int cliente, int usuario, decimal totalVentas, DataGridView detalles)
+        private bool GuardarVenta(int cliente, int usuario, decimal totalVentas)
         {
+            if (dgvDetalles.Rows.Count == 0)
+            {
+                MessageBox.Show("Debe añadir al menos un producto a la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
             if (cmbClientes.SelectedValue == null)
             {
                 MessageBox.Show("Debe seleccionar un cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (detalles.Rows.Count == 0)
-            {
-                MessageBox.Show("Debe añadir al menos un producto a la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
 
             string connectionString = ConexionDB.ObtenerConexion();
@@ -155,7 +154,7 @@ namespace app.Ventas.Formularios
                                                 SET Existencias = Existencias - @Cantidad
                                                 WHERE ProductoID = @ProductoID;";
 
-                    foreach (DataGridViewRow row in detalles.Rows)
+                    foreach (DataGridViewRow row in dgvDetalles.Rows)
                     {
                         if (row.IsNewRow) continue;
 
@@ -184,11 +183,13 @@ namespace app.Ventas.Formularios
 
                     transaction.Commit();
                     MessageBox.Show("Venta guardada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
                     MessageBox.Show($"Error al guardar la venta: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
         }
@@ -216,7 +217,7 @@ namespace app.Ventas.Formularios
 
         private void ibtnAgregarProducto_Click(object sender, EventArgs e)
         {
-            if (cmbProductos.SelectedItem == null) //NOTA: Primeramente hacemso validaciones
+            if (cmbProductos.SelectedItem == null) //NOTA: Primeramente hacemos validaciones
             {
                 MessageBox.Show("Selecione un Producto");
                 return;
@@ -320,15 +321,11 @@ namespace app.Ventas.Formularios
             decimal totalVenta = _totalVenta;
             int cliente = Convert.ToInt32(cmbClientes.SelectedValue);
             int usuarioActual = _usuarioLogueado.UsuarioID;
+            
+            bool guardar = GuardarVenta(cliente, usuarioActual, totalVenta);
 
-            GuardarVenta(cliente, usuarioActual, totalVenta, dgvDetalles); //NOTA: El ultimo paramtero es
-                                                                           //el datagridView que llenamos con la selecciones.
-            LimpiarFormularioVenta();
+            if(guardar) LimpiarFormularioVenta();
         }
 
-        private void lblCliente_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

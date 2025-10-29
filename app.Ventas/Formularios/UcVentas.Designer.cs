@@ -33,8 +33,9 @@
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cuiPanel2 = new CuoreUI.Controls.cuiPanel();
-            this.lblTotalVenta = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblCliente = new System.Windows.Forms.Label();
+            this.lblTotalVenta = new System.Windows.Forms.Label();
             this.ibtnGuardarVenta = new FontAwesome.Sharp.IconButton();
             this.ibtnFactura = new FontAwesome.Sharp.IconButton();
             this.separadorSuperior = new System.Windows.Forms.Panel();
@@ -46,16 +47,15 @@
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.cmbProductos = new System.Windows.Forms.ComboBox();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.cuiPanel1.SuspendLayout();
             this.cuiPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             this.cuiPanel2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.cuiPanelTop.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cuiPanel1
@@ -140,14 +140,21 @@
             this.cuiPanel2.Size = new System.Drawing.Size(207, 554);
             this.cuiPanel2.TabIndex = 23;
             // 
-            // lblTotalVenta
+            // tableLayoutPanel2
             // 
-            this.lblTotalVenta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTotalVenta.Location = new System.Drawing.Point(3, 50);
-            this.lblTotalVenta.Name = "lblTotalVenta";
-            this.lblTotalVenta.Size = new System.Drawing.Size(191, 50);
-            this.lblTotalVenta.TabIndex = 8;
-            this.lblTotalVenta.Text = "Total General C$:";
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.lblCliente, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblTotalVenta, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 5);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(197, 100);
+            this.tableLayoutPanel2.TabIndex = 14;
             // 
             // lblCliente
             // 
@@ -157,7 +164,15 @@
             this.lblCliente.Size = new System.Drawing.Size(191, 50);
             this.lblCliente.TabIndex = 10;
             this.lblCliente.Text = "Cliente Seleccionado:";
-            this.lblCliente.Click += new System.EventHandler(this.lblCliente_Click);
+            // 
+            // lblTotalVenta
+            // 
+            this.lblTotalVenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalVenta.Location = new System.Drawing.Point(3, 50);
+            this.lblTotalVenta.Name = "lblTotalVenta";
+            this.lblTotalVenta.Size = new System.Drawing.Size(191, 50);
+            this.lblTotalVenta.TabIndex = 8;
+            this.lblTotalVenta.Text = "Total General C$:";
             // 
             // ibtnGuardarVenta
             // 
@@ -316,22 +331,6 @@
             this.numCantidad.Size = new System.Drawing.Size(74, 29);
             this.numCantidad.TabIndex = 4;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.lblCliente, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblTotalVenta, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 5);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(197, 100);
-            this.tableLayoutPanel2.TabIndex = 14;
-            // 
             // UcVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,11 +344,11 @@
             this.cuiPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             this.cuiPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.cuiPanelTop.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
