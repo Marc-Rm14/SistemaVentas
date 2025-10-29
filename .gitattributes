@@ -1,0 +1,20 @@
+# Código C#
+*.cs     text eol=lf
+*.csproj text eol=lf
+*.sln    text eol=lf
+*.config text eol=lf
+
+# Scripts SQL
+*.sql    text eol=lf
+
+# Archivos de configuración y datos
+*.json   text eol=lf
+*.xml    text eol=lf
+*.yml    text eol=lf
+*.md     text eol=lf
+
+# Archivos binarios (no tocar)
+*.png    binary
+*.jpg    binary
+*.dll    binary
+*.exe    binary

@@ -21,7 +21,7 @@ namespace app.Ventas.Utilidades
             panel.SuspendLayout();
             try
             {
-                //NOTA: Se simplifico la logica ya que solo mostramos UC en nuestro panel no es necesario hacer ninguna comprbacion
+                //NOTA: Se simplifico la logica ya que solo mostramos UC en nuestro panel no es necesario hacer ninguna comprobacion
                 //Rapido y eficiente
                 panel.Controls.Clear();  
                 nuevaVista.Dock = DockStyle.Fill;
