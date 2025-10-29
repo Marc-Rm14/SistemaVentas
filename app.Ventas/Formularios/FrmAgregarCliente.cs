@@ -43,7 +43,7 @@ namespace app.Ventas.Formularios
                     SqlCommand command = new SqlCommand(consulta, conexion);
                     command.Parameters.Add("@usuarioId",SqlDbType.Int).Value = usuarioId;
                     command.Parameters.Add("@Cedula", SqlDbType.VarChar, 20).Value = cedula;
-                    command.Parameters.Add("@Nombre", SqlDbType.VarChar, 100).Value = nombre;
+                    command.Parameters.Add("@Nombre", SqlDbType.NVarChar, 100).Value = nombre;
                     command.Parameters.Add("@Telefono", SqlDbType.VarChar,20).Value = telefono;
                     
                     conexion.Open();
@@ -84,7 +84,7 @@ namespace app.Ventas.Formularios
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.Add("@Cedula", SqlDbType.VarChar, 20).Value = cedula ;
-                    cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 100).Value = nombre;
+                    cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar, 100).Value = nombre;
                     cmd.Parameters.Add("@Telefono", SqlDbType.VarChar, 20).Value = telefono;
                     
 

@@ -181,7 +181,7 @@ namespace app.Ventas.Formularios
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter(consultasSql, conexion);
-                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.VarChar, 100).Value = "%" + textoBusqueda + "%";
+                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.NVarChar, 100).Value = "%" + textoBusqueda + "%";
 
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);

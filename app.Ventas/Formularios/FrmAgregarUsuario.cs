@@ -70,9 +70,9 @@ namespace app.Ventas.Formularios
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.Add("@nombreUsuario", SqlDbType.VarChar, 50).Value = nombreUsuario;
+                    cmd.Parameters.Add("@nombreUsuario", SqlDbType.NVarChar, 50).Value = nombreUsuario;
                     cmd.Parameters.Add("@contrasenaUsuario", SqlDbType.VarChar,255).Value = contrasenaUsuario;
-                    cmd.Parameters.Add("@nombreCompleto", SqlDbType.VarChar, 100).Value = nombreCompleto;
+                    cmd.Parameters.Add("@nombreCompleto", SqlDbType.NVarChar, 100).Value = nombreCompleto;
                     cmd.Parameters.Add("@RolID", SqlDbType.Int).Value = idRol;
 
                     conn.Open();
@@ -118,9 +118,9 @@ namespace app.Ventas.Formularios
                     using (SqlCommand command = new SqlCommand(consulta, conexion))
                     {
                         command.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = idUsuario;
-                        command.Parameters.Add("@NombreUsuario", SqlDbType.VarChar, 50).Value = nombreUsuario;
+                        command.Parameters.Add("@NombreUsuario", SqlDbType.NVarChar, 50).Value = nombreUsuario;
                         command.Parameters.Add("@ContrasenaUsuario", SqlDbType.VarChar, 255).Value = contrasenaUsuario;
-                        command.Parameters.Add("@NombreCompleto", SqlDbType.VarChar, 100).Value = nombreCompleto;
+                        command.Parameters.Add("@NombreCompleto", SqlDbType.NVarChar, 100).Value = nombreCompleto;
                         command.Parameters.Add("@IdRol", SqlDbType.Int).Value = idRol;
 
                         conexion.Open();

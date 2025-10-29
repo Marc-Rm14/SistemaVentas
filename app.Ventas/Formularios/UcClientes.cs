@@ -169,7 +169,7 @@ namespace app.Ventas.Formularios
                         WHERE Cedula LIKE @texto OR NombreCompleto LIKE @texto OR Telefono LIKE @texto";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
-                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.VarChar, 100).Value = "%" + textoBusqueda + "%";
+                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.NVarChar, 100).Value = "%" + textoBusqueda + "%";
 
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);

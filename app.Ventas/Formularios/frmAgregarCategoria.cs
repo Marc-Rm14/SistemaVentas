@@ -20,7 +20,7 @@ namespace app.Ventas.Formularios
             txtAgCategoria.Text = nombre;
         }
 
-        #region
+        #region Metodos
 
         private void ActualizarCategoria(int categoriaId, string categoria)
         {

@@ -75,7 +75,7 @@ namespace app.Ventas.Formularios
                         WHERE Nombre LIKE @texto";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
-                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.VarChar, 100).Value = "%" + textoBusqueda1 + "%";
+                    adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.NVarChar, 100).Value = "%" + textoBusqueda1 + "%";
 
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
