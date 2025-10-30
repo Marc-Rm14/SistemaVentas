@@ -16,36 +16,33 @@ namespace app.Ventas.Utilidades
             if (controlPrincipal == null || formularioModal == null)
                 return;
 
-            Form owner = controlPrincipal.FindForm();
+            //NOTA: Busca el formulario raiz en nuestro caso FrmPanelControl
+            //por que hacerlo?
+            //por que usamos uc para mostrar las vistas
+
+            Form owner = controlPrincipal.FindForm(); 
             if (owner == null || owner.IsDisposed)
                 return;
 
             // Crear capa semi-transparente
-            Form capa = new Form()
+            using (var capa = new Form()
             {
                 FormBorderStyle = FormBorderStyle.None,
                 BackColor = Color.Black,
-                Opacity = 0.3,
+                Opacity = 0.5,
                 ShowInTaskbar = false,
                 StartPosition = FormStartPosition.Manual,
                 TopMost = false,
                 Location = owner.PointToScreen(Point.Empty),
                 Size = owner.ClientSize,
                 Owner = owner
-            };
-
-            try
+            })
             {
                 capa.Show();
                 formularioModal.ShowInTaskbar = false;
                 formularioModal.ShowDialog();
             }
-            finally //  garantiza que ejecuten estos dos metodos
-            {
-                
-                capa.Close();
-                capa.Dispose();
-            }
+            //Ahora using se encargar de la limpieza
         }
     }
 }
