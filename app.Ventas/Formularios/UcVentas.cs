@@ -55,7 +55,7 @@ namespace app.Ventas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar categorías: {ex.Message}", "Error",
+                MessageBox.Show($"Error al cargar los registros: {ex.Message}", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -85,7 +85,7 @@ namespace app.Ventas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar categorías: {ex.Message}", "Error",
+                MessageBox.Show($"Error al cargar los registros: {ex.Message}", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -231,25 +231,70 @@ namespace app.Ventas.Formularios
             string nombre = drv["Nombre"].ToString();
             decimal precio = Convert.ToDecimal(drv["Precio"]);
             int existencias = Convert.ToInt32(drv["Existencias"]);
-            int cantidad = (int)numCantidad.Value;
+            int cantidadAAgregar = (int)numCantidad.Value;
 
-            if (cantidad <= 0)
+            if (cantidadAAgregar <= 0)
             {
                 MessageBox.Show("La cantida debe ser mayor a cero");
                 return;// El return sirve como un guardian ; si la condicionse cumple se detiene la ejecucion del metodo.
             }
 
-            if (cantidad > existencias)
+            if (cantidadAAgregar > existencias)
             {
                 MessageBox.Show($"Stock insuficiente. Solo quedan {existencias} unidades de {nombre}.", "Stock Agotado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Detiene la ejecución, no añade el producto
             }
 
+            // --- NOTA: Lógica para buscar duplicados ---
 
-            // --- FIN DE LA VALIDACIÓN ---
+            bool productoYaExiste = false;
 
-            decimal subtotal = cantidad * precio;
-            dgvDetalles.Rows.Add(id, nombre, cantidad, precio, subtotal);
+            foreach (DataGridViewRow row in dgvDetalles.Rows)
+            {
+                if (row.IsNewRow) continue; // Ignorar la fila nueva al final
+
+                // Comparamos el ID del producto a agregar con los IDs en el grid
+                int idEnGrid = Convert.ToInt32(row.Cells["ProductoID"].Value);
+
+                if (idEnGrid == id)
+                {
+                    //El producto ya esta entonces Actualizamos la cantidad
+                    productoYaExiste = true;
+                    int cantidadActual = Convert.ToInt32(row.Cells["Cantidad"].Value);
+                    int nuevaCantidad = cantidadActual + cantidadAAgregar;
+
+                    // Tenemos que revalidar las existencias nuevamente
+                    if (nuevaCantidad > existencias)
+                    {
+                        MessageBox.Show($"Stock insuficiente. Ya tiene {cantidadActual} en el carrito y solo quedan {existencias} unidades de {nombre}.", "Stock Agotado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; // Detiene la ejecución
+                    }
+
+                    // Si hay stock, actualizamos la fila existente
+                    decimal nuevoSubtotal = nuevaCantidad * precio;
+                    row.Cells["Cantidad"].Value = nuevaCantidad;
+                    row.Cells["Subtotal"].Value = nuevoSubtotal;
+
+                    break; // La Palabra reservada 'break' nos ayuda a salir inmediatanmente del bucle si encontramos el producto
+                }
+            }
+
+
+            // Si el producto no se encontró en el bucle anterior, lo agregamos como nuevo
+            if (!productoYaExiste)
+            {
+                // Validamos el stock (esta validación es solo para productos nuevos)
+                if (cantidadAAgregar > existencias)
+                {
+                    MessageBox.Show($"Stock insuficiente. Solo quedan {existencias} unidades de {nombre}.", "Stock Agotado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Detiene la ejecución, no añade el producto
+                }
+
+                // --- FIN DE LA VALIDACIÓN  ---
+
+                decimal subtotal = cantidadAAgregar * precio;
+                dgvDetalles.Rows.Add(id, nombre, cantidadAAgregar, precio, subtotal);
+            }
 
 
             //Actualizar el total general
