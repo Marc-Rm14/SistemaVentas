@@ -75,12 +75,14 @@ namespace app.Ventas.Formularios
 
         private void UcProductos_OnAgregarProductoClick()
         {
-            var frmAgregar = new FrmAgregarProductos();
+            using (var frmAgregar = new FrmAgregarProductos())
+            {
+                //NOTA: Se cambio la expresion lamda por un metodo explicito
+                frmAgregar.registroAgregado += FrmAgregar_productoAgregado;
 
-            //NOTA: Se cambio la expresion lamda por un metodo explicito
-            frmAgregar.registroAgregado += FrmAgregar_productoAgregado;
-
-            MostrarModal.MostrarConCapa(this, frmAgregar);
+                MostrarModal.MostrarConCapa(this, frmAgregar);
+            }
+            
         }
         private void FrmAgregar_productoAgregado()
         {
@@ -113,15 +115,16 @@ namespace app.Ventas.Formularios
             }
             panelCentral.MostrarVista(_ucClientes);
         }
-
+        
         private void UcProductos_OnClienteProductoClick()
         {
-            var frmAgregar = new FrmAgregarCliente();
+            using (var frmAgregar = new FrmAgregarCliente())
+            {
+                //NOTA: se cambio la expresion lambda por un metodo explicito
+                frmAgregar.registroAgregado += FrmAgregar_clienteAgregado;
 
-            //NOTA: se cambio la expresion lambda por un metodo explicito
-            frmAgregar.registroAgregado += FrmAgregar_clienteAgregado;
-
-            MostrarModal.MostrarConCapa(this, frmAgregar);
+                MostrarModal.MostrarConCapa(this, frmAgregar);
+            }
         }
 
         private void FrmAgregar_clienteAgregado()
@@ -143,9 +146,11 @@ namespace app.Ventas.Formularios
 
         private void UcUsuarios_OnUsuarioClick()
         {
-            var frmAgregar = new FrmAgregarUsuario();
-            frmAgregar.registroAgregado += FrmAgregar_usuarioAgregado;
-            MostrarModal.MostrarConCapa(this, frmAgregar);
+            using (var frmAgregar = new FrmAgregarUsuario())
+            {
+                frmAgregar.registroAgregado += FrmAgregar_usuarioAgregado;
+                MostrarModal.MostrarConCapa(this, frmAgregar);
+            }
 
         }
         private void FrmAgregar_usuarioAgregado()
@@ -168,11 +173,13 @@ namespace app.Ventas.Formularios
 
         private void UcProductos_OnCategoriaProductoClick()
         {
-            var frmAgregar = new frmAgregarCategoria();
+            using (var frmAgregar = new frmAgregarCategoria())
+            {
 
-            frmAgregar.registroAgregado += FrmAgregar_categoriaAgregada;
+                frmAgregar.registroAgregado += FrmAgregar_categoriaAgregada;
 
-            MostrarModal.MostrarConCapa(this, frmAgregar);
+                MostrarModal.MostrarConCapa(this, frmAgregar);
+            }
         }
 
         private void FrmAgregar_categoriaAgregada()
