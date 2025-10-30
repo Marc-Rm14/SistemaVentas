@@ -45,6 +45,8 @@
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
             this.txtId = new System.Windows.Forms.TextBox();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cuiFormRounder1 = new CuoreUI.Components.cuiFormRounder();
+            this.cuiFormAnimator1 = new CuoreUI.Components.cuiFormAnimator(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -95,7 +97,7 @@
             // 
             this.cmbRoles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbRoles.FormattingEnabled = true;
-            this.cmbRoles.Location = new System.Drawing.Point(116, 176);
+            this.cmbRoles.Location = new System.Drawing.Point(116, 172);
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(450, 29);
             this.cmbRoles.TabIndex = 8;
@@ -234,6 +236,21 @@
             // 
             this.errorIcono.ContainerControl = this;
             // 
+            // cuiFormRounder1
+            // 
+            this.cuiFormRounder1.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cuiFormRounder1.Rounding = 15;
+            this.cuiFormRounder1.TargetForm = this;
+            // 
+            // cuiFormAnimator1
+            // 
+            this.cuiFormAnimator1.AnimateOnStart = true;
+            this.cuiFormAnimator1.Duration = 400;
+            this.cuiFormAnimator1.EasingType = CuoreUI.Helpers.DrawingHelper.EasingTypes.QuadOut;
+            this.cuiFormAnimator1.StartOpacity = 0D;
+            this.cuiFormAnimator1.TargetForm = this;
+            this.cuiFormAnimator1.TargetOpacity = 1D;
+            // 
             // FrmAgregarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,5 +292,7 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.ComboBox cmbRoles;
         private System.Windows.Forms.ErrorProvider errorIcono;
+        private CuoreUI.Components.cuiFormRounder cuiFormRounder1;
+        private CuoreUI.Components.cuiFormAnimator cuiFormAnimator1;
     }
 }
