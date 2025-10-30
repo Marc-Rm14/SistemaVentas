@@ -183,7 +183,8 @@ namespace app.Ventas.Formularios
 
         private void ibtnVentas_Click(object sender, EventArgs e)
         {
-            _UcVentas = new UcVentas(_usuario);
+            if (_UcVentas == null || _UcVentas.IsDisposed) { _UcVentas = new UcVentas(_usuario); }
+            
             panelCentral.MostrarVista(_UcVentas);
         }
         #endregion

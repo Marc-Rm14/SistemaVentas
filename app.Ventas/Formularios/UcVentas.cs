@@ -372,5 +372,33 @@ namespace app.Ventas.Formularios
             if(guardar) LimpiarFormularioVenta();
         }
 
+        private void ibtnQuitarProducto_Click(object sender, EventArgs e)
+        {
+            if (dgvDetalles.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione el producto que desea quitar.", "Aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DataGridViewRow filaSeleccionada = dgvDetalles.SelectedRows[0];
+
+            if (!filaSeleccionada.IsNewRow)
+            {
+                //NOTA: Preguntar por seguridad
+                string producto = filaSeleccionada.Cells["Nombre"].Value.ToString();
+                var confirmacion = MessageBox.Show($"¿Está seguro de que desea quitar '{producto}' de la venta?",
+                                                   "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmacion == DialogResult.Yes)
+                {
+
+                    dgvDetalles.Rows.Remove(filaSeleccionada);
+
+
+                    CalcularTotalVenta();
+                }
+            }
+        }
     }
 }

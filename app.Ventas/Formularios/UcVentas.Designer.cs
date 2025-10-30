@@ -47,6 +47,7 @@
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.cmbProductos = new System.Windows.Forms.ComboBox();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
+            this.ibtnQuitarProducto = new FontAwesome.Sharp.IconButton();
             this.cuiPanel1.SuspendLayout();
             this.cuiPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
@@ -126,6 +127,7 @@
             // 
             // cuiPanel2
             // 
+            this.cuiPanel2.Controls.Add(this.ibtnQuitarProducto);
             this.cuiPanel2.Controls.Add(this.tableLayoutPanel2);
             this.cuiPanel2.Controls.Add(this.ibtnGuardarVenta);
             this.cuiPanel2.Controls.Add(this.ibtnFactura);
@@ -180,9 +182,9 @@
             this.ibtnGuardarVenta.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ibtnGuardarVenta.IconColor = System.Drawing.Color.Black;
             this.ibtnGuardarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnGuardarVenta.Location = new System.Drawing.Point(5, 463);
+            this.ibtnGuardarVenta.Location = new System.Drawing.Point(5, 459);
             this.ibtnGuardarVenta.Name = "ibtnGuardarVenta";
-            this.ibtnGuardarVenta.Size = new System.Drawing.Size(197, 41);
+            this.ibtnGuardarVenta.Size = new System.Drawing.Size(197, 45);
             this.ibtnGuardarVenta.TabIndex = 12;
             this.ibtnGuardarVenta.Text = "Finalizar Venta";
             this.ibtnGuardarVenta.UseVisualStyleBackColor = true;
@@ -331,6 +333,20 @@
             this.numCantidad.Size = new System.Drawing.Size(74, 29);
             this.numCantidad.TabIndex = 4;
             // 
+            // ibtnQuitarProducto
+            // 
+            this.ibtnQuitarProducto.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ibtnQuitarProducto.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ibtnQuitarProducto.IconColor = System.Drawing.Color.Black;
+            this.ibtnQuitarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnQuitarProducto.Location = new System.Drawing.Point(5, 414);
+            this.ibtnQuitarProducto.Name = "ibtnQuitarProducto";
+            this.ibtnQuitarProducto.Size = new System.Drawing.Size(197, 45);
+            this.ibtnQuitarProducto.TabIndex = 15;
+            this.ibtnQuitarProducto.Text = "Quitar Producto";
+            this.ibtnQuitarProducto.UseVisualStyleBackColor = true;
+            this.ibtnQuitarProducto.Click += new System.EventHandler(this.ibtnQuitarProducto_Click);
+            // 
             // UcVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,5 +390,6 @@
         private CuoreUI.Controls.cuiPanel cuiPanel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private FontAwesome.Sharp.IconButton ibtnQuitarProducto;
     }
 }
