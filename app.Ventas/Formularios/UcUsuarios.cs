@@ -2,7 +2,6 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace app.Ventas.Formularios
@@ -10,26 +9,47 @@ namespace app.Ventas.Formularios
     public partial class UcUsuarios : UserControl
     {
         
+        private string consultaSql = @"SELECT u.UsuarioID AS id, u.NombreUsuario AS usuario, u.Contrasena,
+                                      u.NombreCompleto AS nombre, u.RolID, r.NombreRol AS Rol, u.Activo
+                                      FROM Usuarios u
+                                      INNER JOIN Roles r ON u.RolID = r.RolID";
         public event Action OnAgregarUsuarioClick;
         public UcUsuarios()
         {
             InitializeComponent();
         }
 
+        
 
-        private void listarRegistros() 
+       
+
+        private string ObtenerFiltroActivoSQL()
+        {
+            switch (cmbEstado.SelectedItem.ToString())
+            {
+                case "Inactivos":
+                    return " WHERE u.Activo = 0";
+                case "Todos":
+                    return ""; // Sin filtro
+                case "Activos":
+                default:
+                    return " WHERE u.Activo = 1";
+            }
+        }
+
+
+
+        private void listarRegistros(string consultaBase) 
         {
             try
             {
                 string connectionString = ConexionDB.ObtenerConexion();
-                string consultaSql = @"SELECT u.UsuarioID AS id, u.NombreUsuario AS usuario, u.Contrasena,
-                                      u.NombreCompleto AS nombre, u.RolID, r.NombreRol AS Rol 
-                                      FROM Usuarios u
-                                      INNER JOIN Roles r ON u.RolID = r.RolID";
+
+                string consultaFinal = consultaSql + ObtenerFiltroActivoSQL();
 
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
+                    SqlDataAdapter adapter = new SqlDataAdapter(consultaFinal, conexion);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
@@ -47,7 +67,7 @@ namespace app.Ventas.Formularios
 
         public void refrescarDatos() 
         {
-            listarRegistros();
+            listarRegistros(consultaSql);
         }
 
         private void formatoGrid()
@@ -75,7 +95,7 @@ namespace app.Ventas.Formularios
             try
             {
                 string connection = ConexionDB.ObtenerConexion();
-                string consultaSql = @"DELETE FROM Usuarios WHERE UsuarioID = @idUsuario";
+                string consultaSql = @"UPDATE Usuarios SET Activo = 0 WHERE UsuarioID = @idUsuario";
                 using (SqlConnection con = new SqlConnection(connection))
                 using (SqlCommand cmd = new SqlCommand(consultaSql, con)) 
                 {
@@ -93,7 +113,7 @@ namespace app.Ventas.Formularios
 
                     MessageBox.Show("El usuario fue eliminado con exito.", "Informacion", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
-                    listarRegistros();
+                    refrescarDatos();
                 }
             }
             catch (Exception ex)
@@ -115,10 +135,14 @@ namespace app.Ventas.Formularios
                     
                     int rolId = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells["RolID"].Value);
 
+                    bool activo = false;
+                    var activoVal = dgvUsuarios.Rows[e.RowIndex].Cells["Activo"].Value;
+                    if (activoVal != null && activoVal != DBNull.Value)
+                        activo = Convert.ToBoolean(activoVal);
                     // Ahora el formulario no debería recibir 'codigo' como parámetro editable
-                    FrmAgregarUsuario frm = new FrmAgregarUsuario(id, nombreUsuario, contrasenaUsuario, nombreCompleto, rolId);
+                    FrmAgregarUsuario frm = new FrmAgregarUsuario(id, nombreUsuario, contrasenaUsuario, nombreCompleto, rolId, activo);
 
-                    frm.registroAgregado += listarRegistros;
+                    frm.registroAgregado += refrescarDatos;
                     MostrarModal.MostrarConCapa(this, frm);
                 }
             }
@@ -131,8 +155,20 @@ namespace app.Ventas.Formularios
 
         private void UcUsuarios_Load(object sender, EventArgs e)
         {
-            listarRegistros();
+            // <-- NUEVO: Configuramos el ComboBox al cargar
+            cmbEstado.Items.AddRange(new object[] { "Activos", "Inactivos", "Todos" });
+            cmbEstado.SelectedItem = "Activos";
+
+            // <-- CAMBIO: Ya no está condicionado, siempre es visible.
+            cmbEstado.Visible = true;
+
+            // Ya no se llama a AplicarPermisosInternos()
+
+            // Ahora listamos los registros
+            refrescarDatos();
+        
         }
+        
 
         private void ibtnAgregar_Click(object sender, EventArgs e)
         {
@@ -195,6 +231,11 @@ namespace app.Ventas.Formularios
             {
                 MessageBox.Show("Error al buscar registros: " + ex.Message);
             }
+        }
+
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refrescarDatos();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace app.Ventas.Formularios
             CargarRoles();
         }
 
-        public FrmAgregarUsuario(int usuarioId, string nombreUsuario, string contrasenaUsuario,string nombreCompleto, int idRol)
+        public FrmAgregarUsuario(int usuarioId, string nombreUsuario, string contrasenaUsuario,string nombreCompleto, int idRol, bool activo)
         {
             InitializeComponent();
             CargarRoles();
@@ -25,6 +25,7 @@ namespace app.Ventas.Formularios
             txtContrasenaUsuario.Text = contrasenaUsuario;
             txtNombreCompleto.Text = nombreCompleto;
             cmbRoles.SelectedValue = idRol;
+            chkActivo.Checked = activo;
         }
 
 
@@ -100,7 +101,7 @@ namespace app.Ventas.Formularios
 
         }
 
-        private void ActualizarProducto(int idUsuario, string nombreUsuario, string contrasenaUsuario ,string nombreCompleto, int idRol)
+        private void ActualizarProducto(int idUsuario, string nombreUsuario, string contrasenaUsuario ,string nombreCompleto, int idRol, bool Activo)
         {
             try
             {
@@ -112,7 +113,8 @@ namespace app.Ventas.Formularios
                                 SET NombreUsuario = @NombreUsuario,
                                     Contrasena = @ContrasenaUsuario,
                                     NombreCompleto = @NombreCompleto,
-                                    RolID = @IdRol
+                                    RolID = @IdRol,
+                                    Activo = @Activo
                                 WHERE UsuarioID = @IdUsuario";
 
                     using (SqlCommand command = new SqlCommand(consulta, conexion))
@@ -122,6 +124,7 @@ namespace app.Ventas.Formularios
                         command.Parameters.Add("@ContrasenaUsuario", SqlDbType.VarChar, 255).Value = contrasenaUsuario;
                         command.Parameters.Add("@NombreCompleto", SqlDbType.NVarChar, 100).Value = nombreCompleto;
                         command.Parameters.Add("@IdRol", SqlDbType.Int).Value = idRol;
+                        command.Parameters.Add("@Activo", SqlDbType.Bit).Value = Activo;
 
                         conexion.Open();
                         int resultado = command.ExecuteNonQuery();
@@ -178,7 +181,7 @@ namespace app.Ventas.Formularios
                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
+            bool activo = chkActivo.Checked;
             string nombreUsuario = txtNombreUsuario.Text.Trim();
             string contrasena = txtContrasenaUsuario.Text.Trim();
 
@@ -227,7 +230,7 @@ namespace app.Ventas.Formularios
                         
                     }
                     // ACTUALIZAR PRODUCTO EXISTENTE
-                    ActualizarProducto(usuarioId, nombreUsuario, contrasena, nombreCompleto, rolId);
+                    ActualizarProducto(usuarioId, nombreUsuario, contrasena, nombreCompleto, rolId, activo);
                     operacionExitosa = true;
 
                 }
