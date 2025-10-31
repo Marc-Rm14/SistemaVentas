@@ -2,7 +2,6 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace app.Ventas.Formularios
@@ -30,8 +29,8 @@ namespace app.Ventas.Formularios
         {
             if (_usuario.Rol == "Vendedor")
             {
-                ibtnAgregarCat.Enabled = false;
-                ibtnEliminarCat.Enabled = false;
+                ibtnAgregar.Enabled = false;
+                ibtnEliminar.Enabled = false;
                 dgvCategorias.ReadOnly = true;
                 dgvCategorias.ClearSelection();
                 
@@ -62,7 +61,7 @@ namespace app.Ventas.Formularios
 
         private void cuiTxtBuscarCat_ContentChanged(object sender, EventArgs e)
         {
-            string textoBusqueda1 = cuiTxtBuscarCat.Content.Trim();
+            string textoBusqueda1 = cuiTxtBuscar.Content.Trim();
 
             try
             {
