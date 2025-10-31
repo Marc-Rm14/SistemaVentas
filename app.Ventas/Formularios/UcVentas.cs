@@ -211,6 +211,7 @@ namespace app.Ventas.Formularios
             ConfigurarColumnasGrid();
             CargarProductos();
             CargarClientes();
+            numCantidad.Value = 1;
 
         }
 
@@ -400,5 +401,7 @@ namespace app.Ventas.Formularios
                 }
             }
         }
+
+        
     }
 }

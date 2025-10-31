@@ -65,6 +65,35 @@ namespace app.Ventas.Formularios
             }
         }
 
+        private void cargarClientes()
+        {
+            try
+            {
+                string connectionString = ConexionDB.ObtenerConexion();
+                string consultaSql = @"SELECT ClienteID, NombreCompleto AS Nombre FROM Clientes
+                                        ORDER BY Nombre";
+
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                using (SqlDataAdapter da = new SqlDataAdapter(consultaSql, conexion))
+                {
+                    DataTable dataTable = new DataTable();
+                    da.Fill(dataTable);
+
+                    cmbClientes.DataSource = dataTable;
+                    cmbClientes.DisplayMember = "Nombre";
+                    cmbClientes.ValueMember = "ClienteID";
+                    cmbClientes.SelectedIndex = -1;
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un error al cargar los registros contacte con el administrador" + ex.Message);
+            }
+        }
+
         private void FiltrarProductos(string filtro)
         {
             if (string.IsNullOrWhiteSpace(filtro))
@@ -99,6 +128,27 @@ namespace app.Ventas.Formularios
             }
         }
 
+        private void FiltroClientes(int idCliente)
+        {
+            string connectionString = ConexionDB.ObtenerConexion();
+            string consultaSql = @"SELECT v.FechaVenta, v.Total, p.Nombre, dv.Cantidad, dv.PrecioUnitario
+                                   FROM Ventas v
+                                   INNER JOIN DetallesVenta dv ON v.VentaID = dv.VentaID
+                                   INNER JOIN Productos p ON dv.ProductoID = p.ProductoID
+                                   WHERE v.ClienteID = @idCliente";
+
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            using (SqlDataAdapter da = new SqlDataAdapter(consultaSql, conexion))
+            {
+                da.SelectCommand.Parameters.AddWithValue("@idCliente", idCliente);
+                DataTable dataTable = new DataTable();
+                da.Fill(dataTable);
+
+                dgvReportes.DataSource = dataTable;
+            }
+        }
+
+
 
         private void cmbFliltrar_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -114,6 +164,7 @@ namespace app.Ventas.Formularios
         private void UcReportes_Load(object sender, EventArgs e)
         {
             CargarUsuarios();
+            cargarClientes();
         }
 
         private void ibtnReporte_Click(object sender, EventArgs e)
@@ -126,10 +177,22 @@ namespace app.Ventas.Formularios
             int idUsuarioSeleccionado = (int)cmbUsuarios.SelectedValue;
             FiltroUsuarios(idUsuarioSeleccionado);
 
+            if (cmbClientes.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione un cliente para generar el reporte");
+                return;
+            }
+            int idClienteSeleccionado = (int)cmbClientes.SelectedValue;
+            FiltroClientes(idClienteSeleccionado);
+
+
+            cmbClientes.SelectedIndex = -1;
 
             cmbUsuarios.SelectedIndex = -1;
 
 
         }
+
+
     }
 }

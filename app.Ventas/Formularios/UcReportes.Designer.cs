@@ -31,17 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcReportes));
             this.cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             this.cuiGroupBox1 = new CuoreUI.Controls.cuiGroupBox();
-            this.cmbUsuarios = new System.Windows.Forms.ComboBox();
+            this.cmbClientes = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvReportes = new System.Windows.Forms.DataGridView();
+            this.cmbUsuarios = new System.Windows.Forms.ComboBox();
             this.ibtnReporte = new FontAwesome.Sharp.IconButton();
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.cuiCalendarDatePicker2 = new CuoreUI.Controls.cuiCalendarDatePicker();
             this.cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cuiPanel1.SuspendLayout();
             this.cuiGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).BeginInit();
             this.SuspendLayout();
             // 
             // cuiPanel1
@@ -51,13 +52,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cuiPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cuiPanel1.Controls.Add(this.cuiGroupBox1);
-            this.cuiPanel1.Location = new System.Drawing.Point(18, 15);
+            this.cuiPanel1.Location = new System.Drawing.Point(24, 18);
+            this.cuiPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.cuiPanel1.Name = "cuiPanel1";
             this.cuiPanel1.OutlineThickness = 1F;
             this.cuiPanel1.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanel1.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(15);
-            this.cuiPanel1.Size = new System.Drawing.Size(1139, 587);
+            this.cuiPanel1.Size = new System.Drawing.Size(1519, 722);
             this.cuiPanel1.TabIndex = 0;
             // 
             // cuiGroupBox1
@@ -68,6 +70,7 @@
             this.cuiGroupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.cuiGroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiGroupBox1.Content = "";
+            this.cuiGroupBox1.Controls.Add(this.cmbClientes);
             this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel1);
             this.cuiGroupBox1.Controls.Add(this.cmbUsuarios);
             this.cuiGroupBox1.Controls.Add(this.ibtnReporte);
@@ -75,20 +78,36 @@
             this.cuiGroupBox1.Controls.Add(this.cuiCalendarDatePicker2);
             this.cuiGroupBox1.Controls.Add(this.cuiCalendarDatePicker1);
             this.cuiGroupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuiGroupBox1.Location = new System.Drawing.Point(25, 23);
+            this.cuiGroupBox1.Location = new System.Drawing.Point(33, 28);
+            this.cuiGroupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.cuiGroupBox1.Name = "cuiGroupBox1";
-            this.cuiGroupBox1.Padding = new System.Windows.Forms.Padding(15, 35, 15, 15);
+            this.cuiGroupBox1.Padding = new System.Windows.Forms.Padding(15, 40, 15, 15);
             this.cuiGroupBox1.Rounding = new System.Windows.Forms.Padding(15);
-            this.cuiGroupBox1.Size = new System.Drawing.Size(1088, 550);
+            this.cuiGroupBox1.Size = new System.Drawing.Size(1451, 677);
             this.cuiGroupBox1.TabIndex = 0;
             // 
-            // cmbUsuarios
+            // cmbClientes
             // 
-            this.cmbUsuarios.FormattingEnabled = true;
-            this.cmbUsuarios.Location = new System.Drawing.Point(548, 134);
-            this.cmbUsuarios.Name = "cmbUsuarios";
-            this.cmbUsuarios.Size = new System.Drawing.Size(245, 29);
-            this.cmbUsuarios.TabIndex = 5;
+            this.cmbClientes.Location = new System.Drawing.Point(731, 165);
+            this.cmbClientes.Name = "cmbClientes";
+            this.cmbClientes.Size = new System.Drawing.Size(325, 36);
+            this.cmbClientes.TabIndex = 8;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.dgvReportes, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(19, 237);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1413, 421);
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // dgvReportes
             // 
@@ -101,23 +120,35 @@
             this.dgvReportes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReportes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvReportes.Location = new System.Drawing.Point(3, 3);
+            this.dgvReportes.Location = new System.Drawing.Point(4, 4);
+            this.dgvReportes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvReportes.Name = "dgvReportes";
             this.dgvReportes.ReadOnly = true;
             this.dgvReportes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvReportes.RowHeadersWidth = 51;
             this.dgvReportes.RowTemplate.Height = 28;
             this.dgvReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReportes.Size = new System.Drawing.Size(1046, 331);
+            this.dgvReportes.Size = new System.Drawing.Size(1405, 413);
             this.dgvReportes.TabIndex = 4;
+            // 
+            // cmbUsuarios
+            // 
+            this.cmbUsuarios.FormattingEnabled = true;
+            this.cmbUsuarios.Location = new System.Drawing.Point(731, 106);
+            this.cmbUsuarios.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbUsuarios.Name = "cmbUsuarios";
+            this.cmbUsuarios.Size = new System.Drawing.Size(325, 36);
+            this.cmbUsuarios.TabIndex = 5;
             // 
             // ibtnReporte
             // 
             this.ibtnReporte.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ibtnReporte.IconColor = System.Drawing.Color.Black;
             this.ibtnReporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnReporte.Location = new System.Drawing.Point(855, 45);
+            this.ibtnReporte.Location = new System.Drawing.Point(1140, 55);
+            this.ibtnReporte.Margin = new System.Windows.Forms.Padding(4);
             this.ibtnReporte.Name = "ibtnReporte";
-            this.ibtnReporte.Size = new System.Drawing.Size(129, 54);
+            this.ibtnReporte.Size = new System.Drawing.Size(172, 66);
             this.ibtnReporte.TabIndex = 3;
             this.ibtnReporte.Text = "Generar Reporte";
             this.ibtnReporte.UseVisualStyleBackColor = true;
@@ -129,9 +160,10 @@
             this.cmbFiltrar.Items.AddRange(new object[] {
             "Clientes",
             "Usuarios"});
-            this.cmbFiltrar.Location = new System.Drawing.Point(548, 52);
+            this.cmbFiltrar.Location = new System.Drawing.Point(731, 49);
+            this.cmbFiltrar.Margin = new System.Windows.Forms.Padding(4);
             this.cmbFiltrar.Name = "cmbFiltrar";
-            this.cmbFiltrar.Size = new System.Drawing.Size(245, 29);
+            this.cmbFiltrar.Size = new System.Drawing.Size(325, 36);
             this.cmbFiltrar.TabIndex = 2;
             this.cmbFiltrar.SelectedIndexChanged += new System.EventHandler(this.cmbFliltrar_SelectedIndexChanged);
             // 
@@ -145,8 +177,8 @@
             this.cuiCalendarDatePicker2.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiCalendarDatePicker2.Icon = ((System.Drawing.Image)(resources.GetObject("cuiCalendarDatePicker2.Icon")));
             this.cuiCalendarDatePicker2.IconTint = System.Drawing.Color.Gray;
-            this.cuiCalendarDatePicker2.Location = new System.Drawing.Point(262, 40);
-            this.cuiCalendarDatePicker2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cuiCalendarDatePicker2.Location = new System.Drawing.Point(349, 49);
+            this.cuiCalendarDatePicker2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cuiCalendarDatePicker2.Name = "cuiCalendarDatePicker2";
             this.cuiCalendarDatePicker2.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiCalendarDatePicker2.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -156,7 +188,7 @@
             this.cuiCalendarDatePicker2.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiCalendarDatePicker2.Rounding = 15;
             this.cuiCalendarDatePicker2.ShowIcon = true;
-            this.cuiCalendarDatePicker2.Size = new System.Drawing.Size(172, 59);
+            this.cuiCalendarDatePicker2.Size = new System.Drawing.Size(229, 73);
             this.cuiCalendarDatePicker2.TabIndex = 1;
             this.cuiCalendarDatePicker2.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
             // 
@@ -170,8 +202,8 @@
             this.cuiCalendarDatePicker1.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiCalendarDatePicker1.Icon = ((System.Drawing.Image)(resources.GetObject("cuiCalendarDatePicker1.Icon")));
             this.cuiCalendarDatePicker1.IconTint = System.Drawing.Color.Gray;
-            this.cuiCalendarDatePicker1.Location = new System.Drawing.Point(44, 40);
-            this.cuiCalendarDatePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cuiCalendarDatePicker1.Location = new System.Drawing.Point(59, 49);
+            this.cuiCalendarDatePicker1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cuiCalendarDatePicker1.Name = "cuiCalendarDatePicker1";
             this.cuiCalendarDatePicker1.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiCalendarDatePicker1.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -181,38 +213,24 @@
             this.cuiCalendarDatePicker1.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiCalendarDatePicker1.Rounding = 15;
             this.cuiCalendarDatePicker1.ShowIcon = true;
-            this.cuiCalendarDatePicker1.Size = new System.Drawing.Size(172, 59);
+            this.cuiCalendarDatePicker1.Size = new System.Drawing.Size(229, 73);
             this.cuiCalendarDatePicker1.TabIndex = 0;
             this.cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.dgvReportes, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 195);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1052, 337);
-            this.tableLayoutPanel1.TabIndex = 6;
-            // 
             // UcReportes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.cuiPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UcReportes";
-            this.Size = new System.Drawing.Size(1174, 621);
+            this.Size = new System.Drawing.Size(1565, 764);
             this.Load += new System.EventHandler(this.UcReportes_Load);
             this.cuiPanel1.ResumeLayout(false);
             this.cuiGroupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,5 +246,7 @@
         private FontAwesome.Sharp.IconButton ibtnReporte;
         private System.Windows.Forms.ComboBox cmbUsuarios;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        
+        private System.Windows.Forms.ComboBox cmbClientes;
     }
 }
