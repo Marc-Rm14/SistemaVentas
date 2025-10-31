@@ -40,7 +40,8 @@ namespace app.Ventas.Formularios
                                Cedula,
                                NombreCompleto AS Cliente,
                                Telefono
-                        FROM Clientes";
+                        FROM Clientes
+                        WHERE Activo = 1";
                         
 
                     SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
@@ -67,7 +68,7 @@ namespace app.Ventas.Formularios
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     string consultaSQL = @"
-                                        DELETE Clientes WHERE ClienteID = @idCliente";
+                                        UPDATE Clientes SET Activo = 0 WHERE ClienteID = @idCliente";
 
 
                     SqlCommand command = new SqlCommand(consultaSQL, conexion);

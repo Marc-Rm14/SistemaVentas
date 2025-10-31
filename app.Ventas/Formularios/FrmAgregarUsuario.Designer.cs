@@ -47,6 +47,8 @@
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.cuiFormRounder1 = new CuoreUI.Components.cuiFormRounder();
             this.cuiFormAnimator1 = new CuoreUI.Components.cuiFormAnimator(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.chkActivo = new CuoreUI.Controls.cuiCheckbox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,23 +83,25 @@
             this.tableLayoutPanel1.Controls.Add(this.txtNombreUsuario, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtNombreCompleto, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtContrasenaUsuario, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.chkActivo, 1, 4);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 44);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(569, 215);
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(569, 253);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // cmbRoles
             // 
             this.cmbRoles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbRoles.FormattingEnabled = true;
-            this.cmbRoles.Location = new System.Drawing.Point(116, 172);
+            this.cmbRoles.Location = new System.Drawing.Point(116, 164);
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(450, 29);
             this.cmbRoles.TabIndex = 8;
@@ -107,7 +111,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 53);
+            this.label1.Size = new System.Drawing.Size(107, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre Usuario";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -115,9 +119,9 @@
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 53);
+            this.label2.Location = new System.Drawing.Point(3, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 53);
+            this.label2.Size = new System.Drawing.Size(107, 50);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre Completo";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -125,9 +129,9 @@
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 106);
+            this.label3.Location = new System.Drawing.Point(3, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 53);
+            this.label3.Size = new System.Drawing.Size(107, 50);
             this.label3.TabIndex = 2;
             this.label3.Text = "Contraseña Usuario";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -135,9 +139,9 @@
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(3, 159);
+            this.label4.Location = new System.Drawing.Point(3, 150);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 56);
+            this.label4.Size = new System.Drawing.Size(107, 50);
             this.label4.TabIndex = 3;
             this.label4.Text = "Rol Uusario";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,7 +149,7 @@
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(116, 12);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(116, 10);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(450, 29);
             this.txtNombreUsuario.TabIndex = 4;
@@ -153,7 +157,7 @@
             // txtNombreCompleto
             // 
             this.txtNombreCompleto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombreCompleto.Location = new System.Drawing.Point(116, 65);
+            this.txtNombreCompleto.Location = new System.Drawing.Point(116, 60);
             this.txtNombreCompleto.Name = "txtNombreCompleto";
             this.txtNombreCompleto.Size = new System.Drawing.Size(450, 29);
             this.txtNombreCompleto.TabIndex = 5;
@@ -161,7 +165,7 @@
             // txtContrasenaUsuario
             // 
             this.txtContrasenaUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtContrasenaUsuario.Location = new System.Drawing.Point(116, 118);
+            this.txtContrasenaUsuario.Location = new System.Drawing.Point(116, 110);
             this.txtContrasenaUsuario.Name = "txtContrasenaUsuario";
             this.txtContrasenaUsuario.Size = new System.Drawing.Size(450, 29);
             this.txtContrasenaUsuario.TabIndex = 6;
@@ -171,7 +175,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 265);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 303);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -251,6 +255,37 @@
             this.cuiFormAnimator1.TargetForm = this;
             this.cuiFormAnimator1.TargetOpacity = 1D;
             // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(3, 200);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 53);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Activo";
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.Checked = false;
+            this.chkActivo.CheckedForeground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.chkActivo.CheckedOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.chkActivo.CheckedSymbolColor = System.Drawing.Color.White;
+            this.chkActivo.Content = "cuiCheckbox";
+            this.chkActivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkActivo.Location = new System.Drawing.Point(116, 203);
+            this.chkActivo.MinimumSize = new System.Drawing.Size(16, 16);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.OutlineStyle = true;
+            this.chkActivo.OutlineThickness = 1F;
+            this.chkActivo.Rounding = 15;
+            this.chkActivo.ShowSymbols = true;
+            this.chkActivo.Size = new System.Drawing.Size(231, 34);
+            this.chkActivo.TabIndex = 11;
+            this.chkActivo.Text = "cuiCheckbox1";
+            this.chkActivo.UncheckedForeground = System.Drawing.Color.Empty;
+            this.chkActivo.UncheckedOutlineColor = System.Drawing.Color.Gray;
+            this.chkActivo.UncheckedSymbolColor = System.Drawing.Color.Empty;
+            // 
             // FrmAgregarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,5 +329,7 @@
         private System.Windows.Forms.ErrorProvider errorIcono;
         private CuoreUI.Components.cuiFormRounder cuiFormRounder1;
         private CuoreUI.Components.cuiFormAnimator cuiFormAnimator1;
+        private System.Windows.Forms.Label label5;
+        private CuoreUI.Controls.cuiCheckbox chkActivo;
     }
 }
