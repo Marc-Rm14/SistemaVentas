@@ -165,12 +165,12 @@ namespace app.Ventas.Formularios
 
         private void cuiTxtBuscar_ContentChanged(object sender, EventArgs e)
         {
-            string textoBusqueda = cuiTxtBuscar.Text.Trim();
+            string textoBusqueda = cuiTxtBuscar.Content.Trim();
 
 
 
             string connectionString = ConexionDB.ObtenerConexion();
-            string consultasSql = @"SELECT u.UsuarioID AS id, u.NombreUsuario AS usuario, u.Contraseña,
+            string consultasSql = @"SELECT u.UsuarioID AS id, u.NombreUsuario AS usuario, u.Contrasena,
                                       u.NombreCompleto AS nombre, u.RolID, r.NombreRol AS Rol 
                                       FROM Usuarios u
                                       INNER JOIN Roles r ON u.RolID = r.RolID
