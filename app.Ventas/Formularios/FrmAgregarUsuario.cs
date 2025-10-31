@@ -14,12 +14,15 @@ namespace app.Ventas.Formularios
         {
             InitializeComponent();
             CargarRoles();
+            chkActivo.Checked = true;
         }
 
-        public FrmAgregarUsuario(int usuarioId, string nombreUsuario, string contrasenaUsuario,string nombreCompleto, int idRol, bool activo)
+        public FrmAgregarUsuario(int usuarioId, string nombreUsuario, string contrasenaUsuario, string nombreCompleto, int idRol, bool activo)
         {
             InitializeComponent();
             CargarRoles();
+            chkActivo.Enabled = true;
+            chkActivo.Content = "Un check es activo y viceversa";
             txtId.Text = usuarioId.ToString();
             txtNombreUsuario.Text = nombreUsuario;
             txtContrasenaUsuario.Text = contrasenaUsuario;
@@ -27,6 +30,7 @@ namespace app.Ventas.Formularios
             cmbRoles.SelectedValue = idRol;
             chkActivo.Checked = activo;
         }
+
 
 
         private void CargarRoles()
@@ -169,7 +173,7 @@ namespace app.Ventas.Formularios
         }
 
 
-        //TODO: Cambie un poco la logica del metodo, hacemos comprobaciones antes
+        //NOTA: Cambie un poco la logica del metodo, hacemos comprobaciones antes
         // de realizar cualquier operacion, es necesario hacer estos cambios en los demas formularios.
         private void btnGuardar_Click(object sender, EventArgs e) 
         {

@@ -39,6 +39,8 @@
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtNombreCompleto = new System.Windows.Forms.TextBox();
             this.txtContrasenaUsuario = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.chkActivo = new CuoreUI.Controls.cuiCheckbox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
@@ -47,8 +49,6 @@
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.cuiFormRounder1 = new CuoreUI.Components.cuiFormRounder();
             this.cuiFormAnimator1 = new CuoreUI.Components.cuiFormAnimator(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.chkActivo = new CuoreUI.Controls.cuiCheckbox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -101,7 +101,7 @@
             // 
             this.cmbRoles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbRoles.FormattingEnabled = true;
-            this.cmbRoles.Location = new System.Drawing.Point(116, 164);
+            this.cmbRoles.Location = new System.Drawing.Point(116, 160);
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(450, 29);
             this.cmbRoles.TabIndex = 8;
@@ -169,6 +169,38 @@
             this.txtContrasenaUsuario.Name = "txtContrasenaUsuario";
             this.txtContrasenaUsuario.Size = new System.Drawing.Size(450, 29);
             this.txtContrasenaUsuario.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(3, 200);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 53);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Activo";
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.Checked = false;
+            this.chkActivo.CheckedForeground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.chkActivo.CheckedOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.chkActivo.CheckedSymbolColor = System.Drawing.Color.White;
+            this.chkActivo.Content = "Un check es activo y viceversa";
+            this.chkActivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkActivo.Enabled = false;
+            this.chkActivo.Location = new System.Drawing.Point(116, 203);
+            this.chkActivo.MinimumSize = new System.Drawing.Size(16, 16);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.OutlineStyle = true;
+            this.chkActivo.OutlineThickness = 1F;
+            this.chkActivo.Rounding = 15;
+            this.chkActivo.ShowSymbols = true;
+            this.chkActivo.Size = new System.Drawing.Size(334, 34);
+            this.chkActivo.TabIndex = 11;
+            this.chkActivo.Text = "cuiCheckbox1";
+            this.chkActivo.UncheckedForeground = System.Drawing.Color.Empty;
+            this.chkActivo.UncheckedOutlineColor = System.Drawing.Color.Gray;
+            this.chkActivo.UncheckedSymbolColor = System.Drawing.Color.Empty;
             // 
             // tableLayoutPanel2
             // 
@@ -254,37 +286,6 @@
             this.cuiFormAnimator1.StartOpacity = 0D;
             this.cuiFormAnimator1.TargetForm = this;
             this.cuiFormAnimator1.TargetOpacity = 1D;
-            // 
-            // label5
-            // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(3, 200);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 53);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Activo";
-            // 
-            // chkActivo
-            // 
-            this.chkActivo.Checked = false;
-            this.chkActivo.CheckedForeground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.chkActivo.CheckedOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.chkActivo.CheckedSymbolColor = System.Drawing.Color.White;
-            this.chkActivo.Content = "cuiCheckbox";
-            this.chkActivo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkActivo.Location = new System.Drawing.Point(116, 203);
-            this.chkActivo.MinimumSize = new System.Drawing.Size(16, 16);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.OutlineStyle = true;
-            this.chkActivo.OutlineThickness = 1F;
-            this.chkActivo.Rounding = 15;
-            this.chkActivo.ShowSymbols = true;
-            this.chkActivo.Size = new System.Drawing.Size(231, 34);
-            this.chkActivo.TabIndex = 11;
-            this.chkActivo.Text = "cuiCheckbox1";
-            this.chkActivo.UncheckedForeground = System.Drawing.Color.Empty;
-            this.chkActivo.UncheckedOutlineColor = System.Drawing.Color.Gray;
-            this.chkActivo.UncheckedSymbolColor = System.Drawing.Color.Empty;
             // 
             // FrmAgregarUsuario
             // 
