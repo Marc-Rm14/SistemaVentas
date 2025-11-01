@@ -9,6 +9,7 @@ namespace app.Ventas.Formularios
     public partial class UcVentas : UserControl
     {
         private Usuario _usuarioLogueado;
+        public event Action VentaGuardada;
         private decimal _totalVenta;
         public UcVentas()
         {
@@ -182,6 +183,7 @@ namespace app.Ventas.Formularios
                     }
 
                     transaction.Commit();
+                    VentaGuardada?.Invoke();
                     MessageBox.Show("Venta guardada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
