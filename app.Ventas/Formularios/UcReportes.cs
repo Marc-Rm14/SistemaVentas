@@ -169,30 +169,36 @@ namespace app.Ventas.Formularios
 
         private void ibtnReporte_Click(object sender, EventArgs e)
         {
-            if(cmbUsuarios.SelectedValue == null) 
+            bool usuarioSeleccionado = cmbUsuarios.SelectedValue != null;
+            bool clienteSeleccionado = cmbClientes.SelectedValue != null;
+
+            if (!usuarioSeleccionado && !clienteSeleccionado)
             {
-                MessageBox.Show("Seleccione un usuario para generar el reporte");
+                MessageBox.Show("Seleccione al menos un filtro: usuario o cliente.");
                 return;
             }
-            int idUsuarioSeleccionado = (int)cmbUsuarios.SelectedValue;
-            FiltroUsuarios(idUsuarioSeleccionado);
 
-            if (cmbClientes.SelectedValue == null)
+            if (usuarioSeleccionado && clienteSeleccionado)
             {
-                MessageBox.Show("Seleccione un cliente para generar el reporte");
+                MessageBox.Show("Seleccione sólo un filtro: usuario o cliente, no ambos.");
                 return;
             }
-            int idClienteSeleccionado = (int)cmbClientes.SelectedValue;
-            FiltroClientes(idClienteSeleccionado);
 
+            if (usuarioSeleccionado)
+            {
+                FiltroUsuarios((int)cmbUsuarios.SelectedValue);
+                cmbUsuarios.SelectedIndex = -1;
+                return;
+            }
 
-            cmbClientes.SelectedIndex = -1;
-
-            cmbUsuarios.SelectedIndex = -1;
-
+            if (clienteSeleccionado)
+            {
+                FiltroClientes((int)cmbClientes.SelectedValue);
+                cmbClientes.SelectedIndex = -1;
+                return;
+            }
 
         }
-
 
     }
 }
