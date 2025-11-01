@@ -190,9 +190,33 @@ namespace app.Ventas.Formularios
 
         private void ibtnVentas_Click(object sender, EventArgs e)
         {
-            if (_UcVentas == null || _UcVentas.IsDisposed) { _UcVentas = new UcVentas(_usuario); }
+            if (_UcVentas == null || _UcVentas.IsDisposed) 
+            {
+                _UcVentas = new UcVentas(_usuario);
+                
+                _UcVentas.VentaGuardada += UcVentas_VentaGuardada;
+            }
             
             panelCentral.MostrarVista(_UcVentas);
+        }
+
+        private void UcVentas_VentaGuardada()
+        {
+            // Llamamos al refresco solo si existe la instancia de productos
+            _ucProductos?.RefrescarDatos();
+        }
+
+
+        private void ibtnDashBoard_Click(object sender, EventArgs e)
+        {
+            _ucdashBoard = new UCDashBoard();
+            panelCentral.MostrarVista(_ucdashBoard);
+        }
+
+        private void ibtnReportes_Click(object sender, EventArgs e)
+        {
+            _ucReportes = new UcReportes();
+            panelCentral.MostrarVista(_ucReportes);
         }
         #endregion
 
@@ -221,16 +245,5 @@ namespace app.Ventas.Formularios
         }
         #endregion
 
-        private void ibtnDashBoard_Click(object sender, EventArgs e)
-        {
-            _ucdashBoard = new UCDashBoard();
-            panelCentral.MostrarVista(_ucdashBoard);
-        }
-
-        private void ibtnReportes_Click(object sender, EventArgs e)
-        {
-            _ucReportes = new UcReportes();
-            panelCentral.MostrarVista(_ucReportes);
-        }
     }
 }
