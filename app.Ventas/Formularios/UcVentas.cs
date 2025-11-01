@@ -365,11 +365,23 @@ namespace app.Ventas.Formularios
                 return;
             }
 
+            if (dgvDetalles.Rows.Count <= 1)
+            {
+                MessageBox.Show("Debe añadir al menos un producto a la venta.", "Error");
+                return;
+            }
+
 
             decimal totalVenta = _totalVenta;
             int cliente = Convert.ToInt32(cmbClientes.SelectedValue);
             int usuarioActual = _usuarioLogueado.UsuarioID;
-            
+
+            DialogResult resultado = MessageBox.Show("¿Confirmar venta?", "Confirmación de Venta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+            //NOTA: Si nuestro Usuario dice no, salimos del bloque de codigo
+            if (resultado == DialogResult.No) return;
+
             bool guardar = GuardarVenta(cliente, usuarioActual, totalVenta);
 
             if(guardar) LimpiarFormularioVenta();
