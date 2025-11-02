@@ -48,6 +48,9 @@
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.cmbProductos = new System.Windows.Forms.ComboBox();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.cuiPanel1.SuspendLayout();
             this.cuiPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
@@ -72,10 +75,10 @@
             this.cuiPanel1.Controls.Add(this.cuiPanelTop);
             this.cuiPanel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiPanel1.Location = new System.Drawing.Point(20, 20);
-            this.cuiPanel1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.cuiPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.cuiPanel1.Name = "cuiPanel1";
             this.cuiPanel1.OutlineThickness = 1F;
-            this.cuiPanel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.cuiPanel1.Padding = new System.Windows.Forms.Padding(10);
             this.cuiPanel1.PanelColor = System.Drawing.Color.WhiteSmoke;
             this.cuiPanel1.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(15);
@@ -136,7 +139,7 @@
             this.cuiPanel2.Location = new System.Drawing.Point(856, 108);
             this.cuiPanel2.Name = "cuiPanel2";
             this.cuiPanel2.OutlineThickness = 1F;
-            this.cuiPanel2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cuiPanel2.Padding = new System.Windows.Forms.Padding(5);
             this.cuiPanel2.PanelColor = System.Drawing.Color.White;
             this.cuiPanel2.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanel2.Rounding = new System.Windows.Forms.Padding(15);
@@ -238,7 +241,7 @@
             this.cuiPanelTop.Location = new System.Drawing.Point(10, 10);
             this.cuiPanelTop.Name = "cuiPanelTop";
             this.cuiPanelTop.OutlineThickness = 1F;
-            this.cuiPanelTop.Padding = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.cuiPanelTop.Padding = new System.Windows.Forms.Padding(15);
             this.cuiPanelTop.PanelColor = System.Drawing.Color.WhiteSmoke;
             this.cuiPanelTop.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanelTop.Rounding = new System.Windows.Forms.Padding(8);
@@ -253,7 +256,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.ibtnLimpiar, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.IbtnAgregarProducto, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(758, 18);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(773, 30);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -303,18 +306,19 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.cmbClientes, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cmbProductos, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numCantidad, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 18);
+            this.tableLayoutPanel1.Controls.Add(this.cmbClientes, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmbProductos, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.numCantidad, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 14);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(415, 54);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(690, 70);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // cmbClientes
@@ -324,9 +328,9 @@
             this.cmbClientes.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cmbClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(3, 3);
+            this.cmbClientes.Location = new System.Drawing.Point(4, 38);
             this.cmbClientes.Name = "cmbClientes";
-            this.cmbClientes.Size = new System.Drawing.Size(160, 29);
+            this.cmbClientes.Size = new System.Drawing.Size(268, 29);
             this.cmbClientes.TabIndex = 3;
             this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
             // 
@@ -337,17 +341,44 @@
             this.cmbProductos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cmbProductos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbProductos.FormattingEnabled = true;
-            this.cmbProductos.Location = new System.Drawing.Point(169, 3);
+            this.cmbProductos.Location = new System.Drawing.Point(279, 38);
             this.cmbProductos.Name = "cmbProductos";
-            this.cmbProductos.Size = new System.Drawing.Size(160, 29);
+            this.cmbProductos.Size = new System.Drawing.Size(268, 29);
             this.cmbProductos.TabIndex = 2;
             // 
             // numCantidad
             // 
-            this.numCantidad.Location = new System.Drawing.Point(335, 3);
+            this.numCantidad.Location = new System.Drawing.Point(554, 38);
             this.numCantidad.Name = "numCantidad";
             this.numCantidad.Size = new System.Drawing.Size(74, 29);
             this.numCantidad.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(4, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(269, 34);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Seleccionar Cliente:";
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(279, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(269, 34);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Seleccionar Producto";
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(554, 1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(132, 34);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Cantidad:";
             // 
             // UcVentas
             // 
@@ -393,5 +424,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private FontAwesome.Sharp.IconButton ibtnQuitarProducto;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
