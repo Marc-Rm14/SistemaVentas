@@ -33,13 +33,13 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cuiTxtBuscar = new CuoreUI.Controls.cuiTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.ibtnEliminar = new FontAwesome.Sharp.IconButton();
             this.ibtnAgregar = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             this.cuiGroupBox1 = new CuoreUI.Controls.cuiGroupBox();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
@@ -151,6 +151,18 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 58);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
+            // cmbEstado
+            // 
+            this.cmbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(247, 18);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(117, 29);
+            this.cmbEstado.TabIndex = 4;
+            this.cmbEstado.Visible = false;
+            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
+            // 
             // ibtnEliminar
             // 
             this.ibtnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
@@ -193,6 +205,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(29, 16);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(977, 57);
@@ -203,9 +216,9 @@
             this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(5, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(971, 57);
+            this.label1.Size = new System.Drawing.Size(967, 53);
             this.label1.TabIndex = 0;
             this.label1.Text = "Listado Usuarios";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -244,18 +257,6 @@
             this.cuiGroupBox1.Rounding = new System.Windows.Forms.Padding(4);
             this.cuiGroupBox1.Size = new System.Drawing.Size(1035, 593);
             this.cuiGroupBox1.TabIndex = 0;
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(247, 14);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(117, 29);
-            this.cmbEstado.TabIndex = 4;
-            this.cmbEstado.Visible = false;
-            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // UcUsuarios
             // 
