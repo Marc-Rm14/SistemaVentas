@@ -28,77 +28,173 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.panelBotones = new System.Windows.Forms.Panel();
+            this.cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            this.cuiGroupBox1 = new CuoreUI.Controls.cuiGroupBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.cuiTxtBuscar = new CuoreUI.Controls.cuiTextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ibtnEliminar = new FontAwesome.Sharp.IconButton();
             this.ibtnAgregar = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.txtBoxBuscarClientes = new System.Windows.Forms.TextBox();
-            this.lblListado = new System.Windows.Forms.Label();
-            this.panelContenedor.SuspendLayout();
-            this.panelBotones.SuspendLayout();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cuiPanel1.SuspendLayout();
+            this.cuiGroupBox1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelContenedor
+            // cuiPanel1
             // 
-            this.panelContenedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cuiPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelContenedor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelContenedor.Controls.Add(this.panelBotones);
-            this.panelContenedor.Controls.Add(this.dgvClientes);
-            this.panelContenedor.Controls.Add(this.txtBoxBuscarClientes);
-            this.panelContenedor.Controls.Add(this.lblListado);
-            this.panelContenedor.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelContenedor.Location = new System.Drawing.Point(12, 17);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(765, 560);
-            this.panelContenedor.TabIndex = 1;
+            this.cuiPanel1.Controls.Add(this.cuiGroupBox1);
+            this.cuiPanel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cuiPanel1.Location = new System.Drawing.Point(20, 20);
+            this.cuiPanel1.Name = "cuiPanel1";
+            this.cuiPanel1.OutlineThickness = 1F;
+            this.cuiPanel1.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiPanel1.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(15);
+            this.cuiPanel1.Size = new System.Drawing.Size(1073, 624);
+            this.cuiPanel1.TabIndex = 10;
             // 
-            // panelBotones
+            // cuiGroupBox1
             // 
-            this.panelBotones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelBotones.Controls.Add(this.ibtnEliminar);
-            this.panelBotones.Controls.Add(this.ibtnAgregar);
-            this.panelBotones.Location = new System.Drawing.Point(468, 31);
-            this.panelBotones.Margin = new System.Windows.Forms.Padding(2);
-            this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Size = new System.Drawing.Size(270, 53);
-            this.panelBotones.TabIndex = 4;
+            this.cuiGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cuiGroupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiGroupBox1.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiGroupBox1.Content = "";
+            this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel3);
+            this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel2);
+            this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel4);
+            this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel5);
+            this.cuiGroupBox1.Location = new System.Drawing.Point(21, 18);
+            this.cuiGroupBox1.Name = "cuiGroupBox1";
+            this.cuiGroupBox1.Padding = new System.Windows.Forms.Padding(4, 24, 4, 4);
+            this.cuiGroupBox1.Rounding = new System.Windows.Forms.Padding(4);
+            this.cuiGroupBox1.Size = new System.Drawing.Size(1035, 593);
+            this.cuiGroupBox1.TabIndex = 0;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.cuiTxtBuscar, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(29, 79);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(548, 58);
+            this.tableLayoutPanel3.TabIndex = 2;
+            // 
+            // cuiTxtBuscar
+            // 
+            this.cuiTxtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cuiTxtBuscar.BackgroundColor = System.Drawing.Color.White;
+            this.cuiTxtBuscar.Content = "";
+            this.cuiTxtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cuiTxtBuscar.FocusBackgroundColor = System.Drawing.Color.White;
+            this.cuiTxtBuscar.FocusImageTint = System.Drawing.Color.White;
+            this.cuiTxtBuscar.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.cuiTxtBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cuiTxtBuscar.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cuiTxtBuscar.Image = null;
+            this.cuiTxtBuscar.ImageExpand = new System.Drawing.Point(0, 0);
+            this.cuiTxtBuscar.ImageOffset = new System.Drawing.Point(0, 0);
+            this.cuiTxtBuscar.Location = new System.Drawing.Point(4, 6);
+            this.cuiTxtBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.cuiTxtBuscar.Multiline = false;
+            this.cuiTxtBuscar.Name = "cuiTxtBuscar";
+            this.cuiTxtBuscar.NormalImageTint = System.Drawing.Color.White;
+            this.cuiTxtBuscar.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cuiTxtBuscar.Padding = new System.Windows.Forms.Padding(22, 11, 22, 0);
+            this.cuiTxtBuscar.PasswordChar = false;
+            this.cuiTxtBuscar.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cuiTxtBuscar.PlaceholderText = "Buscar Clientes";
+            this.cuiTxtBuscar.Rounding = new System.Windows.Forms.Padding(15);
+            this.cuiTxtBuscar.Size = new System.Drawing.Size(540, 45);
+            this.cuiTxtBuscar.TabIndex = 1;
+            this.cuiTxtBuscar.TextOffset = new System.Drawing.Size(0, 0);
+            this.cuiTxtBuscar.UnderlinedStyle = true;
+            this.cuiTxtBuscar.ContentChanged += new System.EventHandler(this.txtBoxBuscarClientes_TextChanged);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.ibtnEliminar, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ibtnAgregar, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(767, 79);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(239, 58);
+            this.tableLayoutPanel2.TabIndex = 8;
             // 
             // ibtnEliminar
             // 
+            this.ibtnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ibtnEliminar.BackColor = System.Drawing.Color.White;
             this.ibtnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.ibtnEliminar.IconColor = System.Drawing.Color.Black;
             this.ibtnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnEliminar.IconSize = 30;
-            this.ibtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnEliminar.Location = new System.Drawing.Point(127, 3);
-            this.ibtnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.ibtnEliminar.Location = new System.Drawing.Point(122, 6);
             this.ibtnEliminar.Name = "ibtnEliminar";
-            this.ibtnEliminar.Size = new System.Drawing.Size(112, 47);
+            this.ibtnEliminar.Size = new System.Drawing.Size(112, 45);
             this.ibtnEliminar.TabIndex = 3;
             this.ibtnEliminar.Text = "Eliminar";
             this.ibtnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ibtnEliminar.UseVisualStyleBackColor = true;
+            this.ibtnEliminar.UseVisualStyleBackColor = false;
             this.ibtnEliminar.Click += new System.EventHandler(this.ibtnEliminar_Click);
             // 
             // ibtnAgregar
             // 
+            this.ibtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ibtnAgregar.BackColor = System.Drawing.Color.White;
             this.ibtnAgregar.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.ibtnAgregar.IconColor = System.Drawing.Color.Black;
             this.ibtnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnAgregar.IconSize = 30;
-            this.ibtnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnAgregar.Location = new System.Drawing.Point(18, 3);
+            this.ibtnAgregar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.ibtnAgregar.Location = new System.Drawing.Point(4, 6);
+            this.ibtnAgregar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ibtnAgregar.Name = "ibtnAgregar";
-            this.ibtnAgregar.Size = new System.Drawing.Size(104, 48);
+            this.ibtnAgregar.Size = new System.Drawing.Size(111, 45);
             this.ibtnAgregar.TabIndex = 2;
             this.ibtnAgregar.Text = "Agregar";
+            this.ibtnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ibtnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ibtnAgregar.UseVisualStyleBackColor = true;
+            this.ibtnAgregar.UseVisualStyleBackColor = false;
             this.ibtnAgregar.Click += new System.EventHandler(this.ibtnAgregar_Click);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.dgvClientes, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(29, 175);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(977, 400);
+            this.tableLayoutPanel4.TabIndex = 3;
             // 
             // dgvClientes
             // 
@@ -114,66 +210,76 @@
             this.dgvClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvClientes.Location = new System.Drawing.Point(21, 114);
-            this.dgvClientes.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvClientes.GridColor = System.Drawing.Color.LightGray;
+            this.dgvClientes.Location = new System.Drawing.Point(3, 3);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvClientes.RowHeadersWidth = 51;
-            this.dgvClientes.RowTemplate.Height = 24;
+            this.dgvClientes.RowTemplate.Height = 28;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(717, 413);
-            this.dgvClientes.TabIndex = 3;
+            this.dgvClientes.Size = new System.Drawing.Size(971, 394);
+            this.dgvClientes.TabIndex = 0;
             this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellDoubleClick);
             // 
-            // txtBoxBuscarClientes
+            // tableLayoutPanel5
             // 
-            this.txtBoxBuscarClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBoxBuscarClientes.Location = new System.Drawing.Point(21, 57);
-            this.txtBoxBuscarClientes.Name = "txtBoxBuscarClientes";
-            this.txtBoxBuscarClientes.Size = new System.Drawing.Size(372, 27);
-            this.txtBoxBuscarClientes.TabIndex = 1;
-            this.txtBoxBuscarClientes.Text = "Buscar Clientes";
-            this.txtBoxBuscarClientes.TextChanged += new System.EventHandler(this.txtBoxBuscarClientes_TextChanged);
-            this.txtBoxBuscarClientes.Enter += new System.EventHandler(this.txtBoxBuscarProductos_Enter);
-            this.txtBoxBuscarClientes.Leave += new System.EventHandler(this.txtBoxBuscarClientes_Leave);
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(29, 16);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(977, 57);
+            this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // lblListado
+            // label1
             // 
-            this.lblListado.AutoSize = true;
-            this.lblListado.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListado.Location = new System.Drawing.Point(17, 10);
-            this.lblListado.Name = "lblListado";
-            this.lblListado.Size = new System.Drawing.Size(192, 30);
-            this.lblListado.TabIndex = 0;
-            this.lblListado.Text = "Listado de Clientes";
+            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(5, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(967, 53);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Listado Clientes";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // UcClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelContenedor);
+            this.Controls.Add(this.cuiPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UcClientes";
-            this.Size = new System.Drawing.Size(800, 600);
+            this.Size = new System.Drawing.Size(1112, 664);
             this.Load += new System.EventHandler(this.UcClientes_Load);
-            this.panelContenedor.ResumeLayout(false);
-            this.panelContenedor.PerformLayout();
-            this.panelBotones.ResumeLayout(false);
+            this.cuiPanel1.ResumeLayout(false);
+            this.cuiGroupBox1.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelContenedor;
-        private System.Windows.Forms.Panel panelBotones;
+        private CuoreUI.Controls.cuiPanel cuiPanel1;
+        private CuoreUI.Controls.cuiGroupBox cuiGroupBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private CuoreUI.Controls.cuiTextBox cuiTxtBuscar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private FontAwesome.Sharp.IconButton ibtnEliminar;
         private FontAwesome.Sharp.IconButton ibtnAgregar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.DataGridView dgvClientes;
-        private System.Windows.Forms.TextBox txtBoxBuscarClientes;
-        private System.Windows.Forms.Label lblListado;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label1;
     }
 }

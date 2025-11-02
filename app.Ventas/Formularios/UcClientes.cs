@@ -1,13 +1,7 @@
 ﻿using app.Ventas.Utilidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace app.Ventas.Formularios
@@ -15,7 +9,7 @@ namespace app.Ventas.Formularios
     
     public partial class UcClientes : UserControl
     {
-        private const string Placeholder = "Buscar Clientes";
+        
         public event Action OnAgregarClienteClick;
         public UcClientes()
         {
@@ -100,14 +94,7 @@ namespace app.Ventas.Formularios
         #endregion
 
         #region eventos
-        private void txtBoxBuscarProductos_Enter(object sender, EventArgs e)
-        {
-            if (txtBoxBuscarClientes.Text.Equals(Placeholder, StringComparison.OrdinalIgnoreCase))
-            {
-                txtBoxBuscarClientes.Text = "";
-                txtBoxBuscarClientes.ForeColor = Color.Black; // color normal al escribir
-            }
-        }
+        
 
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -132,15 +119,6 @@ namespace app.Ventas.Formularios
             }
         }
 
-        private void txtBoxBuscarClientes_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtBoxBuscarClientes.Text))
-            {
-                txtBoxBuscarClientes.Text = Placeholder;
-                txtBoxBuscarClientes.ForeColor = Color.Gray;
-            }
-        }
-
         private void UcClientes_Load(object sender, EventArgs e)
         {
             listarRegistro();
@@ -148,14 +126,7 @@ namespace app.Ventas.Formularios
 
         private void txtBoxBuscarClientes_TextChanged(object sender, EventArgs e)
         {
-            string textoBusqueda = txtBoxBuscarClientes.Text.Trim();
-
-            // Ignoramos el placeholder: si está el placeholder o está vacío, mostramos todo
-            if (string.IsNullOrEmpty(textoBusqueda) || textoBusqueda.Equals(Placeholder, StringComparison.OrdinalIgnoreCase))
-            {
-                listarRegistro();
-                return;
-            }
+            string textoBusqueda = cuiTxtBuscar.Content.Trim();
 
             try
             {
