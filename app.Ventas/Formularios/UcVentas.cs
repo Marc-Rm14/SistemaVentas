@@ -365,7 +365,7 @@ namespace app.Ventas.Formularios
                 return;
             }
 
-            if (dgvDetalles.Rows.Count <= 1)
+            if (dgvDetalles.Rows.Count == 0)
             {
                 MessageBox.Show("Debe añadir al menos un producto a la venta.", "Error");
                 return;
