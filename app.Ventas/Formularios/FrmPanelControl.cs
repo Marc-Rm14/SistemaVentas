@@ -40,7 +40,7 @@ namespace app.Ventas.Formularios
 
             }
             //Despues de configurar Roles mostramos el label
-            lblUsuario.Text = $"Bienvenido, {_usuario.NombreCompleto} ({_usuario.Rol})";
+            lblUsuario.Text = $"Bienvenido,\n{_usuario.NombreCompleto} ({_usuario.Rol})";
         }
 
         //NOTA: El método mostrarContenido fue eliminado porque solo funcionaba dentro de este formulario.
