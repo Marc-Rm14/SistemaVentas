@@ -13,7 +13,7 @@ namespace app.Ventas.Formularios
         private UcUsuarios _ucUsuarios;
         private UcCategorias _ucCategorias;
         private UcVentas _UcVentas;
-        private UCDashBoard _ucdashBoard;
+        private UcDashBoard _ucdashBoard;
         private UcReportes _ucReportes;
       
 
@@ -209,7 +209,7 @@ namespace app.Ventas.Formularios
 
         private void ibtnDashBoard_Click(object sender, EventArgs e)
         {
-            _ucdashBoard = new UCDashBoard();
+            _ucdashBoard = new UcDashBoard();
             panelCentral.MostrarVista(_ucdashBoard);
         }
 
