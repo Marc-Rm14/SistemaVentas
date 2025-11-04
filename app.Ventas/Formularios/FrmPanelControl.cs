@@ -209,13 +209,16 @@ namespace app.Ventas.Formularios
 
         private void ibtnDashBoard_Click(object sender, EventArgs e)
         {
-            _ucdashBoard = new UcDashBoard();
+            if(_ucdashBoard == null  || _ucdashBoard.IsDisposed) 
+            { _ucdashBoard = new UcDashBoard(); }
+               
             panelCentral.MostrarVista(_ucdashBoard);
         }
 
         private void ibtnReportes_Click(object sender, EventArgs e)
         {
-            _ucReportes = new UcReportes();
+            if(_ucReportes == null  || _ucReportes.IsDisposed) _ucReportes = new UcReportes();
+
             panelCentral.MostrarVista(_ucReportes);
         }
         #endregion

@@ -32,6 +32,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTop = new CuoreUI.Controls.cuiLabel();
             this.lblCategoria = new CuoreUI.Controls.cuiLabel();
+            this.formsPlotBarras = new ScottPlot.WinForms.FormsPlot();
+            this.formsPlotPastel = new ScottPlot.WinForms.FormsPlot();
             this.cuiPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +64,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.lblTop, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblCategoria, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.formsPlotBarras, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.formsPlotPastel, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
@@ -85,7 +89,7 @@
             // 
             // lblCategoria
             // 
-            this.lblCategoria.Content = "Distribución\\ de\\ Ventas\\ por\\ Categoría";
+            this.lblCategoria.Content = "Top\\ 5\\ Categorías";
             this.lblCategoria.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCategoria.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoria.HorizontalAlignment = System.Drawing.StringAlignment.Center;
@@ -94,6 +98,26 @@
             this.lblCategoria.Size = new System.Drawing.Size(596, 91);
             this.lblCategoria.TabIndex = 1;
             this.lblCategoria.VerticalAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // formsPlotBarras
+            // 
+            this.formsPlotBarras.DisplayScale = 0F;
+            this.formsPlotBarras.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formsPlotBarras.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formsPlotBarras.Location = new System.Drawing.Point(5, 102);
+            this.formsPlotBarras.Name = "formsPlotBarras";
+            this.formsPlotBarras.Size = new System.Drawing.Size(595, 544);
+            this.formsPlotBarras.TabIndex = 2;
+            // 
+            // formsPlotPastel
+            // 
+            this.formsPlotPastel.DisplayScale = 0F;
+            this.formsPlotPastel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formsPlotPastel.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formsPlotPastel.Location = new System.Drawing.Point(606, 102);
+            this.formsPlotPastel.Name = "formsPlotPastel";
+            this.formsPlotPastel.Size = new System.Drawing.Size(596, 544);
+            this.formsPlotPastel.TabIndex = 3;
             // 
             // UcDashBoard
             // 
@@ -115,5 +139,7 @@
         private CuoreUI.Controls.cuiLabel lblCategoria;
         private CuoreUI.Controls.cuiLabel lblTop;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private ScottPlot.WinForms.FormsPlot formsPlotBarras;
+        private ScottPlot.WinForms.FormsPlot formsPlotPastel;
     }
 }
