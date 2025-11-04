@@ -13,7 +13,7 @@ namespace app.Ventas.Formularios
         private UcUsuarios _ucUsuarios;
         private UcCategorias _ucCategorias;
         private UcVentas _UcVentas;
-        private UCDashBoard _ucdashBoard;
+        private UcDashBoard _ucdashBoard;
         private UcReportes _ucReportes;
       
 
@@ -40,7 +40,7 @@ namespace app.Ventas.Formularios
 
             }
             //Despues de configurar Roles mostramos el label
-            lblUsuario.Text = $"Bienvenido, {_usuario.NombreCompleto} ({_usuario.Rol})";
+            lblUsuario.Text = $"Bienvenido,\n{_usuario.NombreCompleto} ({_usuario.Rol})";
         }
 
         //NOTA: El método mostrarContenido fue eliminado porque solo funcionaba dentro de este formulario.
@@ -209,7 +209,7 @@ namespace app.Ventas.Formularios
 
         private void ibtnDashBoard_Click(object sender, EventArgs e)
         {
-            _ucdashBoard = new UCDashBoard();
+            _ucdashBoard = new UcDashBoard();
             panelCentral.MostrarVista(_ucdashBoard);
         }
 

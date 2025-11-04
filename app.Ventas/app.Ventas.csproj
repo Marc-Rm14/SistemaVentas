@@ -118,11 +118,11 @@
     <Compile Include="Formularios\UcClientes.Designer.cs">
       <DependentUpon>UcClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\UCDashBoard.cs">
+    <Compile Include="Formularios\UcDashBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Formularios\UCDashBoard.Designer.cs">
-      <DependentUpon>UCDashBoard.cs</DependentUpon>
+    <Compile Include="Formularios\UcDashBoard.Designer.cs">
+      <DependentUpon>UcDashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\UCProductos.cs">
       <SubType>UserControl</SubType>
@@ -183,8 +183,8 @@
     <EmbeddedResource Include="Formularios\UcClientes.resx">
       <DependentUpon>UcClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\UCDashBoard.resx">
-      <DependentUpon>UCDashBoard.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\UcDashBoard.resx">
+      <DependentUpon>UcDashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\UCProductos.resx">
       <DependentUpon>UCProductos.cs</DependentUpon>

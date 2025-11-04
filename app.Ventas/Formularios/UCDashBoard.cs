@@ -13,9 +13,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace app.Ventas.Formularios
 {
-    public partial class UCDashBoard : UserControl
+    public partial class UcDashBoard : UserControl
     {
-        public UCDashBoard()
+        public UcDashBoard()
         {
             InitializeComponent();
         }
