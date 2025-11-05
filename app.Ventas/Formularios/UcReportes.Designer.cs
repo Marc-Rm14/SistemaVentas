@@ -33,15 +33,19 @@
             this.cuiGroupBox1 = new CuoreUI.Controls.cuiGroupBox();
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvReportes = new System.Windows.Forms.DataGridView();
             this.cmbUsuarios = new System.Windows.Forms.ComboBox();
             this.ibtnReporte = new FontAwesome.Sharp.IconButton();
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.cuiCalendarDatePicker2 = new CuoreUI.Controls.cuiCalendarDatePicker();
             this.cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
+            this.ibtnLimpiar = new FontAwesome.Sharp.IconButton();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.cuiPanelReportes = new CuoreUI.Controls.cuiPanel();
+            this.dgvReportes = new System.Windows.Forms.DataGridView();
             this.cuiPanel1.SuspendLayout();
             this.cuiGroupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.cuiPanelReportes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +73,7 @@
             this.cuiGroupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.cuiGroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiGroupBox1.Content = "";
+            this.cuiGroupBox1.Controls.Add(this.ibtnLimpiar);
             this.cuiGroupBox1.Controls.Add(this.cmbClientes);
             this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel1);
             this.cuiGroupBox1.Controls.Add(this.cmbUsuarios);
@@ -87,7 +92,7 @@
             // cmbClientes
             // 
             this.cmbClientes.Location = new System.Drawing.Point(548, 134);
-            this.cmbClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbClientes.Margin = new System.Windows.Forms.Padding(2);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(245, 29);
             this.cmbClientes.TabIndex = 8;
@@ -98,35 +103,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.dgvReportes, 0, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.lblFiltro, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cuiPanelReportes, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 196);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1052, 336);
             this.tableLayoutPanel1.TabIndex = 6;
-            // 
-            // dgvReportes
-            // 
-            this.dgvReportes.AllowUserToAddRows = false;
-            this.dgvReportes.AllowUserToDeleteRows = false;
-            this.dgvReportes.AllowUserToOrderColumns = true;
-            this.dgvReportes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvReportes.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvReportes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvReportes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReportes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvReportes.Location = new System.Drawing.Point(3, 3);
-            this.dgvReportes.Name = "dgvReportes";
-            this.dgvReportes.ReadOnly = true;
-            this.dgvReportes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvReportes.RowHeadersWidth = 51;
-            this.dgvReportes.RowTemplate.Height = 28;
-            this.dgvReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReportes.Size = new System.Drawing.Size(1046, 330);
-            this.dgvReportes.TabIndex = 4;
             // 
             // cmbUsuarios
             // 
@@ -141,7 +128,7 @@
             this.ibtnReporte.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ibtnReporte.IconColor = System.Drawing.Color.Black;
             this.ibtnReporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnReporte.Location = new System.Drawing.Point(855, 45);
+            this.ibtnReporte.Location = new System.Drawing.Point(855, 38);
             this.ibtnReporte.Name = "ibtnReporte";
             this.ibtnReporte.Size = new System.Drawing.Size(129, 54);
             this.ibtnReporte.TabIndex = 3;
@@ -211,6 +198,65 @@
             this.cuiCalendarDatePicker1.TabIndex = 0;
             this.cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
             // 
+            // ibtnLimpiar
+            // 
+            this.ibtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ibtnLimpiar.IconColor = System.Drawing.Color.Black;
+            this.ibtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnLimpiar.Location = new System.Drawing.Point(855, 120);
+            this.ibtnLimpiar.Name = "ibtnLimpiar";
+            this.ibtnLimpiar.Size = new System.Drawing.Size(129, 54);
+            this.ibtnLimpiar.TabIndex = 9;
+            this.ibtnLimpiar.Text = "LImpiar Filtros";
+            this.ibtnLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFiltro.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Location = new System.Drawing.Point(5, 2);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(1042, 33);
+            this.lblFiltro.TabIndex = 5;
+            this.lblFiltro.Text = "No se ha seleccionado un flitro";
+            // 
+            // cuiPanelReportes
+            // 
+            this.cuiPanelReportes.Controls.Add(this.dgvReportes);
+            this.cuiPanelReportes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cuiPanelReportes.Location = new System.Drawing.Point(5, 38);
+            this.cuiPanelReportes.Name = "cuiPanelReportes";
+            this.cuiPanelReportes.OutlineThickness = 1F;
+            this.cuiPanelReportes.Padding = new System.Windows.Forms.Padding(5);
+            this.cuiPanelReportes.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiPanelReportes.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cuiPanelReportes.Rounding = new System.Windows.Forms.Padding(15);
+            this.cuiPanelReportes.Size = new System.Drawing.Size(1042, 293);
+            this.cuiPanelReportes.TabIndex = 6;
+            // 
+            // dgvReportes
+            // 
+            this.dgvReportes.AllowUserToAddRows = false;
+            this.dgvReportes.AllowUserToDeleteRows = false;
+            this.dgvReportes.AllowUserToOrderColumns = true;
+            this.dgvReportes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReportes.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvReportes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvReportes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvReportes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReportes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvReportes.Location = new System.Drawing.Point(5, 5);
+            this.dgvReportes.Name = "dgvReportes";
+            this.dgvReportes.ReadOnly = true;
+            this.dgvReportes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvReportes.RowHeadersWidth = 51;
+            this.dgvReportes.RowTemplate.Height = 28;
+            this.dgvReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvReportes.Size = new System.Drawing.Size(1032, 283);
+            this.dgvReportes.TabIndex = 5;
+            // 
             // UcReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +269,8 @@
             this.cuiPanel1.ResumeLayout(false);
             this.cuiGroupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.cuiPanelReportes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).EndInit();
             this.ResumeLayout(false);
 
@@ -235,11 +283,14 @@
         private System.Windows.Forms.ComboBox cmbFiltrar;
         private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker2;
         private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker1;
-        private System.Windows.Forms.DataGridView dgvReportes;
         private FontAwesome.Sharp.IconButton ibtnReporte;
         private System.Windows.Forms.ComboBox cmbUsuarios;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         
         private System.Windows.Forms.ComboBox cmbClientes;
+        private FontAwesome.Sharp.IconButton ibtnLimpiar;
+        private System.Windows.Forms.Label lblFiltro;
+        private CuoreUI.Controls.cuiPanel cuiPanelReportes;
+        private System.Windows.Forms.DataGridView dgvReportes;
     }
 }
