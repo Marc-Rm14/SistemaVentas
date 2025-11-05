@@ -156,7 +156,7 @@
             this.cmbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(247, 18);
+            this.cmbEstado.Location = new System.Drawing.Point(247, 14);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(117, 29);
             this.cmbEstado.TabIndex = 4;
@@ -233,7 +233,7 @@
             this.cuiPanel1.Location = new System.Drawing.Point(19, 19);
             this.cuiPanel1.Name = "cuiPanel1";
             this.cuiPanel1.OutlineThickness = 1F;
-            this.cuiPanel1.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiPanel1.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanel1.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(15);
             this.cuiPanel1.Size = new System.Drawing.Size(1073, 624);
@@ -244,8 +244,8 @@
             this.cuiGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cuiGroupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cuiGroupBox1.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiGroupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.cuiGroupBox1.BorderColor = System.Drawing.SystemColors.Control;
             this.cuiGroupBox1.Content = "";
             this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel2);
             this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel3);

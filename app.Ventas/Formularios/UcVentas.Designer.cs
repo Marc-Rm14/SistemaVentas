@@ -79,7 +79,7 @@
             this.cuiPanel1.Name = "cuiPanel1";
             this.cuiPanel1.OutlineThickness = 1F;
             this.cuiPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.cuiPanel1.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiPanel1.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanel1.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(15);
             this.cuiPanel1.Size = new System.Drawing.Size(1073, 624);
@@ -123,6 +123,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(848, 108);
             this.panel1.Name = "panel1";
@@ -131,6 +132,7 @@
             // 
             // cuiPanel2
             // 
+            this.cuiPanel2.BackColor = System.Drawing.SystemColors.Control;
             this.cuiPanel2.Controls.Add(this.ibtnQuitarProducto);
             this.cuiPanel2.Controls.Add(this.tableLayoutPanel2);
             this.cuiPanel2.Controls.Add(this.ibtnGuardarVenta);
@@ -140,7 +142,7 @@
             this.cuiPanel2.Name = "cuiPanel2";
             this.cuiPanel2.OutlineThickness = 1F;
             this.cuiPanel2.Padding = new System.Windows.Forms.Padding(5);
-            this.cuiPanel2.PanelColor = System.Drawing.Color.White;
+            this.cuiPanel2.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanel2.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanel2.Rounding = new System.Windows.Forms.Padding(15);
             this.cuiPanel2.Size = new System.Drawing.Size(207, 506);
@@ -162,6 +164,7 @@
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.lblCliente, 0, 0);
@@ -226,6 +229,7 @@
             // 
             // separadorSuperior
             // 
+            this.separadorSuperior.BackColor = System.Drawing.SystemColors.Control;
             this.separadorSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.separadorSuperior.Location = new System.Drawing.Point(10, 100);
             this.separadorSuperior.Name = "separadorSuperior";
@@ -234,7 +238,7 @@
             // 
             // cuiPanelTop
             // 
-            this.cuiPanelTop.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiPanelTop.BackColor = System.Drawing.SystemColors.Control;
             this.cuiPanelTop.Controls.Add(this.tableLayoutPanel3);
             this.cuiPanelTop.Controls.Add(this.tableLayoutPanel1);
             this.cuiPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -242,7 +246,7 @@
             this.cuiPanelTop.Name = "cuiPanelTop";
             this.cuiPanelTop.OutlineThickness = 1F;
             this.cuiPanelTop.Padding = new System.Windows.Forms.Padding(15);
-            this.cuiPanelTop.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiPanelTop.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanelTop.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanelTop.Rounding = new System.Windows.Forms.Padding(8);
             this.cuiPanelTop.Size = new System.Drawing.Size(1053, 90);
@@ -302,6 +306,7 @@
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
