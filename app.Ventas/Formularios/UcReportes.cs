@@ -45,7 +45,7 @@ namespace app.Ventas.Formularios
                 return;
             }
 
-            // 3. Llamar al método de generación
+            // Llamar al método de generación
             try
             {
                 GenerarReporte(idUsuarioSeleccionado, idClienteSeleccionado, fechaInicio, fechaFin);

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcReportes));
             this.cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             this.cuiPanelReportes = new CuoreUI.Controls.cuiPanel();
             this.dgvReportes = new System.Windows.Forms.DataGridView();
@@ -128,6 +127,7 @@
             // cuiLblTotalVendido
             // 
             this.cuiLblTotalVendido.Content = "Suma\\ Total:\\ C\\$0\\.00";
+            this.cuiLblTotalVendido.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLblTotalVendido.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.cuiLblTotalVendido.Location = new System.Drawing.Point(831, 28);
             this.cuiLblTotalVendido.Name = "cuiLblTotalVendido";
@@ -138,6 +138,7 @@
             // cuiLblTotalRegistros
             // 
             this.cuiLblTotalRegistros.Content = "Mostrando:\\ 0\\ Ventas";
+            this.cuiLblTotalRegistros.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLblTotalRegistros.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.cuiLblTotalRegistros.Location = new System.Drawing.Point(50, 28);
             this.cuiLblTotalRegistros.Name = "cuiLblTotalRegistros";
@@ -262,7 +263,7 @@
             this.cuiDtpFechaFin.ForeColor = System.Drawing.Color.Gray;
             this.cuiDtpFechaFin.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiDtpFechaFin.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.cuiDtpFechaFin.Icon = ((System.Drawing.Image)(resources.GetObject("cuiDtpFechaFin.Icon")));
+            this.cuiDtpFechaFin.Icon = null;
             this.cuiDtpFechaFin.IconTint = System.Drawing.Color.Gray;
             this.cuiDtpFechaFin.Location = new System.Drawing.Point(257, 79);
             this.cuiDtpFechaFin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -287,7 +288,7 @@
             this.cuiDtpFechaInicio.ForeColor = System.Drawing.Color.Gray;
             this.cuiDtpFechaInicio.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiDtpFechaInicio.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.cuiDtpFechaInicio.Icon = ((System.Drawing.Image)(resources.GetObject("cuiDtpFechaInicio.Icon")));
+            this.cuiDtpFechaInicio.Icon = null;
             this.cuiDtpFechaInicio.IconTint = System.Drawing.Color.Gray;
             this.cuiDtpFechaInicio.Location = new System.Drawing.Point(36, 79);
             this.cuiDtpFechaInicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
