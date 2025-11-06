@@ -67,9 +67,9 @@ namespace app.Ventas.Formularios
             // Establecer un rango de fechas por defecto (El mes actual)
             cuiDtpFechaInicio.Content = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1); // se crea una nueva intancia de esta clase
             cuiDtpFechaFin.Content = DateTime.Now;
-            
 
-            
+
+
             dgvReportes.DataSource = null;
 
             

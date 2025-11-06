@@ -62,13 +62,14 @@
             this.cuiPanel1.Controls.Add(this.cuiPanel2);
             this.cuiPanel1.Controls.Add(this.cuiGbFiltros);
             this.cuiPanel1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuiPanel1.Location = new System.Drawing.Point(23, 20);
+            this.cuiPanel1.Location = new System.Drawing.Point(34, 31);
+            this.cuiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cuiPanel1.Name = "cuiPanel1";
             this.cuiPanel1.OutlineThickness = 1F;
             this.cuiPanel1.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanel1.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(15);
-            this.cuiPanel1.Size = new System.Drawing.Size(1129, 593);
+            this.cuiPanel1.Size = new System.Drawing.Size(1694, 912);
             this.cuiPanel1.TabIndex = 0;
             // 
             // cuiPanelReportes
@@ -76,15 +77,15 @@
             this.cuiPanelReportes.BackColor = System.Drawing.SystemColors.Control;
             this.cuiPanelReportes.Controls.Add(this.dgvReportes);
             this.cuiPanelReportes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cuiPanelReportes.Location = new System.Drawing.Point(0, 207);
-            this.cuiPanelReportes.Margin = new System.Windows.Forms.Padding(5);
+            this.cuiPanelReportes.Location = new System.Drawing.Point(0, 318);
+            this.cuiPanelReportes.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.cuiPanelReportes.Name = "cuiPanelReportes";
             this.cuiPanelReportes.OutlineThickness = 1F;
-            this.cuiPanelReportes.Padding = new System.Windows.Forms.Padding(5);
+            this.cuiPanelReportes.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.cuiPanelReportes.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanelReportes.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanelReportes.Rounding = new System.Windows.Forms.Padding(15);
-            this.cuiPanelReportes.Size = new System.Drawing.Size(1129, 298);
+            this.cuiPanelReportes.Size = new System.Drawing.Size(1694, 459);
             this.cuiPanelReportes.TabIndex = 11;
             // 
             // dgvReportes
@@ -99,14 +100,15 @@
             this.dgvReportes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReportes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvReportes.Location = new System.Drawing.Point(5, 5);
+            this.dgvReportes.Location = new System.Drawing.Point(8, 8);
+            this.dgvReportes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvReportes.Name = "dgvReportes";
             this.dgvReportes.ReadOnly = true;
             this.dgvReportes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvReportes.RowHeadersWidth = 51;
             this.dgvReportes.RowTemplate.Height = 28;
             this.dgvReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReportes.Size = new System.Drawing.Size(1119, 288);
+            this.dgvReportes.Size = new System.Drawing.Size(1678, 443);
             this.dgvReportes.TabIndex = 5;
             // 
             // cuiPanel2
@@ -115,13 +117,14 @@
             this.cuiPanel2.Controls.Add(this.cuiLblTotalVendido);
             this.cuiPanel2.Controls.Add(this.cuiLblTotalRegistros);
             this.cuiPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cuiPanel2.Location = new System.Drawing.Point(0, 505);
+            this.cuiPanel2.Location = new System.Drawing.Point(0, 777);
+            this.cuiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cuiPanel2.Name = "cuiPanel2";
             this.cuiPanel2.OutlineThickness = 1F;
             this.cuiPanel2.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanel2.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanel2.Rounding = new System.Windows.Forms.Padding(15);
-            this.cuiPanel2.Size = new System.Drawing.Size(1129, 88);
+            this.cuiPanel2.Size = new System.Drawing.Size(1694, 135);
             this.cuiPanel2.TabIndex = 10;
             // 
             // cuiLblTotalVendido
@@ -129,9 +132,10 @@
             this.cuiLblTotalVendido.Content = "Suma\\ Total:\\ C\\$0\\.00";
             this.cuiLblTotalVendido.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLblTotalVendido.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.cuiLblTotalVendido.Location = new System.Drawing.Point(831, 28);
+            this.cuiLblTotalVendido.Location = new System.Drawing.Point(1246, 43);
+            this.cuiLblTotalVendido.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.cuiLblTotalVendido.Name = "cuiLblTotalVendido";
-            this.cuiLblTotalVendido.Size = new System.Drawing.Size(210, 47);
+            this.cuiLblTotalVendido.Size = new System.Drawing.Size(315, 72);
             this.cuiLblTotalVendido.TabIndex = 1;
             this.cuiLblTotalVendido.VerticalAlignment = System.Drawing.StringAlignment.Near;
             // 
@@ -140,9 +144,10 @@
             this.cuiLblTotalRegistros.Content = "Mostrando:\\ 0\\ Ventas";
             this.cuiLblTotalRegistros.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLblTotalRegistros.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.cuiLblTotalRegistros.Location = new System.Drawing.Point(50, 28);
+            this.cuiLblTotalRegistros.Location = new System.Drawing.Point(75, 43);
+            this.cuiLblTotalRegistros.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.cuiLblTotalRegistros.Name = "cuiLblTotalRegistros";
-            this.cuiLblTotalRegistros.Size = new System.Drawing.Size(210, 47);
+            this.cuiLblTotalRegistros.Size = new System.Drawing.Size(315, 72);
             this.cuiLblTotalRegistros.TabIndex = 0;
             this.cuiLblTotalRegistros.VerticalAlignment = System.Drawing.StringAlignment.Near;
             // 
@@ -164,19 +169,21 @@
             this.cuiGbFiltros.Dock = System.Windows.Forms.DockStyle.Top;
             this.cuiGbFiltros.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiGbFiltros.Location = new System.Drawing.Point(0, 0);
+            this.cuiGbFiltros.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cuiGbFiltros.Name = "cuiGbFiltros";
-            this.cuiGbFiltros.Padding = new System.Windows.Forms.Padding(15, 33, 15, 15);
+            this.cuiGbFiltros.Padding = new System.Windows.Forms.Padding(15, 43, 15, 15);
             this.cuiGbFiltros.Rounding = new System.Windows.Forms.Padding(15);
-            this.cuiGbFiltros.Size = new System.Drawing.Size(1129, 207);
+            this.cuiGbFiltros.Size = new System.Drawing.Size(1694, 318);
             this.cuiGbFiltros.TabIndex = 0;
             // 
             // cuiLabel4
             // 
             this.cuiLabel4.Content = "Clientes:";
             this.cuiLabel4.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.cuiLabel4.Location = new System.Drawing.Point(566, 116);
+            this.cuiLabel4.Location = new System.Drawing.Point(849, 178);
+            this.cuiLabel4.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.cuiLabel4.Name = "cuiLabel4";
-            this.cuiLabel4.Size = new System.Drawing.Size(210, 47);
+            this.cuiLabel4.Size = new System.Drawing.Size(315, 72);
             this.cuiLabel4.TabIndex = 13;
             this.cuiLabel4.VerticalAlignment = System.Drawing.StringAlignment.Near;
             // 
@@ -184,9 +191,10 @@
             // 
             this.cuiLabel3.Content = "Usuarios:";
             this.cuiLabel3.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.cuiLabel3.Location = new System.Drawing.Point(566, 24);
+            this.cuiLabel3.Location = new System.Drawing.Point(849, 37);
+            this.cuiLabel3.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.cuiLabel3.Name = "cuiLabel3";
-            this.cuiLabel3.Size = new System.Drawing.Size(210, 47);
+            this.cuiLabel3.Size = new System.Drawing.Size(315, 72);
             this.cuiLabel3.TabIndex = 12;
             this.cuiLabel3.VerticalAlignment = System.Drawing.StringAlignment.Near;
             // 
@@ -195,9 +203,10 @@
             this.cuiLabel2.Content = "Hasta:";
             this.cuiLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLabel2.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.cuiLabel2.Location = new System.Drawing.Point(234, 24);
+            this.cuiLabel2.Location = new System.Drawing.Point(351, 37);
+            this.cuiLabel2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.cuiLabel2.Name = "cuiLabel2";
-            this.cuiLabel2.Size = new System.Drawing.Size(210, 47);
+            this.cuiLabel2.Size = new System.Drawing.Size(315, 72);
             this.cuiLabel2.TabIndex = 11;
             this.cuiLabel2.VerticalAlignment = System.Drawing.StringAlignment.Near;
             // 
@@ -206,9 +215,10 @@
             this.cuiLabel1.Content = "Desde:";
             this.cuiLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLabel1.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.cuiLabel1.Location = new System.Drawing.Point(18, 24);
+            this.cuiLabel1.Location = new System.Drawing.Point(27, 37);
+            this.cuiLabel1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.cuiLabel1.Name = "cuiLabel1";
-            this.cuiLabel1.Size = new System.Drawing.Size(210, 47);
+            this.cuiLabel1.Size = new System.Drawing.Size(315, 72);
             this.cuiLabel1.TabIndex = 10;
             this.cuiLabel1.VerticalAlignment = System.Drawing.StringAlignment.Near;
             // 
@@ -218,27 +228,29 @@
             this.ibtnLimpiarFiltros.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ibtnLimpiarFiltros.IconColor = System.Drawing.Color.Black;
             this.ibtnLimpiarFiltros.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnLimpiarFiltros.Location = new System.Drawing.Point(938, 146);
+            this.ibtnLimpiarFiltros.Location = new System.Drawing.Point(1414, 217);
+            this.ibtnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ibtnLimpiarFiltros.Name = "ibtnLimpiarFiltros";
-            this.ibtnLimpiarFiltros.Size = new System.Drawing.Size(129, 54);
+            this.ibtnLimpiarFiltros.Size = new System.Drawing.Size(194, 83);
             this.ibtnLimpiarFiltros.TabIndex = 9;
             this.ibtnLimpiarFiltros.Text = "LImpiar";
             this.ibtnLimpiarFiltros.UseVisualStyleBackColor = true;
+            this.ibtnLimpiarFiltros.Click += new System.EventHandler(this.ibtnLimpiarFiltros_Click);
             // 
             // cmbClientes
             // 
-            this.cmbClientes.Location = new System.Drawing.Point(548, 172);
-            this.cmbClientes.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbClientes.Location = new System.Drawing.Point(822, 265);
             this.cmbClientes.Name = "cmbClientes";
-            this.cmbClientes.Size = new System.Drawing.Size(245, 28);
+            this.cmbClientes.Size = new System.Drawing.Size(366, 39);
             this.cmbClientes.TabIndex = 8;
             // 
             // cmbUsuarios
             // 
             this.cmbUsuarios.FormattingEnabled = true;
-            this.cmbUsuarios.Location = new System.Drawing.Point(548, 77);
+            this.cmbUsuarios.Location = new System.Drawing.Point(822, 118);
+            this.cmbUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbUsuarios.Name = "cmbUsuarios";
-            this.cmbUsuarios.Size = new System.Drawing.Size(245, 28);
+            this.cmbUsuarios.Size = new System.Drawing.Size(366, 39);
             this.cmbUsuarios.TabIndex = 5;
             // 
             // ibtnReporte
@@ -247,9 +259,10 @@
             this.ibtnReporte.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ibtnReporte.IconColor = System.Drawing.Color.Black;
             this.ibtnReporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnReporte.Location = new System.Drawing.Point(938, 51);
+            this.ibtnReporte.Location = new System.Drawing.Point(1414, 70);
+            this.ibtnReporte.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ibtnReporte.Name = "ibtnReporte";
-            this.ibtnReporte.Size = new System.Drawing.Size(129, 54);
+            this.ibtnReporte.Size = new System.Drawing.Size(194, 83);
             this.ibtnReporte.TabIndex = 3;
             this.ibtnReporte.Text = "Generar Reporte";
             this.ibtnReporte.UseVisualStyleBackColor = true;
@@ -265,8 +278,8 @@
             this.cuiDtpFechaFin.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiDtpFechaFin.Icon = null;
             this.cuiDtpFechaFin.IconTint = System.Drawing.Color.Gray;
-            this.cuiDtpFechaFin.Location = new System.Drawing.Point(257, 79);
-            this.cuiDtpFechaFin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cuiDtpFechaFin.Location = new System.Drawing.Point(386, 122);
+            this.cuiDtpFechaFin.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.cuiDtpFechaFin.Name = "cuiDtpFechaFin";
             this.cuiDtpFechaFin.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiDtpFechaFin.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -276,7 +289,7 @@
             this.cuiDtpFechaFin.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiDtpFechaFin.Rounding = 15;
             this.cuiDtpFechaFin.ShowIcon = true;
-            this.cuiDtpFechaFin.Size = new System.Drawing.Size(172, 59);
+            this.cuiDtpFechaFin.Size = new System.Drawing.Size(258, 91);
             this.cuiDtpFechaFin.TabIndex = 1;
             this.cuiDtpFechaFin.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
             // 
@@ -290,8 +303,8 @@
             this.cuiDtpFechaInicio.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiDtpFechaInicio.Icon = null;
             this.cuiDtpFechaInicio.IconTint = System.Drawing.Color.Gray;
-            this.cuiDtpFechaInicio.Location = new System.Drawing.Point(36, 79);
-            this.cuiDtpFechaInicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cuiDtpFechaInicio.Location = new System.Drawing.Point(54, 122);
+            this.cuiDtpFechaInicio.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.cuiDtpFechaInicio.Name = "cuiDtpFechaInicio";
             this.cuiDtpFechaInicio.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiDtpFechaInicio.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -301,19 +314,20 @@
             this.cuiDtpFechaInicio.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiDtpFechaInicio.Rounding = 15;
             this.cuiDtpFechaInicio.ShowIcon = true;
-            this.cuiDtpFechaInicio.Size = new System.Drawing.Size(172, 59);
+            this.cuiDtpFechaInicio.Size = new System.Drawing.Size(258, 91);
             this.cuiDtpFechaInicio.TabIndex = 0;
             this.cuiDtpFechaInicio.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
             // 
             // UcReportes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.cuiPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UcReportes";
-            this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(1174, 621);
+            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Size = new System.Drawing.Size(1761, 955);
             this.Load += new System.EventHandler(this.UcReportes_Load);
             this.cuiPanel1.ResumeLayout(false);
             this.cuiPanelReportes.ResumeLayout(false);
