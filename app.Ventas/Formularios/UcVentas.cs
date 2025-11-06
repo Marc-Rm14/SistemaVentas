@@ -335,7 +335,7 @@ namespace app.Ventas.Formularios
         {
             if (cmbClientes.SelectedItem == null)
             {
-                lblCliente.Text = "Cliente Selecionado: N/A";
+                lblCliente.Text = "Cliente Selecionado:\nN/A";
                 return;
             }
             DataRowView drv = (DataRowView)cmbClientes.SelectedItem;
@@ -344,7 +344,7 @@ namespace app.Ventas.Formularios
             string cedula = drv["Cedula"].ToString();
             string telefono = drv["Telefono"].ToString(); //Accedemos por nombre de columna
 
-            lblCliente.Text = $"Cliente seleccionado: {nombre}";
+            lblCliente.Text = $"Cliente seleccionado:\n{nombre}";
 
 
         }
@@ -355,6 +355,7 @@ namespace app.Ventas.Formularios
             cmbProductos.SelectedIndex = -1;
             numCantidad.Value = 1;
             dgvDetalles.Rows.Clear();
+            CalcularTotalVenta();
         }
 
         private void ibtnGuardarVenta_Click(object sender, EventArgs e)

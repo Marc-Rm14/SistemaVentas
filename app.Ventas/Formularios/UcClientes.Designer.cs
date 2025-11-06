@@ -60,7 +60,7 @@
             this.cuiPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.cuiPanel1.Name = "cuiPanel1";
             this.cuiPanel1.OutlineThickness = 1F;
-            this.cuiPanel1.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiPanel1.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanel1.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(15);
             this.cuiPanel1.Size = new System.Drawing.Size(1431, 768);
@@ -71,8 +71,8 @@
             this.cuiGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cuiGroupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cuiGroupBox1.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cuiGroupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.cuiGroupBox1.BorderColor = System.Drawing.SystemColors.Control;
             this.cuiGroupBox1.Content = "";
             this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel3);
             this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel2);
@@ -263,7 +263,7 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(7, 2);
