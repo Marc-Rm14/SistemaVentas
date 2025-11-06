@@ -150,7 +150,7 @@ namespace app.Ventas.Formularios
 
 
 
-        private void cmbFliltrar_SelectedIndexChanged(object sender, EventArgs e)
+        /*private void cmbFliltrar_SelectedIndexChanged(object sender, EventArgs e)
         {
             string tipoFltro = cmbFiltrar.SelectedItem.ToString().Trim();
             Debug.Write(tipoFltro);
@@ -159,8 +159,7 @@ namespace app.Ventas.Formularios
 
 
 
-        }
-
+        }*/
         private void UcReportes_Load(object sender, EventArgs e)
         {
             CargarUsuarios();
