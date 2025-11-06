@@ -13,20 +13,25 @@ namespace app.Ventas.Formularios
         public FrmAgregarCliente()
         {
             InitializeComponent();
+            
+            chkActivo.Checked = true;
         }
 
         
-        public FrmAgregarCliente(int id, string cedula, string nombre, string telefono)
+        public FrmAgregarCliente(int id, string cedula, string nombre, string telefono, bool activo)
         {
             InitializeComponent();
+            chkActivo.Enabled = true;
+            chkActivo.Content = "Un check es activo y viceversa";
             txtId.Text = id.ToString();
             txtCedula.Text = cedula;
             txtNombre.Text = nombre;
             txtTelefono.Text = telefono;
+            chkActivo.Checked = activo;
 
         }
 
-        private void ActualizarCliente(int usuarioId, string cedula, string nombre, string telefono)
+        private void ActualizarCliente(int clienteId, string cedula, string nombre, string telefono, bool Activo)
         {
             try
             {
@@ -37,15 +42,17 @@ namespace app.Ventas.Formularios
                     string consulta = @"UPDATE Clientes
                                         SET Cedula = @Cedula,
                                             NombreCompleto = @Nombre,
-                                            Telefono = @Telefono
+                                            Telefono = @Telefono,
+                                            Activo = @Activo
                                         WHERE ClienteID = @usuarioId";
 
                     SqlCommand command = new SqlCommand(consulta, conexion);
-                    command.Parameters.Add("@usuarioId",SqlDbType.Int).Value = usuarioId;
+                    command.Parameters.Add("@usuarioId",SqlDbType.Int).Value = clienteId;
                     command.Parameters.Add("@Cedula", SqlDbType.VarChar, 20).Value = cedula;
                     command.Parameters.Add("@Nombre", SqlDbType.NVarChar, 100).Value = nombre;
                     command.Parameters.Add("@Telefono", SqlDbType.VarChar,20).Value = telefono;
-                    
+                    command.Parameters.Add("@Activo", SqlDbType.Bit).Value = Activo;
+
                     conexion.Open();
 
                     int resultado = command.ExecuteNonQuery();
@@ -159,6 +166,8 @@ namespace app.Ventas.Formularios
             }
 
             // TODO: CONTINUAMOS DESDE AQUÍ
+
+            bool activo = chkActivo.Checked;
             string cedula = txtCedula.Text.Trim();
             string nombre = txtNombre.Text.Trim();
             string telefono = txtTelefono.Text.Trim();
@@ -195,7 +204,7 @@ namespace app.Ventas.Formularios
                     if (resultado == DialogResult.No) return;
 
                         // ACTUALIZAR PRODUCTO EXISTENTE
-                    ActualizarCliente(clienteId, cedula, nombre, telefono);
+                    ActualizarCliente(clienteId, cedula, nombre, telefono, activo);
 
                     operacionExitosa = true;
                 }
