@@ -113,7 +113,7 @@
             this.cuiTxtBuscar.ImageExpand = new System.Drawing.Point(0, 0);
             this.cuiTxtBuscar.ImageOffset = new System.Drawing.Point(0, 0);
             this.cuiTxtBuscar.Location = new System.Drawing.Point(4, 6);
-            this.cuiTxtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cuiTxtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.cuiTxtBuscar.Multiline = false;
             this.cuiTxtBuscar.Name = "cuiTxtBuscar";
             this.cuiTxtBuscar.NormalImageTint = System.Drawing.Color.White;
@@ -151,7 +151,7 @@
             this.cmbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(243, 14);
+            this.cmbEstado.Location = new System.Drawing.Point(243, 18);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(110, 29);
             this.cmbEstado.TabIndex = 5;
@@ -246,7 +246,7 @@
             this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(29, 15);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(977, 57);
@@ -269,7 +269,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cuiPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UcClientes";
             this.Size = new System.Drawing.Size(1112, 664);
             this.Load += new System.EventHandler(this.UcClientes_Load);

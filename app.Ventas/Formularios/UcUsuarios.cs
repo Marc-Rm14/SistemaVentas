@@ -134,7 +134,7 @@ namespace app.Ventas.Formularios
                     string nombreCompleto = Convert.ToString(dgvUsuarios.Rows[e.RowIndex].Cells["nombre"].Value);
                     
                     int rolId = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells["RolID"].Value);
-                    string textoCheck = "Por defecto el campo es activo";
+                    string textoCheck = "Un es activo y viceversa";
                     bool activo = false;
                     var activoVal = dgvUsuarios.Rows[e.RowIndex].Cells["Activo"].Value;
                     if (activoVal != null && activoVal != DBNull.Value)
