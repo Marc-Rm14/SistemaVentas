@@ -57,12 +57,11 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.dgvUsuarios, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(38, 214);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(29, 174);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1305, 494);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(977, 400);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // dgvUsuarios
@@ -80,15 +79,14 @@
             this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.GridColor = System.Drawing.Color.LightGray;
-            this.dgvUsuarios.Location = new System.Drawing.Point(4, 4);
-            this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvUsuarios.Location = new System.Drawing.Point(3, 3);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvUsuarios.RowHeadersWidth = 51;
             this.dgvUsuarios.RowTemplate.Height = 28;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(1297, 486);
+            this.dgvUsuarios.Size = new System.Drawing.Size(971, 394);
             this.dgvUsuarios.TabIndex = 0;
             this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
             // 
@@ -99,12 +97,11 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.cuiTxtBuscar, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(38, 96);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(29, 78);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(733, 71);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(548, 58);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // cuiTxtBuscar
@@ -121,18 +118,18 @@
             this.cuiTxtBuscar.Image = null;
             this.cuiTxtBuscar.ImageExpand = new System.Drawing.Point(0, 0);
             this.cuiTxtBuscar.ImageOffset = new System.Drawing.Point(0, 0);
-            this.cuiTxtBuscar.Location = new System.Drawing.Point(5, 8);
-            this.cuiTxtBuscar.Margin = new System.Windows.Forms.Padding(5);
+            this.cuiTxtBuscar.Location = new System.Drawing.Point(4, 6);
+            this.cuiTxtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cuiTxtBuscar.Multiline = false;
             this.cuiTxtBuscar.Name = "cuiTxtBuscar";
             this.cuiTxtBuscar.NormalImageTint = System.Drawing.Color.White;
             this.cuiTxtBuscar.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.cuiTxtBuscar.Padding = new System.Windows.Forms.Padding(27, 14, 27, 0);
+            this.cuiTxtBuscar.Padding = new System.Windows.Forms.Padding(22, 11, 22, 0);
             this.cuiTxtBuscar.PasswordChar = false;
             this.cuiTxtBuscar.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cuiTxtBuscar.PlaceholderText = "Buscar Usuarios";
             this.cuiTxtBuscar.Rounding = new System.Windows.Forms.Padding(15);
-            this.cuiTxtBuscar.Size = new System.Drawing.Size(723, 55);
+            this.cuiTxtBuscar.Size = new System.Drawing.Size(540, 45);
             this.cuiTxtBuscar.TabIndex = 1;
             this.cuiTxtBuscar.TextOffset = new System.Drawing.Size(0, 0);
             this.cuiTxtBuscar.UnderlinedStyle = true;
@@ -148,12 +145,11 @@
             this.tableLayoutPanel2.Controls.Add(this.cmbEstado, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ibtnEliminar, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.ibtnAgregar, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(853, 96);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(639, 78);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(489, 71);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 58);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // cmbEstado
@@ -161,11 +157,10 @@
             this.cmbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
-
-            this.cmbEstado.Location = new System.Drawing.Point(247, 14);
-
+            this.cmbEstado.Location = new System.Drawing.Point(246, 14);
+            this.cmbEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(155, 36);
+            this.cmbEstado.Size = new System.Drawing.Size(119, 29);
             this.cmbEstado.TabIndex = 4;
             this.cmbEstado.Visible = false;
             this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
@@ -177,10 +172,10 @@
             this.ibtnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnEliminar.IconSize = 30;
             this.ibtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnEliminar.Location = new System.Drawing.Point(166, 2);
-            this.ibtnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ibtnEliminar.Location = new System.Drawing.Point(124, 2);
+            this.ibtnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ibtnEliminar.Name = "ibtnEliminar";
-            this.ibtnEliminar.Size = new System.Drawing.Size(157, 58);
+            this.ibtnEliminar.Size = new System.Drawing.Size(118, 47);
             this.ibtnEliminar.TabIndex = 4;
             this.ibtnEliminar.Text = "Eliminar";
             this.ibtnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -194,10 +189,9 @@
             this.ibtnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnAgregar.IconSize = 30;
             this.ibtnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnAgregar.Location = new System.Drawing.Point(4, 4);
-            this.ibtnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.ibtnAgregar.Location = new System.Drawing.Point(3, 3);
             this.ibtnAgregar.Name = "ibtnAgregar";
-            this.ibtnAgregar.Size = new System.Drawing.Size(155, 55);
+            this.ibtnAgregar.Size = new System.Drawing.Size(116, 45);
             this.ibtnAgregar.TabIndex = 3;
             this.ibtnAgregar.Text = "Agregar";
             this.ibtnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -211,13 +205,12 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(38, 19);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(29, 15);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1305, 70);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(977, 57);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -225,10 +218,9 @@
             this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 2);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(5, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1291, 66);
+            this.label1.Size = new System.Drawing.Size(967, 53);
             this.label1.TabIndex = 0;
             this.label1.Text = "Listado Usuarios";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -240,14 +232,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cuiPanel1.Controls.Add(this.cuiGroupBox1);
             this.cuiPanel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuiPanel1.Location = new System.Drawing.Point(25, 23);
-            this.cuiPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.cuiPanel1.Location = new System.Drawing.Point(19, 19);
             this.cuiPanel1.Name = "cuiPanel1";
             this.cuiPanel1.OutlineThickness = 1F;
             this.cuiPanel1.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanel1.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(15);
-            this.cuiPanel1.Size = new System.Drawing.Size(1431, 768);
+            this.cuiPanel1.Size = new System.Drawing.Size(1073, 624);
             this.cuiPanel1.TabIndex = 1;
             // 
             // cuiGroupBox1
@@ -262,22 +253,20 @@
             this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel3);
             this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel4);
             this.cuiGroupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.cuiGroupBox1.Location = new System.Drawing.Point(28, 22);
-            this.cuiGroupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.cuiGroupBox1.Location = new System.Drawing.Point(21, 18);
             this.cuiGroupBox1.Name = "cuiGroupBox1";
-            this.cuiGroupBox1.Padding = new System.Windows.Forms.Padding(4, 29, 4, 4);
+            this.cuiGroupBox1.Padding = new System.Windows.Forms.Padding(4, 24, 4, 4);
             this.cuiGroupBox1.Rounding = new System.Windows.Forms.Padding(4);
-            this.cuiGroupBox1.Size = new System.Drawing.Size(1380, 730);
+            this.cuiGroupBox1.Size = new System.Drawing.Size(1035, 593);
             this.cuiGroupBox1.TabIndex = 0;
             // 
             // UcUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cuiPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UcUsuarios";
-            this.Size = new System.Drawing.Size(1483, 817);
+            this.Size = new System.Drawing.Size(1112, 664);
             this.Load += new System.EventHandler(this.UcUsuarios_Load);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();

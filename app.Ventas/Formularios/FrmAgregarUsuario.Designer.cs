@@ -101,7 +101,7 @@
             // 
             this.cmbRoles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbRoles.FormattingEnabled = true;
-            this.cmbRoles.Location = new System.Drawing.Point(116, 160);
+            this.cmbRoles.Location = new System.Drawing.Point(116, 164);
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(450, 29);
             this.cmbRoles.TabIndex = 8;
@@ -267,6 +267,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 7;
+            this.txtId.Visible = false;
             // 
             // errorIcono
             // 

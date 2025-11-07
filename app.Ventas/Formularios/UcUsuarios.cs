@@ -134,13 +134,13 @@ namespace app.Ventas.Formularios
                     string nombreCompleto = Convert.ToString(dgvUsuarios.Rows[e.RowIndex].Cells["nombre"].Value);
                     
                     int rolId = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells["RolID"].Value);
-
+                    string textoCheck = "Por defecto el campo es activo";
                     bool activo = false;
                     var activoVal = dgvUsuarios.Rows[e.RowIndex].Cells["Activo"].Value;
                     if (activoVal != null && activoVal != DBNull.Value)
                         activo = Convert.ToBoolean(activoVal);
                     // Ahora el formulario no debería recibir 'codigo' como parámetro editable
-                    FrmAgregarUsuario frm = new FrmAgregarUsuario(id, nombreUsuario, contrasenaUsuario, nombreCompleto, rolId, activo);
+                    FrmAgregarUsuario frm = new FrmAgregarUsuario(id, nombreUsuario, contrasenaUsuario, nombreCompleto, rolId, activo, textoCheck);
 
                     frm.registroAgregado += refrescarDatos;
                     MostrarModal.MostrarConCapa(this, frm);

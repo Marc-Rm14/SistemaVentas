@@ -17,12 +17,12 @@ namespace app.Ventas.Formularios
             chkActivo.Checked = true;
         }
 
-        public FrmAgregarUsuario(int usuarioId, string nombreUsuario, string contrasenaUsuario, string nombreCompleto, int idRol, bool activo)
+        public FrmAgregarUsuario(int usuarioId, string nombreUsuario, string contrasenaUsuario, string nombreCompleto, int idRol, bool activo, string textoCheck)
         {
             InitializeComponent();
             CargarRoles();
             chkActivo.Enabled = true;
-            chkActivo.Content = "Un check es activo y viceversa";
+            chkActivo.Content = textoCheck;
             txtId.Text = usuarioId.ToString();
             txtNombreUsuario.Text = nombreUsuario;
             txtContrasenaUsuario.Text = contrasenaUsuario;
