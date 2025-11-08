@@ -119,7 +119,7 @@
             this.cuiTxtBuscar.ImageExpand = new System.Drawing.Point(0, 0);
             this.cuiTxtBuscar.ImageOffset = new System.Drawing.Point(0, 0);
             this.cuiTxtBuscar.Location = new System.Drawing.Point(4, 6);
-            this.cuiTxtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cuiTxtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.cuiTxtBuscar.Multiline = false;
             this.cuiTxtBuscar.Name = "cuiTxtBuscar";
             this.cuiTxtBuscar.NormalImageTint = System.Drawing.Color.White;
@@ -157,8 +157,8 @@
             this.cmbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(246, 14);
-            this.cmbEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbEstado.Location = new System.Drawing.Point(246, 18);
+            this.cmbEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(119, 29);
             this.cmbEstado.TabIndex = 4;
@@ -173,7 +173,7 @@
             this.ibtnEliminar.IconSize = 30;
             this.ibtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ibtnEliminar.Location = new System.Drawing.Point(124, 2);
-            this.ibtnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ibtnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.ibtnEliminar.Name = "ibtnEliminar";
             this.ibtnEliminar.Size = new System.Drawing.Size(118, 47);
             this.ibtnEliminar.TabIndex = 4;
@@ -207,7 +207,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(29, 15);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(977, 57);
