@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using app.Ventas.Utilidades;
@@ -11,34 +12,44 @@ namespace app.Ventas.Formularios
         public frmAgregarCategoria()
         {
             InitializeComponent();
+            chkActivo.Checked = true;
         }
 
-        public frmAgregarCategoria(int categoriaId, string nombre)
+        public frmAgregarCategoria(int categoriaId, string nombre, bool activo, string textoCheck)
         {
+
             InitializeComponent();
+            chkActivo.Enabled = true;   
+            chkActivo.Content = textoCheck;
+            
             txtId.Text = categoriaId.ToString();
             txtAgCategoria.Text = nombre;
+            chkActivo.Checked = activo;
+
         }
 
         #region Metodos
 
-        private void ActualizarCategoria(int categoriaId, string categoria)
+        private void ActualizarCategoria(int categoriaId, string categoria, bool activo)
         {
             try
             {
                 string connetionString = ConexionDB.ObtenerConexion();
-
-                using (SqlConnection conexion = new SqlConnection(connetionString))
-                {
-                    string consulta = @"UPDATE Categorias
-                                        SET Nombre = @Categoria
+                string consulta = @"UPDATE Categorias
+                                        SET Nombre = @Categoria,
+                                            Activo = @Activo
                                         WHERE CategoriaID = @CategoriaID";
+                using (SqlConnection conexion = new SqlConnection(connetionString))
 
-                    SqlCommand command = new SqlCommand(consulta, conexion);
 
 
-                    command.Parameters.AddWithValue("@Categoria", categoria);
-                    command.Parameters.AddWithValue("@CategoriaID", categoriaId);
+                using (SqlCommand command = new SqlCommand(consulta, conexion))
+                {
+
+
+                    command.Parameters.Add("@Categoria", SqlDbType.NVarChar, 100).Value = categoria;
+                    command.Parameters.AddWithValue("@CategoriaID", SqlDbType.Int).Value = categoriaId;
+                    command.Parameters.AddWithValue("@Activo", SqlDbType.Bit).Value = activo;
                     conexion.Open();
 
                     int resultado = command.ExecuteNonQuery();
@@ -54,8 +65,8 @@ namespace app.Ventas.Formularios
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Close();
-
                 }
+                
             }
             catch (Exception ex)
             {
@@ -140,7 +151,7 @@ namespace app.Ventas.Formularios
 
 
             string nombre = txtAgCategoria.Text.Trim();
-
+            bool activo = chkActivo.Checked;
             bool operacionExitosa = false;
 
             try
@@ -171,7 +182,7 @@ namespace app.Ventas.Formularios
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (resultado == DialogResult.No) return;
 
-                    ActualizarCategoria(categoriaId, nombre);
+                    ActualizarCategoria(categoriaId, nombre, activo);
                     operacionExitosa = true;
 
                 }

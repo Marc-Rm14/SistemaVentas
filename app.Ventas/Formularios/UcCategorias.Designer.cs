@@ -30,23 +30,23 @@
         {
             this.cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             this.cuiGroupBox1 = new CuoreUI.Controls.cuiGroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.ibtnEliminar = new FontAwesome.Sharp.IconButton();
+            this.ibtnAgregar = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cuiTxtBuscar = new CuoreUI.Controls.cuiTextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCategorias = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.ibtnEliminar = new FontAwesome.Sharp.IconButton();
-            this.ibtnAgregar = new FontAwesome.Sharp.IconButton();
             this.cuiPanel1.SuspendLayout();
             this.cuiGroupBox1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cuiPanel1
@@ -83,6 +83,69 @@
             this.cuiGroupBox1.Rounding = new System.Windows.Forms.Padding(4);
             this.cuiGroupBox1.Size = new System.Drawing.Size(1035, 593);
             this.cuiGroupBox1.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Controls.Add(this.cmbEstado, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ibtnEliminar, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ibtnAgregar, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(639, 79);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 58);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(246, 18);
+            this.cmbEstado.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(119, 29);
+            this.cmbEstado.TabIndex = 4;
+            this.cmbEstado.Visible = false;
+            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
+            // 
+            // ibtnEliminar
+            // 
+            this.ibtnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.ibtnEliminar.IconColor = System.Drawing.Color.Black;
+            this.ibtnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnEliminar.IconSize = 30;
+            this.ibtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ibtnEliminar.Location = new System.Drawing.Point(124, 2);
+            this.ibtnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnEliminar.Name = "ibtnEliminar";
+            this.ibtnEliminar.Size = new System.Drawing.Size(118, 47);
+            this.ibtnEliminar.TabIndex = 4;
+            this.ibtnEliminar.Text = "Eliminar";
+            this.ibtnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ibtnEliminar.UseVisualStyleBackColor = true;
+            this.ibtnEliminar.Click += new System.EventHandler(this.ibtnEliminarCat_Click);
+            // 
+            // ibtnAgregar
+            // 
+            this.ibtnAgregar.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.ibtnAgregar.IconColor = System.Drawing.Color.Black;
+            this.ibtnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnAgregar.IconSize = 30;
+            this.ibtnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ibtnAgregar.Location = new System.Drawing.Point(3, 3);
+            this.ibtnAgregar.Name = "ibtnAgregar";
+            this.ibtnAgregar.Size = new System.Drawing.Size(116, 45);
+            this.ibtnAgregar.TabIndex = 3;
+            this.ibtnAgregar.Text = "Agregar";
+            this.ibtnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ibtnAgregar.UseVisualStyleBackColor = true;
+            this.ibtnAgregar.Click += new System.EventHandler(this.ibtnAgregarCat_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -196,69 +259,6 @@
             this.label1.Text = "Listado Categorias";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.cmbEstado, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.ibtnEliminar, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.ibtnAgregar, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(639, 79);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 58);
-            this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(246, 14);
-            this.cmbEstado.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(119, 29);
-            this.cmbEstado.TabIndex = 4;
-            this.cmbEstado.Visible = false;
-            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
-            // 
-            // ibtnEliminar
-            // 
-            this.ibtnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.ibtnEliminar.IconColor = System.Drawing.Color.Black;
-            this.ibtnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnEliminar.IconSize = 30;
-            this.ibtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnEliminar.Location = new System.Drawing.Point(124, 2);
-            this.ibtnEliminar.Margin = new System.Windows.Forms.Padding(2);
-            this.ibtnEliminar.Name = "ibtnEliminar";
-            this.ibtnEliminar.Size = new System.Drawing.Size(118, 47);
-            this.ibtnEliminar.TabIndex = 4;
-            this.ibtnEliminar.Text = "Eliminar";
-            this.ibtnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ibtnEliminar.UseVisualStyleBackColor = true;
-            this.ibtnEliminar.Click += new System.EventHandler(this.ibtnEliminarCat_Click);
-            // 
-            // ibtnAgregar
-            // 
-            this.ibtnAgregar.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.ibtnAgregar.IconColor = System.Drawing.Color.Black;
-            this.ibtnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnAgregar.IconSize = 30;
-            this.ibtnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnAgregar.Location = new System.Drawing.Point(3, 3);
-            this.ibtnAgregar.Name = "ibtnAgregar";
-            this.ibtnAgregar.Size = new System.Drawing.Size(116, 45);
-            this.ibtnAgregar.TabIndex = 3;
-            this.ibtnAgregar.Text = "Agregar";
-            this.ibtnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ibtnAgregar.UseVisualStyleBackColor = true;
-            this.ibtnAgregar.Click += new System.EventHandler(this.ibtnAgregarCat_Click);
-            // 
             // UcCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,11 +270,11 @@
             this.Load += new System.EventHandler(this.UcCategorias_Load);
             this.cuiPanel1.ResumeLayout(false);
             this.cuiGroupBox1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
