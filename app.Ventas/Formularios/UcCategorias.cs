@@ -26,12 +26,12 @@ namespace app.Ventas.Formularios
             switch (cmbEstado.SelectedItem.ToString())
             {
                 case "Inactivos":
-                    return " WHERE u.Activo = 0";
+                    return " WHERE Activo = 0";
                 case "Todos":
                     return ""; // Sin filtro
                 case "Activos":
                 default:
-                    return " WHERE u.Activo = 1";
+                    return " WHERE Activo = 1";
             }
         }
 
@@ -128,7 +128,7 @@ namespace app.Ventas.Formularios
                 string consultaFinal = consultaSql + ObtenerFiltroActivoSQL();
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
+                    SqlDataAdapter adapter = new SqlDataAdapter(consultaFinal, conexion);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
