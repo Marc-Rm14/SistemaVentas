@@ -162,8 +162,6 @@ namespace app.Ventas.Formularios
             // <-- CAMBIO: Ya no está condicionado, siempre es visible.
             cmbEstado.Visible = true;
 
-            // Ya no se llama a AplicarPermisosInternos()
-
             // Ahora listamos los registros
             refrescarDatos();
         

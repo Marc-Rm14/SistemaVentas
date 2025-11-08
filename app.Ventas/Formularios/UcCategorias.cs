@@ -11,9 +11,28 @@ namespace app.Ventas.Formularios
         
         public event Action OnAgregarCategoriaClick;
         private Usuario _usuario;
+        private string consultaSql = @"
+                        SELECT CategoriaID,
+                               Nombre AS Categoria, Activo
+                        FROM Categorias";
+
         public UcCategorias()
         {
             InitializeComponent();
+        }
+
+        private string ObtenerFiltroActivoSQL()
+        {
+            switch (cmbEstado.SelectedItem.ToString())
+            {
+                case "Inactivos":
+                    return " WHERE u.Activo = 0";
+                case "Todos":
+                    return ""; // Sin filtro
+                case "Activos":
+                default:
+                    return " WHERE u.Activo = 1";
+            }
         }
 
         public UcCategorias(Usuario usuario)
@@ -49,7 +68,7 @@ namespace app.Ventas.Formularios
                     string nombre = Convert.ToString(dgvCategorias.Rows[e.RowIndex].Cells["Categoria"].Value);
 
                     frmAgregarCategoria frm = new frmAgregarCategoria(categoriaId, nombre);
-                    frm.registroAgregado += listarRegistro;
+                    frm.registroAgregado += refrescarDatos;
                     MostrarModal.MostrarConCapa(this, frm);
                 }
             }
@@ -96,15 +115,12 @@ namespace app.Ventas.Formularios
 
         #region Metodos
 
-        private void listarRegistro()
+        private void listarRegistros(string consultaBase)
         {
             try
             {
                 string connectionString = ConexionDB.ObtenerConexion();
-                string consultaSql = @"
-                        SELECT CategoriaID,
-                               Nombre AS Categoria
-                        FROM Categorias";
+                string consultaFinal = consultaSql + ObtenerFiltroActivoSQL();
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
@@ -119,6 +135,11 @@ namespace app.Ventas.Formularios
             {
                 MessageBox.Show("Error al listar registros: " + ex.Message);
             }
+        }
+
+        public void refrescarDatos()
+        {
+            listarRegistros(consultaSql);
         }
 
         private void formatoGrid()
@@ -137,13 +158,17 @@ namespace app.Ventas.Formularios
 
         private void UcCategorias_Load(object sender, EventArgs e)
         {
-            listarRegistro();
+            // <-- NUEVO: Configuramos el ComboBox al cargar
+            cmbEstado.Items.AddRange(new object[] { "Activos", "Inactivos", "Todos" });
+            cmbEstado.SelectedItem = "Activos";
+
+            // <-- CAMBIO: Ya no está condicionado, siempre es visible.
+            cmbEstado.Visible = true;
+
+            // Ahora listamos los registros
+            refrescarDatos();
         }
 
-        public void refrescarDatos()
-        {
-            listarRegistro();
-        }
 
         #endregion
 
@@ -187,7 +212,7 @@ namespace app.Ventas.Formularios
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     string consultaSQL = @"
-                                        DELETE Categorias WHERE CategoriaID = @idCategoria";
+                                        UPDATE Categorias SET Activivo = 0 WHERE CategoriaID = @idCategoria";
 
 
                     SqlCommand command = new SqlCommand(consultaSQL, conexion);
@@ -207,7 +232,7 @@ namespace app.Ventas.Formularios
                         MessageBox.Show("Error al eliminar la categoria.", "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                     }
-                    listarRegistro();
+                    refrescarDatos();
                 }
             }
             catch (Exception ex)
@@ -220,9 +245,13 @@ namespace app.Ventas.Formularios
         {
             OnAgregarCategoriaClick?.Invoke();
         }
+
         #endregion
 
-        
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refrescarDatos();
+        }
     }
 
 }

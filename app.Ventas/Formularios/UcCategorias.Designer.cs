@@ -224,6 +224,7 @@
             this.cmbEstado.Size = new System.Drawing.Size(119, 29);
             this.cmbEstado.TabIndex = 4;
             this.cmbEstado.Visible = false;
+            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // ibtnEliminar
             // 
