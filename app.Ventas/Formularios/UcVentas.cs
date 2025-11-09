@@ -37,8 +37,10 @@ namespace app.Ventas.Formularios
                                    Codigo,
                                    Existencias,
                                    CategoriaID
-                            FROM Productos 
-                            ORDER BY Producto";
+                            FROM Productos
+                            WHERE Activo = 1
+                            ORDER BY Producto
+                            ";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 using (SqlDataAdapter da = new SqlDataAdapter(sql, conn))
@@ -70,7 +72,9 @@ namespace app.Ventas.Formularios
 
                 string consultaSql = @"SELECT ClienteID, Cedula, NombreCompleto, telefono
                                    From Clientes
-                                   ORDER BY NombreCompleto";
+                                   WHERE Activo = 1
+                                   ORDER BY NombreCompleto
+                                   ";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 using (SqlDataAdapter da = new SqlDataAdapter(consultaSql, conn))
