@@ -37,6 +37,7 @@ namespace app.Ventas.Formularios
             {
                 ibtnClientes.Enabled = false;
                 ibtnUsuarios.Enabled = false;
+                ibtnCategorias.Enabled = false;
 
             }
             //Despues de configurar Roles mostramos el label
@@ -163,7 +164,7 @@ namespace app.Ventas.Formularios
         {
             if (_ucCategorias == null || _ucCategorias.IsDisposed)
             {
-                _ucCategorias = new UcCategorias(_usuario);
+                _ucCategorias = new UcCategorias();
 
                 _ucCategorias.OnAgregarCategoriaClick += UcProductos_OnCategoriaProductoClick; //forma explicita en vez de lambda
 
