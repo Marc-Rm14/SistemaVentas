@@ -10,7 +10,7 @@ namespace app.Ventas.Formularios
     {
         
         public event Action OnAgregarCategoriaClick;
-        private Usuario _usuario;
+        
         private string consultaSql = @"
                         SELECT CategoriaID,
                                Nombre AS Categoria, Activo
@@ -35,26 +35,6 @@ namespace app.Ventas.Formularios
             }
         }
 
-        public UcCategorias(Usuario usuario)
-        {
-            InitializeComponent();
-            _usuario = usuario;
-            AplicarPermisosInternos();
-        }
-
-        
-
-        private void AplicarPermisosInternos()
-        {
-            if (_usuario.Rol == "Vendedor")
-            {
-                ibtnAgregar.Enabled = false;
-                ibtnEliminar.Enabled = false;
-                dgvCategorias.ReadOnly = true;
-                dgvCategorias.ClearSelection();
-                
-            }
-        }
 
         #region Eventos del UC
         private void dgvCategorias_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
