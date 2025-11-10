@@ -21,19 +21,7 @@ namespace app.Ventas.Formularios
             InitializeComponent();
         }
 
-        private string ObtenerFiltroActivoSQL()
-        {
-            switch (cmbEstado.SelectedItem.ToString())
-            {
-                case "Inactivos":
-                    return " WHERE Activo = 0";
-                case "Todos":
-                    return ""; // Sin filtro
-                case "Activos":
-                default:
-                    return " WHERE Activo = 1";
-            }
-        }
+        
 
 
         #region Eventos del UC
@@ -67,17 +55,35 @@ namespace app.Ventas.Formularios
         {
             string textoBusqueda1 = cuiTxtBuscar.Content.Trim();
 
+            // Esto para respetar el filtro:
+
+            string filtroActivo = ObtenerFiltroActivoSQL();
+
+            string conector;
+            if (filtroActivo == "")
+            {
+                // Si no hay filtro, la búsqueda debe empezar con WHERE
+                conector = " WHERE ";
+            }
+            else
+            {
+                // Si ya hay un filtro (ej: " WHERE Activo = 1"), la búsqueda debe ser un AND
+                conector = " AND ";
+            }
+
+            string consultaFinal = consultaSql // Usamos la consulta base
+                        + filtroActivo // Añadimos el filtro (Ej: "WHERE Activo = 1")
+                        + conector     // Añadimos el conector (Ej: "AND" o "WHERE")
+                        + " (Nombre LIKE @texto)"; // Añadimos la búsqueda
+
             try
             {
                 string connectionString = ConexionDB.ObtenerConexion();
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
-                    string consultaSql = @"
-                        SELECT Nombre AS Categoria
-                        FROM Categorias
-                        WHERE Nombre LIKE @texto";
+                    
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
+                    SqlDataAdapter adapter = new SqlDataAdapter(consultaFinal, conexion);
                     adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.NVarChar, 100).Value = "%" + textoBusqueda1 + "%";
 
                     DataTable dt = new DataTable();
@@ -91,14 +97,32 @@ namespace app.Ventas.Formularios
             {
                 MessageBox.Show("Error al buscar registros: " + ex.Message);
             }
+
+            //Ven al final igual que antes.
         }
 
 
-
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refrescarDatos();
+        }
 
         #endregion
 
         #region Metodos
+        private string ObtenerFiltroActivoSQL()
+        {
+            switch (cmbEstado.SelectedItem.ToString())
+            {
+                case "Inactivos":
+                    return " WHERE Activo = 0";
+                case "Todos":
+                    return ""; // Sin filtro
+                case "Activos":
+                default:
+                    return " WHERE Activo = 1";
+            }
+        }
 
         private void listarRegistros(string consultaBase)
         {
@@ -233,10 +257,6 @@ namespace app.Ventas.Formularios
 
         #endregion
 
-        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            refrescarDatos();
-        }
     }
 
 }
