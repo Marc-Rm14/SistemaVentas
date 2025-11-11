@@ -17,31 +17,25 @@ namespace app.Ventas.Formularios
             
             CargarCategorias();
             this.CancelButton = btnCancelar;
-            txtCodigo.Text = "(Se generará al guardar)"; //NOTA: se genera en base de datos, solo informamos la situacion.
-            
+            txtCodigo.Text = "(Se generará al guardar)"; //NOTA: se genera en base de datos.
+            chkActivo.Checked = true;
+
         }
 
         public FrmAgregarProductos(int idProducto, string nombre, decimal precio, string codigo, int existencia, int idCategoria, bool activo)
         {
             InitializeComponent();
             CargarCategorias(); // importante: cargar antes de fijar SelectedValue
-            
-            
+            chkActivo.Enabled = true;
+            chkActivo.Checked = activo; //NOTA: Agregamos este control
 
             txtId.Text = idProducto.ToString();
             txtNombre.Text = nombre;
             txtPrecio.Text = precio.ToString();
             txtCodigo.Text = codigo;
             txtExistencias.Text = existencia.ToString();
-            
-            // Selecciona la categoría en el combobox (si existe)
-            try
-            {  
-                cmbCategorias.SelectedValue = idCategoria;
-
-            }
-            catch { /* si no encuentra, no hacemos nada */ }
-            
+             
+            cmbCategorias.SelectedValue = idCategoria;
         }
         #region metodos
         
@@ -76,7 +70,7 @@ namespace app.Ventas.Formularios
         }
 
 
-        private void ActualizarProducto(int productoId, string nombre, decimal precio, int categoriaId, int existencias)
+        private void ActualizarProducto(int productoId, string nombre, decimal precio, int categoriaId, int existencias, bool activo)
         {
             try
             {
@@ -88,7 +82,8 @@ namespace app.Ventas.Formularios
                                 SET Nombre = @Nombre,
                                     Precio = @Precio,
                                     Existencias = @Existencias,
-                                    CategoriaID = @CategoriaID
+                                    CategoriaID = @CategoriaID,
+                                    Activo = @Activo
                                 WHERE ProductoID = @ProductoID";
 
                     using (SqlCommand command = new SqlCommand(consulta, conexion)) //TODO: cambiar addwithvalue a ADD y expecificar tipo de datos
@@ -99,7 +94,7 @@ namespace app.Ventas.Formularios
                         command.Parameters.Add("@Precio", SqlDbType.Decimal).Value = precio;
                         command.Parameters.Add("@Existencias", SqlDbType.Int).Value = existencias;
                         command.Parameters.Add("@CategoriaID", SqlDbType.Int).Value =categoriaId;
-
+                        command.Parameters.Add("@Activo", SqlDbType.Bit).Value = activo;
                         conexion.Open();
                         int resultado = command.ExecuteNonQuery();
 
@@ -200,7 +195,7 @@ namespace app.Ventas.Formularios
             }
 
             string nombre = txtNombre.Text.Trim();
-
+            bool activo = chkActivo.Checked;
             //NOTA: Se añadio mas seguridad a la información proporcionada por el usuario
             decimal precio;
 
@@ -268,7 +263,7 @@ namespace app.Ventas.Formularios
                         return;
                     }
                     // ACTUALIZAR PRODUCTO EXISTENTE
-                    ActualizarProducto(productoId, nombre, precio, categoriaId, existencias);
+                    ActualizarProducto(productoId, nombre, precio, categoriaId, existencias, activo);
 
                     operacionExitosa = true;
                 }
@@ -281,7 +276,7 @@ namespace app.Ventas.Formularios
             }
 
 
-            //NOTA: Incocar el evento solo si la Db tuvo éxito.
+            //NOTA: Invocar el evento solo si la Db tuvo éxito.
             if (operacionExitosa) registroAgregado?.Invoke();
 
         }
@@ -294,11 +289,6 @@ namespace app.Ventas.Formularios
         #endregion
 
         #region eventos
-
-
-       
-        #endregion
-
         private void FrmAgregarProductos_Load(object sender, EventArgs e)
         {
             UtilsFormularios.ActivarMoverFocoConEnter(this);
@@ -308,5 +298,7 @@ namespace app.Ventas.Formularios
         {
             txtNombre.Focus();
         }
+        #endregion
+
     }
 }

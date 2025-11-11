@@ -40,6 +40,8 @@
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtExistencias = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chkActivo = new CuoreUI.Controls.cuiCheckbox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
@@ -49,8 +51,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.chkEstado = new CuoreUI.Controls.cuiCheckbox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -73,7 +73,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtCodigo, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtExistencias, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.chkEstado, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.chkActivo, 1, 5);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 43);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -209,6 +209,41 @@
             this.txtExistencias.Size = new System.Drawing.Size(383, 27);
             this.txtExistencias.TabIndex = 4;
             // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(7, 205);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 46);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Estado";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.Checked = false;
+            this.chkActivo.CheckedForeground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.chkActivo.CheckedOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.chkActivo.CheckedSymbolColor = System.Drawing.Color.White;
+            this.chkActivo.Content = "Activo";
+            this.chkActivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkActivo.Enabled = false;
+            this.chkActivo.Location = new System.Drawing.Point(111, 208);
+            this.chkActivo.MinimumSize = new System.Drawing.Size(16, 16);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.OutlineStyle = true;
+            this.chkActivo.OutlineThickness = 1F;
+            this.chkActivo.Rounding = 15;
+            this.chkActivo.ShowSymbols = true;
+            this.chkActivo.Size = new System.Drawing.Size(382, 40);
+            this.chkActivo.TabIndex = 6;
+            this.chkActivo.Text = "cuiCheckbox1";
+            this.chkActivo.UncheckedForeground = System.Drawing.Color.Empty;
+            this.chkActivo.UncheckedOutlineColor = System.Drawing.Color.Gray;
+            this.chkActivo.UncheckedSymbolColor = System.Drawing.Color.Empty;
+            // 
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(11, 391);
@@ -314,41 +349,6 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(7, 205);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 46);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Activo";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // chkEstado
-            // 
-            this.chkEstado.Checked = false;
-            this.chkEstado.CheckedForeground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.chkEstado.CheckedOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.chkEstado.CheckedSymbolColor = System.Drawing.Color.White;
-            this.chkEstado.Content = "cuiCheckbox";
-            this.chkEstado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkEstado.Enabled = false;
-            this.chkEstado.Location = new System.Drawing.Point(111, 208);
-            this.chkEstado.MinimumSize = new System.Drawing.Size(16, 16);
-            this.chkEstado.Name = "chkEstado";
-            this.chkEstado.OutlineStyle = true;
-            this.chkEstado.OutlineThickness = 1F;
-            this.chkEstado.Rounding = 15;
-            this.chkEstado.ShowSymbols = true;
-            this.chkEstado.Size = new System.Drawing.Size(382, 40);
-            this.chkEstado.TabIndex = 6;
-            this.chkEstado.Text = "cuiCheckbox1";
-            this.chkEstado.UncheckedForeground = System.Drawing.Color.Empty;
-            this.chkEstado.UncheckedOutlineColor = System.Drawing.Color.Gray;
-            this.chkEstado.UncheckedSymbolColor = System.Drawing.Color.Empty;
-            // 
             // FrmAgregarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +400,6 @@
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnCancelar;
         private FontAwesome.Sharp.IconButton btnGuardar;
-        private CuoreUI.Controls.cuiCheckbox chkEstado;
+        private CuoreUI.Controls.cuiCheckbox chkActivo;
     }
 }
