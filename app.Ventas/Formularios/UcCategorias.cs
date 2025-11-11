@@ -107,6 +107,19 @@ namespace app.Ventas.Formularios
             refrescarDatos();
         }
 
+        private void UcCategorias_Load(object sender, EventArgs e)
+        {
+            // <-- NUEVO: Configuramos el ComboBox al cargar
+            cmbEstado.Items.AddRange(new object[] { "Activos", "Inactivos", "Todos" });
+            cmbEstado.SelectedItem = "Activos";
+
+            // <-- CAMBIO: Ya no está condicionado, siempre es visible.
+            cmbEstado.Visible = true;
+
+            // Ahora listamos los registros
+            refrescarDatos();
+        }
+
         #endregion
 
         #region Metodos
@@ -158,24 +171,46 @@ namespace app.Ventas.Formularios
             if (dgvCategorias.Columns == null || dgvCategorias.Columns.Count == 0) return;
 
             // Usamos conteo mínimo para no lanzar excepciones
-            if (dgvCategorias.Columns.Count >= 2)
+            if (dgvCategorias.Columns.Count >= 3)
             {
-                dgvCategorias.Columns[0].Visible = false;
-                dgvCategorias.Columns[1].HeaderText = "Nombre";
+                dgvCategorias.Columns["CategoriaID"].Visible = false;
+                dgvCategorias.Columns["Categoria"].HeaderText = "Nombre";
+                dgvCategorias.Columns["Activo"].HeaderText = "Activo"; 
             }
         }
 
-        private void UcCategorias_Load(object sender, EventArgs e)
+        private bool ValidarCategoria(int idCategoria)
         {
-            // <-- NUEVO: Configuramos el ComboBox al cargar
-            cmbEstado.Items.AddRange(new object[] { "Activos", "Inactivos", "Todos" });
-            cmbEstado.SelectedItem = "Activos";
+            int conteoProductos = 0;
+            string connectionString = ConexionDB.ObtenerConexion();
+            string consultaConteo = @"SELECT COUNT(*) 
+                                    FROM Productos 
+                                    WHERE CategoriaID = @idCategoria AND Activo = 1;";
 
-            // <-- CAMBIO: Ya no está condicionado, siempre es visible.
-            cmbEstado.Visible = true;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(consultaConteo, con))
+                {
+                    cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = idCategoria;
+                    con.Open();
+                    conteoProductos = (int)cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al validar productos activos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
-            // Ahora listamos los registros
-            refrescarDatos();
+            if (conteoProductos > 0)
+            {
+                MessageBox.Show($"No se puede desactivar. Esta categoría tiene {conteoProductos} productos activos.",
+                                "Acción Denegada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
 
 
@@ -186,28 +221,41 @@ namespace app.Ventas.Formularios
 
         private void ibtnEliminarCat_Click(object sender, EventArgs e)
         {
-            if (dgvCategorias.SelectedRows.Count > 0)
+            if (dgvCategorias.SelectedRows.Count == 0)
             {
+                MessageBox.Show("Seccione un registro para eliminar.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-                try
+            int.TryParse(dgvCategorias.CurrentRow.Cells["CategoriaID"].Value.ToString(), out int idCategoria);
+
+            
+            var categoriaActiva = Convert.ToBoolean(dgvCategorias.CurrentRow.Cells["Activo"].Value);
+            if (!categoriaActiva)
+            {
+                MessageBox.Show("Esta categoría ya se encuentra inactiva.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 1. Validar primero
+            bool validacion = ValidarCategoria(idCategoria);
+
+            try
+            {
+                // 2. Si es válido, preguntar y eliminar
+                if (validacion)
                 {
-                    if (MessageBox.Show("¿seguro que desea eliminar el registro?",
-                        "Confirmacion", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("¿Seguro que desea DESACTIVAR esta categoría?",
+                                "Confirmacion", MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        int.TryParse(dgvCategorias.CurrentRow.Cells[0].Value.ToString(), out int idCategoria);
                         eliminarCategoria(idCategoria);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al realizar la operacion" + ex);
-                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Seccione un registro para eliminar.",
-                    "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Error al realizar la operacion: " + ex);
             }
         }
 
@@ -230,17 +278,16 @@ namespace app.Ventas.Formularios
 
                     int result = command.ExecuteNonQuery();
 
-                    if (result > 0)
+                    if (result == 0)
                     {
-                        MessageBox.Show("La categoria fue eliminada con exito.", "Informacion", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
 
-                    }
-                    else
-                    {
                         MessageBox.Show("Error al eliminar la categoria.", "Error", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
+                           MessageBoxIcon.Error);
+                        return;
                     }
+                    
+                    MessageBox.Show("La categoria fue eliminada con exito.", "Informacion", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
                     refrescarDatos();
                 }
             }
