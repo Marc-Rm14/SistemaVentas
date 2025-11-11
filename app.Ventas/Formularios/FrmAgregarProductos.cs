@@ -21,7 +21,7 @@ namespace app.Ventas.Formularios
             
         }
 
-        public FrmAgregarProductos(int idProducto, string nombre, decimal precio, string codigo, int existencia, int idCategoria)
+        public FrmAgregarProductos(int idProducto, string nombre, decimal precio, string codigo, int existencia, int idCategoria, bool activo)
         {
             InitializeComponent();
             CargarCategorias(); // importante: cargar antes de fijar SelectedValue

@@ -9,7 +9,20 @@ namespace app.Ventas.Formularios
     public partial class UCProductos : UserControl
     {
         public event Action OnAgregarProductoClick;
+
         private Usuario _usuario;
+
+        private string consultaSql = @"SELECT p.ProductoID,
+                                        p.Nombre,
+                                        p.Precio,
+                                        p.Codigo,
+                                        p.Existencias,
+                                        p.CategoriaID,
+                                        c.Nombre AS Categoria,
+                                        p.Activo
+                                    FROM Productos p
+                                    LEFT JOIN Categorias c ON p.CategoriaID = c.CategoriaID";
+
         public UCProductos()
         {
             InitializeComponent();
@@ -32,9 +45,33 @@ namespace app.Ventas.Formularios
                 dgvProductos.ReadOnly = true;
                 dgvProductos.ClearSelection();
                 dgvProductos.CellDoubleClick -= dgvProductos_CellDoubleClick;
+                if (cmbEstado != null)
+                    cmbEstado.Visible = false;
             }
         }
-        
+
+
+        private string ObtenerFiltroActivoSQL()
+        {
+            // Si es Vendedor, SIEMPRE mostramos solo lo Activo
+            if (_usuario.Rol == "Vendedor")
+            {
+                return " WHERE p.Activo = 1 AND c.Activo = 1";
+            }
+
+            // Si es Admin
+            switch (cmbEstado.SelectedItem.ToString())
+            {
+                case "Inactivos":
+                    return " WHERE p.Activo = 0";
+                case "Todos":
+                    return ""; // Sin filtro
+                case "Activos":
+                default:
+                    return " WHERE p.Activo = 1 AND c.Activo = 1";
+            }
+        }
+
 
         /*private void ibtnAgregar_Click(object sender, EventArgs e)
         {
@@ -50,40 +87,32 @@ namespace app.Ventas.Formularios
 
         private void formatoGrid()
         {
+            if (dgvProductos == null || dgvProductos.Columns == null) return;
 
-            if (dgvProductos == null)
-                throw new InvalidOperationException("dgvProductos no está inicializado.");
-
-            if (dgvProductos.Columns == null)
-                throw new InvalidOperationException("La colección Columns es null.");
-
-            const int columnasTotales = 7;
-            if (dgvProductos.Columns.Count < columnasTotales) //por que 7 si el indice lega hasta 6
-                                                              //el metodo count cuenta los elementos
+            //NOTA: Ahora son 8 columnas porque añadimos P.Activo
+            const int columnasTotales = 8;
+            if (dgvProductos.Columns.Count < columnasTotales)
             {
-                // No hay suficientes columnas: salir sin cambiar nada
                 return;
             }
 
             dgvProductos.SuspendLayout();
-            
+
             try
             {
-                dgvProductos.Columns[0].Visible = false;
-                dgvProductos.Columns[1].HeaderText = "Nombre";
-                dgvProductos.Columns[2].HeaderText = "Precio";
-                dgvProductos.Columns[3].HeaderText = "Codigo";
-                dgvProductos.Columns[4].HeaderText = "Existencia";
-                dgvProductos.Columns[5].Visible = false;
-                dgvProductos.Columns[6].HeaderText = "Categoria";
+                dgvProductos.Columns["ProductoID"].Visible = false;
+                dgvProductos.Columns["Nombre"].HeaderText = "Nombre";
+                dgvProductos.Columns["Precio"].HeaderText = "Precio";
+                dgvProductos.Columns["Codigo"].HeaderText = "Codigo";
+                dgvProductos.Columns["Existencias"].HeaderText = "Existencia";
+                dgvProductos.Columns["CategoriaID"].Visible = false;
+                dgvProductos.Columns["Categoria"].HeaderText = "Categoria";
+                dgvProductos.Columns["Activo"].HeaderText = "Activo"; //NOTA: Mostramos el estado
             }
-            finally 
+            finally
             {
                 dgvProductos.ResumeLayout();
             }
-
-
-
         }
 
         private void listarRegistro()
@@ -91,11 +120,14 @@ namespace app.Ventas.Formularios
             try
             {
                 string connectionString = ConexionDB.ObtenerConexion();
-                
+
+                // Usamos la consulta base + el filtro de rol/estado
+                string consultaFinal = consultaSql + ObtenerFiltroActivoSQL();
+
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
-                    string consultaSql = "SELECT *FROM vw_MostrarRegistroProductos";
-                    SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
+                    //Ya no usamos la vista, usamos la consulta final, por ahora.
+                    SqlDataAdapter adapter = new SqlDataAdapter(consultaFinal, conexion);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
@@ -115,8 +147,11 @@ namespace app.Ventas.Formularios
             {
                 string connectionString = ConexionDB.ObtenerConexion();
 
+                //NOTA: De DELETE a UPDATE
+                string consultaUpdate = "UPDATE Productos SET Activo = 0 WHERE ProductoID = @IdProducto";
+
                 using (SqlConnection conexion = new SqlConnection(connectionString))
-                using (SqlCommand command = new SqlCommand("DELETE FROM Productos WHERE ProductoID = @IdProducto", conexion))
+                using (SqlCommand command = new SqlCommand(consultaUpdate, conexion))
                 {
                     command.Parameters.AddWithValue("@IdProducto", idProducto);
                     conexion.Open();
@@ -125,14 +160,12 @@ namespace app.Ventas.Formularios
 
                     if (result <= 0)
                     {
-                        MessageBox.Show("Error al eliminar el producto.", "Error", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
+                        MessageBox.Show("Error al desactivar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
-                    MessageBox.Show("El producto fue eliminado con exito.", "Informacion", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    listarRegistro();
+                    MessageBox.Show("El producto fue desactivado con exito.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    listarRegistro(); // Refrescamos la lista
                 }
             }
             catch (Exception ex)
@@ -146,7 +179,11 @@ namespace app.Ventas.Formularios
 
         private void UCProductos_Load(object sender, EventArgs e)
         {
-            // Al mostrar el uc cargamos el datagrid
+            cmbEstado.Items.AddRange(new object[] { "Activos", "Inactivos", "Todos" });
+            cmbEstado.SelectedItem = "Activos";
+
+            AplicarPermisosInternos();
+
             listarRegistro();
         }
 
@@ -158,7 +195,6 @@ namespace app.Ventas.Formularios
 
             try
             {
-
                 int id = Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells["ProductoID"].Value);
                 string nombre = Convert.ToString(dgvProductos.Rows[e.RowIndex].Cells["Nombre"].Value);
                 decimal precio = Convert.ToDecimal(dgvProductos.Rows[e.RowIndex].Cells["Precio"].Value);
@@ -166,10 +202,13 @@ namespace app.Ventas.Formularios
                 int existencia = Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells["Existencias"].Value);
                 int categoriaId = Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells["CategoriaID"].Value);
 
-                // Ahora el formulario no debería recibir 'codigo' como parámetro editable
-                FrmAgregarProductos frm = new FrmAgregarProductos(id, nombre, precio, codigo, existencia, categoriaId);
+                //NOTA: Pasamos el estado 'Activo' al formulario de edición
+                bool activo = Convert.ToBoolean(dgvProductos.Rows[e.RowIndex].Cells["Activo"].Value);
 
-                frm.registroAgregado += listarRegistro;
+                FrmAgregarProductos frm = new FrmAgregarProductos(id, nombre, precio, codigo, existencia, categoriaId, activo);
+
+                frm.registroAgregado += RefrescarDatos; 
+                
                 MostrarModal.MostrarConCapa(this, frm);
 
             }
