@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            this.cuiPanelCentral = new CuoreUI.Controls.cuiPanel();
+            this.dgvDetalles = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.ibtnGuardarVenta = new FontAwesome.Sharp.IconButton();
@@ -49,18 +52,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cuiPanelCentral = new CuoreUI.Controls.cuiPanel();
-            this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.cuiPanel1.SuspendLayout();
+            this.cuiPanelCentral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             this.cuiPanel2.SuspendLayout();
             this.cuiPanel4.SuspendLayout();
             this.cuiPanelTop.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
-            this.cuiPanelCentral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             this.SuspendLayout();
             // 
             // cuiPanel1
@@ -87,6 +87,49 @@
             this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(15);
             this.cuiPanel1.Size = new System.Drawing.Size(1073, 619);
             this.cuiPanel1.TabIndex = 0;
+            // 
+            // cuiPanelCentral
+            // 
+            this.cuiPanelCentral.Controls.Add(this.dgvDetalles);
+            this.cuiPanelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cuiPanelCentral.Location = new System.Drawing.Point(15, 113);
+            this.cuiPanelCentral.Name = "cuiPanelCentral";
+            this.cuiPanelCentral.OutlineThickness = 1F;
+            this.cuiPanelCentral.Padding = new System.Windows.Forms.Padding(5);
+            this.cuiPanelCentral.PanelColor = System.Drawing.Color.White;
+            this.cuiPanelCentral.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cuiPanelCentral.Rounding = new System.Windows.Forms.Padding(15);
+            this.cuiPanelCentral.Size = new System.Drawing.Size(841, 429);
+            this.cuiPanelCentral.TabIndex = 30;
+            // 
+            // dgvDetalles
+            // 
+            this.dgvDetalles.AllowUserToAddRows = false;
+            this.dgvDetalles.AllowUserToDeleteRows = false;
+            this.dgvDetalles.AllowUserToOrderColumns = true;
+            this.dgvDetalles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDetalles.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDetalles.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDetalles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvDetalles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalles.Location = new System.Drawing.Point(4, 4);
+            this.dgvDetalles.Name = "dgvDetalles";
+            this.dgvDetalles.ReadOnly = true;
+            this.dgvDetalles.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvDetalles.RowHeadersWidth = 51;
+            this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalles.Size = new System.Drawing.Size(843, 431);
+            this.dgvDetalles.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(856, 113);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(8, 429);
+            this.panel1.TabIndex = 29;
             // 
             // cuiPanel2
             // 
@@ -356,49 +399,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Cantidad:";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(856, 113);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(8, 429);
-            this.panel1.TabIndex = 29;
-            // 
-            // cuiPanelCentral
-            // 
-            this.cuiPanelCentral.Controls.Add(this.dgvDetalles);
-            this.cuiPanelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cuiPanelCentral.Location = new System.Drawing.Point(15, 113);
-            this.cuiPanelCentral.Name = "cuiPanelCentral";
-            this.cuiPanelCentral.OutlineThickness = 1F;
-            this.cuiPanelCentral.Padding = new System.Windows.Forms.Padding(5);
-            this.cuiPanelCentral.PanelColor = System.Drawing.Color.White;
-            this.cuiPanelCentral.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.cuiPanelCentral.Rounding = new System.Windows.Forms.Padding(15);
-            this.cuiPanelCentral.Size = new System.Drawing.Size(841, 429);
-            this.cuiPanelCentral.TabIndex = 30;
-            // 
-            // dgvDetalles
-            // 
-            this.dgvDetalles.AllowUserToAddRows = false;
-            this.dgvDetalles.AllowUserToDeleteRows = false;
-            this.dgvDetalles.AllowUserToOrderColumns = true;
-            this.dgvDetalles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDetalles.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDetalles.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDetalles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvDetalles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalles.Location = new System.Drawing.Point(4, 4);
-            this.dgvDetalles.Name = "dgvDetalles";
-            this.dgvDetalles.ReadOnly = true;
-            this.dgvDetalles.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvDetalles.RowHeadersWidth = 51;
-            this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalles.Size = new System.Drawing.Size(843, 431);
-            this.dgvDetalles.TabIndex = 9;
-            // 
             // UcVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,14 +409,14 @@
             this.Size = new System.Drawing.Size(1112, 664);
             this.Load += new System.EventHandler(this.UcVentas_Load);
             this.cuiPanel1.ResumeLayout(false);
+            this.cuiPanelCentral.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             this.cuiPanel2.ResumeLayout(false);
             this.cuiPanel4.ResumeLayout(false);
             this.cuiPanelTop.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
-            this.cuiPanelCentral.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             this.ResumeLayout(false);
 
         }

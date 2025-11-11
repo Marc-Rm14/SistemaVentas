@@ -223,26 +223,22 @@ namespace app.Ventas.Formularios
         {
             string textoBusqueda1 = cuiTxtBuscar.Content.Trim();
 
-
-
             try
             {
                 string connectionString = ConexionDB.ObtenerConexion();
+
+                //NOTA: El buscador ahora respeta los filtros
+                string filtroActivo = ObtenerFiltroActivoSQL();
+                string conector = (filtroActivo == "") ? " WHERE " : " AND ";
+
+                string consultaFinalBusqueda = consultaSql 
+                                    + filtroActivo 
+                                    + conector     
+                                    + " (p.Codigo LIKE @texto OR p.Nombre LIKE @texto OR c.Nombre LIKE @texto)";
+
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
-                    string consultaSql = @"
-                        SELECT p.ProductoID,
-                               p.Nombre,
-                               p.Precio,
-                               p.Codigo,
-                               p.Existencias,
-                               p.CategoriaID,
-                               c.Nombre AS Categoria
-                        FROM Productos p
-                        LEFT JOIN Categorias c ON p.CategoriaID = c.CategoriaID
-                        WHERE p.Codigo LIKE @texto OR p.Nombre LIKE @texto OR c.Nombre LIKE @texto";
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
+                    SqlDataAdapter adapter = new SqlDataAdapter(consultaFinalBusqueda, conexion);
                     adapter.SelectCommand.Parameters.Add("@texto", SqlDbType.NVarChar, 100).Value = "%" + textoBusqueda1 + "%";
 
                     DataTable dt = new DataTable();
