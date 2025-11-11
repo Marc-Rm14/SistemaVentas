@@ -39,6 +39,7 @@
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.cuiPanel1.SuspendLayout();
             this.cuiGroupBox1.SuspendLayout();
@@ -51,16 +52,18 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.Controls.Add(this.ibtnEliminar, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.ibtnAgregar, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(767, 79);
+            this.tableLayoutPanel2.Controls.Add(this.cmbEstado, 2, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(639, 79);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(239, 58);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 58);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
             // ibtnEliminar
@@ -72,7 +75,7 @@
             this.ibtnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnEliminar.IconSize = 30;
             this.ibtnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.ibtnEliminar.Location = new System.Drawing.Point(122, 6);
+            this.ibtnEliminar.Location = new System.Drawing.Point(125, 6);
             this.ibtnEliminar.Name = "ibtnEliminar";
             this.ibtnEliminar.Size = new System.Drawing.Size(112, 45);
             this.ibtnEliminar.TabIndex = 3;
@@ -248,6 +251,15 @@
             this.label1.Text = "Listado Productos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // cmbEstado
+            // 
+            this.cmbEstado.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(247, 18);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(117, 29);
+            this.cmbEstado.TabIndex = 4;
+            // 
             // UCProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -283,5 +295,6 @@
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbEstado;
     }
 }
