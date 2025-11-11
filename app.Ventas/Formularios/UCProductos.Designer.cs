@@ -31,6 +31,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ibtnEliminar = new FontAwesome.Sharp.IconButton();
             this.ibtnAgregar = new FontAwesome.Sharp.IconButton();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             this.cuiGroupBox1 = new CuoreUI.Controls.cuiGroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -39,7 +40,6 @@
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.cuiPanel1.SuspendLayout();
             this.cuiGroupBox1.SuspendLayout();
@@ -103,6 +103,16 @@
             this.ibtnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ibtnAgregar.UseVisualStyleBackColor = false;
             this.ibtnAgregar.Click += new System.EventHandler(this.ibtnAgregar_Click);
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(247, 14);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(117, 29);
+            this.cmbEstado.TabIndex = 4;
+            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // cuiPanel1
             // 
@@ -250,15 +260,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Listado Productos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(247, 18);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(117, 29);
-            this.cmbEstado.TabIndex = 4;
             // 
             // UCProductos
             // 

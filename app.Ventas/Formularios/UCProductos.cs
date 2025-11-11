@@ -287,5 +287,10 @@ namespace app.Ventas.Formularios
         }
 
         #endregion
+
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefrescarDatos();
+        }
     }
 }
