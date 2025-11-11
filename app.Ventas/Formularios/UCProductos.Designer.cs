@@ -108,7 +108,7 @@
             // 
             this.cmbEstado.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(247, 14);
+            this.cmbEstado.Location = new System.Drawing.Point(247, 18);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(117, 29);
             this.cmbEstado.TabIndex = 4;
