@@ -262,17 +262,16 @@ namespace app.Ventas.Formularios
         {
             if (dgvProductos.SelectedRows.Count <= 0)
             {
-                MessageBox.Show("Seccione un registro para eliminar.",
-                   "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Seccione un registro para eliminar.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             try
             {
-                if (MessageBox.Show("¿seguro que desea eliminar el registro?",
-                        "Confirmacion", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Seguro que desea desactivar este producto?",
+                                "Confirmacion", MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int.TryParse(dgvProductos.CurrentRow.Cells[0].Value.ToString(), out int idProducto);
+                    int.TryParse(dgvProductos.CurrentRow.Cells["ProductoID"].Value.ToString(), out int idProducto);
                     eliminarProducto(idProducto);
                 }
             }
