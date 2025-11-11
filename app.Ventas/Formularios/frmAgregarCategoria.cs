@@ -9,10 +9,15 @@ namespace app.Ventas.Formularios
     public partial class frmAgregarCategoria : Form
     {
         public event Action registroAgregado;
+
+        //NOTA: Nueva variable para recordar el estado original
+        private bool _estadoOriginalActivo;
+
         public frmAgregarCategoria()
         {
             InitializeComponent();
             chkActivo.Checked = true;
+            this._estadoOriginalActivo = true;
         }
 
         public frmAgregarCategoria(int categoriaId, string nombre, bool activo, string textoCheck)
@@ -26,6 +31,10 @@ namespace app.Ventas.Formularios
             txtAgCategoria.Text = nombre;
             chkActivo.Checked = activo;
 
+
+            //NOTA: Guardamos el estado original 
+            this._estadoOriginalActivo = activo;
+
         }
 
         #region Metodos
@@ -36,22 +45,17 @@ namespace app.Ventas.Formularios
             {
                 string connetionString = ConexionDB.ObtenerConexion();
                 string consulta = @"UPDATE Categorias
-                                        SET Nombre = @Categoria,
-                                            Activo = @Activo
-                                        WHERE CategoriaID = @CategoriaID";
+                                    SET Nombre = @Categoria,
+                                        Activo = @Activo
+                                    WHERE CategoriaID = @CategoriaID";
                 using (SqlConnection conexion = new SqlConnection(connetionString))
-
-
-
                 using (SqlCommand command = new SqlCommand(consulta, conexion))
                 {
-
-
                     command.Parameters.Add("@Categoria", SqlDbType.NVarChar, 100).Value = categoria;
-                    command.Parameters.AddWithValue("@CategoriaID", SqlDbType.Int).Value = categoriaId;
-                    command.Parameters.AddWithValue("@Activo", SqlDbType.Bit).Value = activo;
-                    conexion.Open();
+                    command.Parameters.Add("@Activo", SqlDbType.Bit).Value = activo;
+                    command.Parameters.Add("@CategoriaID", SqlDbType.Int).Value = categoriaId;
 
+                    conexion.Open();
                     int resultado = command.ExecuteNonQuery();
 
                     if (resultado <= 0)
@@ -66,7 +70,6 @@ namespace app.Ventas.Formularios
 
                     Close();
                 }
-                
             }
             catch (Exception ex)
             {
@@ -88,6 +91,41 @@ namespace app.Ventas.Formularios
             return datosValidos;
 
         }
+
+        private bool ValidarCategoria(int idCategoria)
+        {
+            int conteoProductos = 0;
+            string connectionString = ConexionDB.ObtenerConexion();
+            string consultaConteo = @"SELECT COUNT(*) 
+                                    FROM Productos 
+                                    WHERE CategoriaID = @idCategoria AND Activo = 1;";
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(consultaConteo, con))
+                {
+                    cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = idCategoria;
+                    con.Open();
+                    conteoProductos = (int)cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al validar productos activos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (conteoProductos > 0)
+            {
+                MessageBox.Show($"No se puede desactivar. Esta categoría tiene {conteoProductos} productos activos.",
+                                "Acción Denegada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
 
         private void GuardarCategoria(string categoria)
         {
@@ -139,19 +177,15 @@ namespace app.Ventas.Formularios
         {
             errorIcono.Clear();
 
-
             if (!validarCampos())
             {
                 MessageBox.Show("Informacion Incompleta, seran remarcados los campos faltantes",
-                    "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            // TODO: CONTINUAR DESDE AQUI
-
-
             string nombre = txtAgCategoria.Text.Trim();
-            bool activo = chkActivo.Checked;
+            bool estadoNuevo = chkActivo.Checked; //NOTA: Nuevo nombre de variable para claridad
             bool operacionExitosa = false;
 
             try
@@ -159,8 +193,7 @@ namespace app.Ventas.Formularios
                 if (string.IsNullOrWhiteSpace(txtId.Text.Trim()))
                 {
                     DialogResult resultado = MessageBox.Show("Desea guardar la nueva categoria",
-                        "Informacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    // GUARDAR NUEVO PRODUCTO
+                                "Informacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado == DialogResult.No)
                     {
                         return;
@@ -168,7 +201,6 @@ namespace app.Ventas.Formularios
 
                     GuardarCategoria(nombre);
                     operacionExitosa = true;
-
                 }
                 else
                 {
@@ -178,13 +210,24 @@ namespace app.Ventas.Formularios
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    // ¿El usuario está intentando desactivar una categoría que antes estaba activa?
+                    if (this._estadoOriginalActivo == true && estadoNuevo == false)
+                    {
+                        // Si es así, corremos la validación de productos.
+                        if (!ValidarCategoria(categoriaId))
+                        {
+                            // La validación falló y mostró un error.
+                            // Detenemos el guardado.
+                            return;
+                        }
+                    }
+
                     DialogResult resultado = MessageBox.Show("Desea aplicar los cambios", "Informaciobn",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (resultado == DialogResult.No) return;
 
-                    ActualizarCategoria(categoriaId, nombre, activo);
+                    ActualizarCategoria(categoriaId, nombre, estadoNuevo);
                     operacionExitosa = true;
-
                 }
             }
             catch (Exception ex)
@@ -193,7 +236,7 @@ namespace app.Ventas.Formularios
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (operacionExitosa) registroAgregado?.Invoke(); //Si la Operacion se completo refrecamos. 
+            if (operacionExitosa) registroAgregado?.Invoke();
         }
 
         #endregion
