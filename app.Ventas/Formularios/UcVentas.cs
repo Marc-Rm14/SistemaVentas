@@ -30,17 +30,22 @@ namespace app.Ventas.Formularios
             {
                 string connectionString = ConexionDB.ObtenerConexion();
                 string sql = @"
-                            SELECT ProductoID,
-                                   Nombre,
-                                   Precio,
-                                   CONCAT(Nombre, ' - C$', Precio) AS Producto,
-                                   Codigo,
-                                   Existencias,
-                                   CategoriaID
-                            FROM Productos
-                            WHERE Activo = 1
-                            ORDER BY Producto
-                            ";
+                            SELECT 
+                                P.ProductoID,
+                                P.Nombre,
+                                P.Precio,
+                                CONCAT(P.Nombre, ' - C$', P.Precio) AS Producto,
+                                P.Codigo,
+                                P.Existencias,
+                                P.CategoriaID
+                            FROM 
+                                Productos P
+                            INNER JOIN 
+                                Categorias C ON P.CategoriaID = C.CategoriaID
+                            WHERE 
+                                P.Activo = 1 AND C.Activo = 1
+                            ORDER BY 
+                                P.Nombre";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 using (SqlDataAdapter da = new SqlDataAdapter(sql, conn))
