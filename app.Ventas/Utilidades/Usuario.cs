@@ -19,13 +19,15 @@ namespace app.Ventas.Utilidades
         public string NombreCompleto { get; private set; }
         public string Rol { get; private set; }
 
+        public bool Activo { get; private set; }
 
-        public Usuario(int usuarioID, string nombreUsuario, string nombreCompleto, string rol) 
+        public Usuario(int usuarioID, string nombreUsuario, string nombreCompleto, string rol, bool activo) 
         {
             UsuarioID = usuarioID;
             NombreUsuario = nombreUsuario;
             NombreCompleto = nombreCompleto;
             Rol = rol;
+            Activo = activo;
         }
 
         

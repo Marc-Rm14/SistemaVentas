@@ -27,13 +27,15 @@ namespace app.Ventas.Formularios
             SELECT 
                 u.UsuarioID, 
                 u.NombreUsuario,
-                u.NombreCompleto, 
+                u.NombreCompleto,
+                u.Activo,
                 r.NombreRol as Rol,
                 r.RolID
             FROM Usuarios u
             INNER JOIN Roles r ON u.RolID = r.RolID
             WHERE u.NombreUsuario = @user 
-            AND u.Contrasena = @pass";
+            AND u.Contrasena = @pass
+            ";
 
                 using (var conn = new SqlConnection(connectionString))
                 using (var cmd = new SqlCommand(sql, conn))
@@ -51,7 +53,8 @@ namespace app.Ventas.Formularios
                                 (int)reader["UsuarioID"],
                                 reader["NombreUsuario"].ToString(),
                                 reader["NombreCompleto"].ToString(),
-                                reader["Rol"].ToString()
+                                reader["Rol"].ToString(),
+                                (bool)reader["Activo"]
                             );
                         }
                     }
@@ -140,6 +143,7 @@ namespace app.Ventas.Formularios
             }
 
             var usuario = AutenticarUsuario(user, pass);
+            
 
             if (usuario == null)
             {
@@ -147,6 +151,12 @@ namespace app.Ventas.Formularios
                 return;
             }
             UsuarioAutenticado = usuario; // Guardamos el objeto
+
+            if (UsuarioAutenticado.Activo == false)
+            {
+                MessageBox.Show("El Usuario esta inactivo, contacte con el adminstrador");
+                return;
+            }
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
