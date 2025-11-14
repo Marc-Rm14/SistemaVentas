@@ -19,8 +19,8 @@ namespace app.Ventas.Formularios
         private void UcReportes_Load(object sender, EventArgs e)
         {
             // Cargamos los combobox
-            CargarUsuarios();
-            cargarClientes();
+            CargarUsuarios(false);
+            cargarClientes(false);
 
             // Llamamos al botón Limpiar para establecer los valores por defecto
             ibtnLimpiarFiltros_Click(sender, e);
@@ -33,7 +33,7 @@ namespace app.Ventas.Formularios
             int idClienteSeleccionado = (cmbClientes.SelectedValue != null) ? (int)cmbClientes.SelectedValue : 0;
 
             
-            // Usamos .Content en lugar de .Value acuerdece que usamos controles de otra libreria
+            // Usamos .Content en lugar de .Value acuerdence que usamos controles de otra libreria
             DateTime fechaInicio = cuiDtpFechaInicio.Content;
             DateTime fechaFin = cuiDtpFechaFin.Content;
             
@@ -77,12 +77,21 @@ namespace app.Ventas.Formularios
             cuiLblTotalVendido.Content = "Suma Total: $0.00";
         }
 
-        private void CargarUsuarios()
+        private void CargarUsuarios(bool incluirInactivos = false)
         {
             try
             {
                 string connectionString = ConexionDB.ObtenerConexion();
-                string consultaSql = "SELECT UsuarioID, NombreCompleto AS Nombre FROM Usuarios ORDER BY Nombre";
+                string consultaSql = @"SELECT UsuarioID, NombreCompleto AS Nombre
+                                        FROM Usuarios";
+
+                if (incluirInactivos == false)
+                {
+                    consultaSql += " WHERE Activo = 1";
+                }
+
+                consultaSql += " ORDER BY Nombre";
+
 
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 using (SqlDataAdapter da = new SqlDataAdapter(consultaSql, conexion))
@@ -108,12 +117,22 @@ namespace app.Ventas.Formularios
             }
         }
 
-        private void cargarClientes()
+        private void cargarClientes(bool incluirInactivos = false)
         {
             try
             {
                 string connectionString = ConexionDB.ObtenerConexion();
-                string consultaSql = "SELECT ClienteID, NombreCompleto AS Nombre FROM Clientes ORDER BY Nombre";
+                string consultaSql = @"SELECT 
+                                            ClienteID,
+                                        NombreCompleto AS  Nombre 
+                                        FROM Clientes";
+
+                if (incluirInactivos == false)
+                {
+                    consultaSql += " WHERE Activo = 1";
+                }
+
+                consultaSql += " ORDER BY Nombre";
 
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 using (SqlDataAdapter da = new SqlDataAdapter(consultaSql, conexion))
@@ -148,7 +167,7 @@ namespace app.Ventas.Formularios
         {
             string connectionString = ConexionDB.ObtenerConexion();
 
-            // 1. Consulta Base (el "esqueleto")
+            // Consulta Base (el "esqueleto")
             string consultaSql = @"SELECT v.FechaVenta, v.Total, p.Nombre, dv.Cantidad, dv.PrecioUnitario
                                    FROM Ventas v
                                    INNER JOIN DetallesVenta dv ON v.VentaID = dv.VentaID
@@ -234,6 +253,17 @@ namespace app.Ventas.Formularios
             //Damos formato a los labels
             cuiLblTotalRegistros.Content = $"Mostrando: {totalRegistros} ventas";
             cuiLblTotalVendido.Content = $"Suma Total: {sumaTotalVentas:C}"; // "C" da formato de moneda
+        }
+
+        private void chkIncluirInactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            // Obtenemos el estado del checkbox
+            bool incluirInactivos = chkIncluirInactivos.Checked;
+
+            // Recargamos ambos ComboBox con la nueva configuracion
+            CargarUsuarios(incluirInactivos);
+            cargarClientes(incluirInactivos);
+            
         }
     }
 

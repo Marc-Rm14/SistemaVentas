@@ -35,6 +35,7 @@
             this.cuiLblTotalVendido = new CuoreUI.Controls.cuiLabel();
             this.cuiLblTotalRegistros = new CuoreUI.Controls.cuiLabel();
             this.cuiGbFiltros = new CuoreUI.Controls.cuiGroupBox();
+            this.chkIncluirInactivos = new CuoreUI.Controls.cuiCheckbox();
             this.cuiLabel4 = new CuoreUI.Controls.cuiLabel();
             this.cuiLabel3 = new CuoreUI.Controls.cuiLabel();
             this.cuiLabel2 = new CuoreUI.Controls.cuiLabel();
@@ -77,10 +78,10 @@
             this.cuiPanelReportes.Controls.Add(this.dgvReportes);
             this.cuiPanelReportes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cuiPanelReportes.Location = new System.Drawing.Point(0, 207);
-            this.cuiPanelReportes.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cuiPanelReportes.Margin = new System.Windows.Forms.Padding(5);
             this.cuiPanelReportes.Name = "cuiPanelReportes";
             this.cuiPanelReportes.OutlineThickness = 1F;
-            this.cuiPanelReportes.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cuiPanelReportes.Padding = new System.Windows.Forms.Padding(5);
             this.cuiPanelReportes.PanelColor = System.Drawing.SystemColors.Control;
             this.cuiPanelReportes.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanelReportes.Rounding = new System.Windows.Forms.Padding(15);
@@ -153,6 +154,7 @@
             this.cuiGbFiltros.BackColor = System.Drawing.SystemColors.Control;
             this.cuiGbFiltros.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiGbFiltros.Content = "Filtros de Reporte";
+            this.cuiGbFiltros.Controls.Add(this.chkIncluirInactivos);
             this.cuiGbFiltros.Controls.Add(this.cuiLabel4);
             this.cuiGbFiltros.Controls.Add(this.cuiLabel3);
             this.cuiGbFiltros.Controls.Add(this.cuiLabel2);
@@ -171,6 +173,29 @@
             this.cuiGbFiltros.Rounding = new System.Windows.Forms.Padding(15);
             this.cuiGbFiltros.Size = new System.Drawing.Size(1129, 207);
             this.cuiGbFiltros.TabIndex = 0;
+            // 
+            // chkIncluirInactivos
+            // 
+            this.chkIncluirInactivos.Checked = false;
+            this.chkIncluirInactivos.CheckedForeground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.chkIncluirInactivos.CheckedOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.chkIncluirInactivos.CheckedSymbolColor = System.Drawing.Color.White;
+            this.chkIncluirInactivos.Content = "Incluir inactivos";
+            this.chkIncluirInactivos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkIncluirInactivos.Location = new System.Drawing.Point(812, 36);
+            this.chkIncluirInactivos.MinimumSize = new System.Drawing.Size(16, 16);
+            this.chkIncluirInactivos.Name = "chkIncluirInactivos";
+            this.chkIncluirInactivos.OutlineStyle = true;
+            this.chkIncluirInactivos.OutlineThickness = 1F;
+            this.chkIncluirInactivos.Rounding = 15;
+            this.chkIncluirInactivos.ShowSymbols = true;
+            this.chkIncluirInactivos.Size = new System.Drawing.Size(153, 35);
+            this.chkIncluirInactivos.TabIndex = 14;
+            this.chkIncluirInactivos.Text = "cuiCheckbox1";
+            this.chkIncluirInactivos.UncheckedForeground = System.Drawing.Color.Empty;
+            this.chkIncluirInactivos.UncheckedOutlineColor = System.Drawing.Color.Gray;
+            this.chkIncluirInactivos.UncheckedSymbolColor = System.Drawing.Color.Empty;
+            this.chkIncluirInactivos.CheckedChanged += new System.EventHandler(this.chkIncluirInactivos_CheckedChanged);
             // 
             // cuiLabel4
             // 
@@ -224,7 +249,7 @@
             this.ibtnLimpiarFiltros.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ibtnLimpiarFiltros.IconColor = System.Drawing.Color.Black;
             this.ibtnLimpiarFiltros.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnLimpiarFiltros.Location = new System.Drawing.Point(938, 146);
+            this.ibtnLimpiarFiltros.Location = new System.Drawing.Point(971, 135);
             this.ibtnLimpiarFiltros.Name = "ibtnLimpiarFiltros";
             this.ibtnLimpiarFiltros.Size = new System.Drawing.Size(129, 54);
             this.ibtnLimpiarFiltros.TabIndex = 9;
@@ -235,7 +260,7 @@
             // cmbClientes
             // 
             this.cmbClientes.Location = new System.Drawing.Point(548, 172);
-            this.cmbClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbClientes.Margin = new System.Windows.Forms.Padding(2);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(245, 28);
             this.cmbClientes.TabIndex = 8;
@@ -254,7 +279,7 @@
             this.ibtnReporte.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ibtnReporte.IconColor = System.Drawing.Color.Black;
             this.ibtnReporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnReporte.Location = new System.Drawing.Point(938, 51);
+            this.ibtnReporte.Location = new System.Drawing.Point(971, 36);
             this.ibtnReporte.Name = "ibtnReporte";
             this.ibtnReporte.Size = new System.Drawing.Size(129, 54);
             this.ibtnReporte.TabIndex = 3;
@@ -319,7 +344,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.cuiPanel1);
             this.Name = "UcReportes";
-            this.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(1174, 621);
             this.Load += new System.EventHandler(this.UcReportes_Load);
             this.cuiPanel1.ResumeLayout(false);
@@ -351,5 +376,6 @@
         private System.Windows.Forms.DataGridView dgvReportes;
         private CuoreUI.Controls.cuiLabel cuiLblTotalVendido;
         private CuoreUI.Controls.cuiLabel cuiLblTotalRegistros;
+        private CuoreUI.Controls.cuiCheckbox chkIncluirInactivos;
     }
 }
