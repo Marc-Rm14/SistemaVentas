@@ -1,9 +1,7 @@
 ﻿using app.Ventas.Formularios;
 using app.Ventas.Utilidades;
+using QuestPDF.Infrastructure;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace app.Ventas
 {
@@ -17,6 +15,7 @@ namespace app.Ventas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            QuestPDF.Settings.License = LicenseType.Community;
 
             var conexion = AdministrarConexion.Cargar();
             if (string.IsNullOrWhiteSpace(conexion.servidor) || string.IsNullOrWhiteSpace(conexion.baseDatos))
