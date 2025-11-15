@@ -162,6 +162,7 @@
             this.iconButton1.Text = "Quitar";
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.ibtnQuitarProducto_Click);
             // 
             // ibtnGuardarVenta
             // 
