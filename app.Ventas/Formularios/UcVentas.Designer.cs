@@ -90,13 +90,14 @@
             // 
             // cuiPanelCentral
             // 
+            this.cuiPanelCentral.BackColor = System.Drawing.SystemColors.Control;
             this.cuiPanelCentral.Controls.Add(this.dgvDetalles);
             this.cuiPanelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cuiPanelCentral.Location = new System.Drawing.Point(15, 113);
             this.cuiPanelCentral.Name = "cuiPanelCentral";
             this.cuiPanelCentral.OutlineThickness = 1F;
-            this.cuiPanelCentral.Padding = new System.Windows.Forms.Padding(5);
-            this.cuiPanelCentral.PanelColor = System.Drawing.Color.White;
+            this.cuiPanelCentral.Padding = new System.Windows.Forms.Padding(8);
+            this.cuiPanelCentral.PanelColor = System.Drawing.Color.WhiteSmoke;
             this.cuiPanelCentral.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cuiPanelCentral.Rounding = new System.Windows.Forms.Padding(15);
             this.cuiPanelCentral.Size = new System.Drawing.Size(841, 429);
@@ -108,18 +109,21 @@
             this.dgvDetalles.AllowUserToDeleteRows = false;
             this.dgvDetalles.AllowUserToOrderColumns = true;
             this.dgvDetalles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDetalles.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDetalles.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvDetalles.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDetalles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvDetalles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvDetalles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalles.Location = new System.Drawing.Point(4, 4);
+            this.dgvDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetalles.GridColor = System.Drawing.Color.LightGray;
+            this.dgvDetalles.Location = new System.Drawing.Point(8, 8);
             this.dgvDetalles.Name = "dgvDetalles";
             this.dgvDetalles.ReadOnly = true;
             this.dgvDetalles.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvDetalles.RowHeadersWidth = 51;
+            this.dgvDetalles.RowTemplate.Height = 28;
             this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalles.Size = new System.Drawing.Size(843, 431);
+            this.dgvDetalles.Size = new System.Drawing.Size(825, 413);
             this.dgvDetalles.TabIndex = 9;
             // 
             // panel1
