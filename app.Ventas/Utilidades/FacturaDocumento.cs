@@ -59,6 +59,7 @@ namespace app.Ventas.Utilidades
                         // Encabezados de la tabla
                         col.Item().Row(row =>
                         {
+                            row.Spacing(1, Unit.Centimetre);
                             row.RelativeItem(3).Text("Producto").Bold();
                             row.RelativeItem(1).Text("Cant.").Bold();
                             row.RelativeItem(1).Text("Precio").Bold();
@@ -72,6 +73,7 @@ namespace app.Ventas.Utilidades
 
                             col.Item().Row(row =>
                             {
+                                row.Spacing(1, Unit.Centimetre);
                                 row.RelativeItem(3).Text(fila.Cells["Nombre"].Value.ToString());
                                 row.RelativeItem(1).Text(fila.Cells["Cantidad"].Value.ToString());
                                 row.RelativeItem(1).Text(Convert.ToDecimal(fila.Cells["PrecioUnitario"].Value).ToString("N2"));
@@ -87,13 +89,13 @@ namespace app.Ventas.Utilidades
                         });
                     });
 
-                    // --- Pie de Página ---
+                    //Pie de Página
                     page.Footer()
                         .AlignCenter()
                         .Text(text =>
                         {
-                            text.Span("¡Gracias por su compra! - Página ");
-                            text.CurrentPageNumber();
+                            text.Span("¡Gracias por su compra!");
+                            
                         });
                 });
         }

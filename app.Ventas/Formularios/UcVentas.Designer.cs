@@ -52,6 +52,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.cuiPanel1.SuspendLayout();
             this.cuiPanelCentral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
@@ -202,6 +203,7 @@
             this.ibtnFactura.Text = "Factura";
             this.ibtnFactura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ibtnFactura.UseVisualStyleBackColor = true;
+            this.ibtnFactura.Click += new System.EventHandler(this.ibtnFactura_Click);
             // 
             // panel2
             // 
@@ -452,5 +454,6 @@
         private CuoreUI.Controls.cuiPanel cuiPanelCentral;
         private System.Windows.Forms.DataGridView dgvDetalles;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

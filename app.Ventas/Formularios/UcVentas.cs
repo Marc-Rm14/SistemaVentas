@@ -1,4 +1,6 @@
 ﻿using app.Ventas.Utilidades;
+using Microsoft.Win32;
+using QuestPDF.Fluent;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -426,6 +428,44 @@ namespace app.Ventas.Formularios
             }
         }
 
-        
+        private void ibtnFactura_Click(object sender, EventArgs e)
+        {
+            // 1. Validar que haya datos
+            if (dgvDetalles.Rows.Count == 0)
+            {
+                MessageBox.Show("Añada productos antes de imprimir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Abrir el diálogo para GUARDAR el PDF
+            saveFileDialog1.Filter = "Archivo PDF (*.pdf)|*.pdf";
+            saveFileDialog1.Title = "Guardar Factura";
+            int numeroDcumento = 0;
+            saveFileDialog1.FileName = $"Factura_{cmbClientes.Text.Replace(" ", "_")}_{DateTime.Now:yyyyMMdd}.pdf";
+            
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    
+                    //Crea la instancia de nuestra plantilla pasándole los datos
+                    var documento = new FacturaDocumento(
+                        cmbClientes.Text,
+                        dgvDetalles.Rows,
+                        lblTotalVenta.Text
+                    );
+
+                    // Genera el archivo PDF y lo guarda
+                    documento.GeneratePdf(saveFileDialog1.FileName);
+
+                    //NOTA: Abre el PDF automáticamente, creo que esta bien?
+                    System.Diagnostics.Process.Start(saveFileDialog1.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al generar el PDF: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
