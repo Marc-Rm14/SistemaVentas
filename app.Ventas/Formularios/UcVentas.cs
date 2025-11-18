@@ -4,6 +4,8 @@ using QuestPDF.Fluent;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace app.Ventas.Formularios
@@ -13,6 +15,7 @@ namespace app.Ventas.Formularios
         private Usuario _usuarioLogueado;
         public event Action VentaGuardada;
         private decimal _totalVenta;
+        private const string CEDULA_CLIENTE_GENERAL = "000-000000-0000X";
         public UcVentas()
         {
             InitializeComponent();
@@ -226,6 +229,41 @@ namespace app.Ventas.Formularios
             CargarClientes();
             numCantidad.Value = 1;
 
+            //NOTA: Llamamos al metodo que busca el cliente general, si existe lo selecciona.
+            PreseleccionarClienteGeneral();
+
+            CalcularTotalVenta();
+
+        }
+
+        private void PreseleccionarClienteGeneral()
+        {
+            try
+            {
+                // Obtenemos el dt que cargamos en el cmb
+                DataTable dtClientes = (DataTable)cmbClientes.DataSource;
+
+                DataRow[] filas = dtClientes.Select($"Cedula = '{CEDULA_CLIENTE_GENERAL}'");
+
+
+                if (filas.Length > 0)
+                {
+                    object idClienteGeneral = filas[0]["ClienteID"];
+
+                    cmbClientes.SelectedValue = idClienteGeneral;
+
+                }
+                else
+                {
+                    //Si no lo encuentra dejamos el valor predeterminado
+                    cmbClientes.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al seleccionar cliente por defecto: " + ex.Message);
+                cmbClientes.SelectedIndex = -1;
+            }
         }
 
 
@@ -349,13 +387,28 @@ namespace app.Ventas.Formularios
                 lblCliente.Text = "Cliente Selecionado:\nN/A";
                 return;
             }
+
+
             DataRowView drv = (DataRowView)cmbClientes.SelectedItem;
-            int id = Convert.ToInt32(drv["ClienteID"]);
+            
             string nombre = drv["NombreCompleto"].ToString();
             string cedula = drv["Cedula"].ToString();
-            string telefono = drv["Telefono"].ToString(); //Accedemos por nombre de columna
+             //Accedemos por nombre de columna
+
+            Debug.WriteLine(cedula);
+
+            if (cedula == CEDULA_CLIENTE_GENERAL)
+            {
+                cmbClientes.BackColor = Color.LightGreen;
+            }
+            else 
+            {
+                cmbClientes.BackColor = Color.WhiteSmoke;
+            }
+
 
             lblCliente.Text = $"Cliente seleccionado:\n{nombre}";
+            
 
 
         }
@@ -430,7 +483,7 @@ namespace app.Ventas.Formularios
 
         private void ibtnFactura_Click(object sender, EventArgs e)
         {
-            // 1. Validar que haya datos
+            // Validar que haya datos
             if (dgvDetalles.Rows.Count == 0)
             {
                 MessageBox.Show("Añada productos antes de imprimir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
