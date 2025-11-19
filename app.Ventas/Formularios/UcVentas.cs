@@ -29,6 +29,11 @@ namespace app.Ventas.Formularios
             _usuarioLogueado = usuario;
         }
 
+        public void RefrescarDatos() 
+        {
+            CargarProductos();
+        }
+
         private void CargarProductos()
         {
             try

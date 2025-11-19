@@ -8,7 +8,9 @@ namespace app.Ventas.Formularios
 {
     public partial class UCProductos : UserControl
     {
-        public event Action OnAgregarProductoClick;
+        public event Action OnAgregarProductoClick; // Avisamos que se hubo un click en el boton
+
+        public event Action OnDatosCambiados; // Avisamos que hubo un cambio
 
         private Usuario _usuario;
 
@@ -166,6 +168,7 @@ namespace app.Ventas.Formularios
 
                     MessageBox.Show("El producto fue desactivado con exito.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     listarRegistro(); // Refrescamos la lista
+                    OnDatosCambiados?.Invoke();
                 }
             }
             catch (Exception ex)
@@ -207,8 +210,13 @@ namespace app.Ventas.Formularios
 
                 FrmAgregarProductos frm = new FrmAgregarProductos(id, nombre, precio, codigo, existencia, categoriaId, activo);
 
-                frm.registroAgregado += RefrescarDatos; 
-                
+                frm.registroAgregado += () =>
+                {
+                    RefrescarDatos();           
+                    OnDatosCambiados?.Invoke(); 
+                };
+
+
                 MostrarModal.MostrarConCapa(this, frm);
 
             }
@@ -254,7 +262,7 @@ namespace app.Ventas.Formularios
             }
         }
 
-        //TODO: limpiar el los bloques codigo de los places holder y text changed; ahora se usa los controles de la libreria Coure UL.
+        
         #endregion
 
         #region Bottones

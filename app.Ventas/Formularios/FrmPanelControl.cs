@@ -65,12 +65,19 @@ namespace app.Ventas.Formularios
                 _ucProductos = new UCProductos(_usuario);
 
                 // 3. Y nos suscribimos a sus eventos UNA SOLA VEZ. 
-                _ucProductos.OnAgregarProductoClick += UcProductos_OnAgregarProductoClick; //forma explicita en vez de lambda
+                //forma explicita en vez de lambda:
+                _ucProductos.OnAgregarProductoClick += UcProductos_OnAgregarProductoClick;
+                _ucProductos.OnDatosCambiados += RefrescarVentas;
             }
 
             // 4. Finalmente, mostramos la vista (ya sea la recién creada o la que ya existía).
             panelCentral.MostrarVista(_ucProductos);
 
+        }
+
+        private void RefrescarVentas() 
+        {
+            _UcVentas?.RefrescarDatos();
         }
 
 
@@ -89,6 +96,7 @@ namespace app.Ventas.Formularios
         {
             //despues de agregar el producto refrescamos
             _ucProductos?.RefrescarDatos();
+            _UcVentas?.RefrescarDatos();
         }
 
         private void ibtnSalir_Click(object sender, EventArgs e)
