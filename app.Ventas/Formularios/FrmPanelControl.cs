@@ -202,8 +202,9 @@ namespace app.Ventas.Formularios
             if (_UcVentas == null || _UcVentas.IsDisposed) 
             {
                 _UcVentas = new UcVentas(_usuario);
-                
+
                 _UcVentas.VentaGuardada += UcVentas_VentaGuardada;
+                
             }
             
             panelCentral.MostrarVista(_UcVentas);
@@ -213,7 +214,12 @@ namespace app.Ventas.Formularios
         {
             // Llamamos al refresco solo si existe la instancia de productos
             _ucProductos?.RefrescarDatos();
+
+            // NOTA: El metodo suscrito al evento ahora tambien refresca nuestros graficos
+            _ucdashBoard?.RefrescarDashBoard();
         }
+
+        
 
 
         private void ibtnDashBoard_Click(object sender, EventArgs e)

@@ -21,6 +21,12 @@ namespace app.Ventas.Formularios
             CargarGraficoPastel();
         }
 
+        public void RefrescarDashBoard()
+        {
+            CargarGraficoBarrasTop();
+            CargarGraficoPastel();
+        }
+
         private void CargarGraficoBarrasTop()
         {
             try
