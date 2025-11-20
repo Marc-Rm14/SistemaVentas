@@ -53,7 +53,7 @@ namespace app.Ventas.Formularios
                             INNER JOIN 
                                 Categorias C ON P.CategoriaID = C.CategoriaID
                             WHERE 
-                                P.Activo = 1 AND C.Activo = 1
+                                P.Activo = 1 AND C.Activo = 1 AND P.Existencias > 0
                             ORDER BY 
                                 P.Nombre";
 
