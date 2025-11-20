@@ -38,7 +38,8 @@ namespace app.Ventas.Formularios
                 ibtnClientes.Enabled = false;
                 ibtnUsuarios.Enabled = false;
                 ibtnCategorias.Enabled = false;
-
+                ibtnDashBoard.Enabled = false;
+                ibtnReportes.Enabled = false;
             }
             //Despues de configurar Roles mostramos el label
             lblUsuario.Text = $"Bienvenido,\n{_usuario.NombreCompleto} ({_usuario.Rol})";
