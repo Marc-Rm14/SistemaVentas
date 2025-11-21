@@ -1,5 +1,7 @@
 ﻿using app.Ventas.Formularios;
 using app.Ventas.Utilidades;
+using PdfSharp.Fonts;
+using PdfSharp.Snippets.Font;
 using System;
 using System.Windows.Forms;
 namespace app.Ventas
@@ -12,6 +14,7 @@ namespace app.Ventas
         [STAThread]
         static void Main()
         {
+            GlobalFontSettings.FontResolver = new FailsafeFontResolver();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             

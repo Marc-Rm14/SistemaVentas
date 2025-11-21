@@ -1,6 +1,4 @@
 ﻿using app.Ventas.Utilidades;
-using Microsoft.Win32;
-using QuestPDF.Fluent;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -498,26 +496,29 @@ namespace app.Ventas.Formularios
             // Abrir el diálogo para GUARDAR el PDF
             saveFileDialog1.Filter = "Archivo PDF (*.pdf)|*.pdf";
             saveFileDialog1.Title = "Guardar Factura";
-            int numeroDcumento = 0;
+            // int numeroDcumento = 0; // Esta variable ya no se usa
             saveFileDialog1.FileName = $"Factura_{cmbClientes.Text.Replace(" ", "_")}_{DateTime.Now:yyyyMMdd}.pdf";
-            
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    
-                    //Crea la instancia de nuestra plantilla pasándole los datos
-                    var documento = new FacturaDocumento(
+
+                    // **********************************************
+                    // CAMBIO CLAVE: Usamos FacturaPDFCreator (MigraDoc)
+                    // **********************************************
+                    var documento = new FacturaPDFCreator(
                         cmbClientes.Text,
                         dgvDetalles.Rows,
                         lblTotalVenta.Text
                     );
 
-                    // Genera el archivo PDF y lo guarda
-                    documento.GeneratePdf(saveFileDialog1.FileName);
+                    // Genera el archivo PDF y lo guarda usando el nuevo método
+                    documento.GenerateAndSavePdf(saveFileDialog1.FileName);
 
-                    //NOTA: Abre el PDF automáticamente, creo que esta bien?
-                    System.Diagnostics.Process.Start(saveFileDialog1.FileName);
+
+                    //NOTA: Abre el PDF automáticamente
+                    System.Diagnostics.Process.Start(new ProcessStartInfo(saveFileDialog1.FileName) { UseShellExecute = true });
                 }
                 catch (Exception ex)
                 {
