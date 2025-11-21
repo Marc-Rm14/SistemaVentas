@@ -12,10 +12,16 @@ namespace app.Ventas.Formularios
         public Usuario UsuarioAutenticado { get; private set; }
         private const string txtusuarioPlaceholder = "Usuario";
         private const string txtcontrasenaPlaceholder = "Contraseña";
-
+        private bool cambiando;
         public FrmInicioSesion()
         {
             InitializeComponent();
+        }
+
+        public FrmInicioSesion(bool cambiandoUsuario)
+        {
+            InitializeComponent();
+            cambiando = cambiandoUsuario; //Nueva variable para saber en donde esta el formualario
         }
 
         private Usuario AutenticarUsuario(string usuario, string contrasena)
@@ -182,16 +188,21 @@ namespace app.Ventas.Formularios
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            if (cambiando == true) //NOTA: verificamos endonde esta abierto el formulario, YA.
+            {
+                this.Close();
+                return;
+            }
             DialogResult result = MessageBox.Show("¿Está seguro que desea salir?",
-                                                    "Confirmar",
-                                                     MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Question);
+                                                       "Confirmar",
+                                                        MessageBoxButtons.YesNo,
+                                                        MessageBoxIcon.Question);
 
             if (result == DialogResult.No) return;
 
 
             Application.Exit();
-
+            
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using app.Ventas.Formularios;
 using app.Ventas.Utilidades;
-using QuestPDF.Infrastructure;
 using System;
 using System.Windows.Forms;
 namespace app.Ventas

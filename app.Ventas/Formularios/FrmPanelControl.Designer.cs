@@ -44,9 +44,13 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panelCentral = new System.Windows.Forms.Panel();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cuiPanelControl.SuspendLayout();
             this.cuiPanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSeparadorControl
@@ -260,9 +264,8 @@
             // 
             // cuiPanelTop
             // 
-            this.cuiPanelTop.Controls.Add(this.lblUsuario);
+            this.cuiPanelTop.Controls.Add(this.tableLayoutPanel1);
             this.cuiPanelTop.Controls.Add(this.lblTitulo);
-            this.cuiPanelTop.Controls.Add(this.iconPictureBox1);
             this.cuiPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.cuiPanelTop.Location = new System.Drawing.Point(2, 2);
             this.cuiPanelTop.Name = "cuiPanelTop";
@@ -275,14 +278,14 @@
             // 
             // lblUsuario
             // 
-            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsuario.AutoSize = true;
             this.lblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
+            this.lblUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(835, 17);
+            this.lblUsuario.Location = new System.Drawing.Point(51, 5);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(5);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(69, 21);
+            this.lblUsuario.Size = new System.Drawing.Size(613, 56);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario";
             // 
@@ -300,16 +303,16 @@
             // 
             // iconPictureBox1
             // 
-            this.iconPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
+            this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.iconPictureBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
             this.iconPictureBox1.IconColor = System.Drawing.Color.WhiteSmoke;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 40;
-            this.iconPictureBox1.Location = new System.Drawing.Point(772, 17);
+            this.iconPictureBox1.Location = new System.Drawing.Point(3, 3);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.iconPictureBox1.Size = new System.Drawing.Size(40, 60);
             this.iconPictureBox1.TabIndex = 2;
             this.iconPictureBox1.TabStop = false;
             // 
@@ -320,6 +323,39 @@
             this.panelCentral.Name = "panelCentral";
             this.panelCentral.Size = new System.Drawing.Size(1093, 594);
             this.panelCentral.TabIndex = 12;
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
+            this.iconPictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconPictureBox2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
+            this.iconPictureBox2.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox2.Location = new System.Drawing.Point(672, 3);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(32, 60);
+            this.iconPictureBox2.TabIndex = 3;
+            this.iconPictureBox2.TabStop = false;
+            this.iconPictureBox2.Click += new System.EventHandler(this.iconPictureBox2_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblUsuario, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(535, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(707, 66);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // FrmPanelControl
             // 
@@ -341,6 +377,8 @@
             this.cuiPanelTop.ResumeLayout(false);
             this.cuiPanelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -363,5 +401,7 @@
         private System.Windows.Forms.Label lblTitulo;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Panel panelCentral;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -30,6 +30,5 @@ namespace app.Ventas.Utilidades
             Activo = activo;
         }
 
-        
     }
 }

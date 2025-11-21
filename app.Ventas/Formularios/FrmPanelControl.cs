@@ -15,7 +15,7 @@ namespace app.Ventas.Formularios
         private UcVentas _UcVentas;
         private UcDashBoard _ucdashBoard;
         private UcReportes _ucReportes;
-      
+        private Usuario _usuarioAnterior;
 
         public FrmPanelControl()
         {
@@ -33,6 +33,12 @@ namespace app.Ventas.Formularios
         }
         private void AplicarPermisos()
         {
+            ibtnClientes.Enabled = true;
+            ibtnUsuarios.Enabled = true;
+            ibtnCategorias.Enabled = true;
+            ibtnDashBoard.Enabled = true;
+            ibtnReportes.Enabled = true;
+
             if (_usuario.Rol == "Vendedor")
             {
                 ibtnClientes.Enabled = false;
@@ -263,6 +269,67 @@ namespace app.Ventas.Formularios
             }
         }
         #endregion
+
+        private void iconPictureBox2_Click(object sender, EventArgs e)
+        {
+            _usuarioAnterior = _usuario;
+
+            using (var login = new FrmInicioSesion(true))
+            {
+                if (login.ShowDialog() == DialogResult.OK && login.UsuarioAutenticado != null)
+                {
+                    var nuevoUsuario = login.UsuarioAutenticado;
+
+                    // Comparamos las propiedades de nuestra clasa
+                    if (nuevoUsuario.UsuarioID == _usuarioAnterior.UsuarioID &&
+                       nuevoUsuario.NombreUsuario == _usuarioAnterior.NombreUsuario)
+                    {
+                        MessageBox.Show($"El usuario: {_usuarioAnterior.NombreCompleto} ya está logeado",
+                            "No se cambió el usuario",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    //NOTA: ahora ven todo esta bien entonces cambiamos nuestro usuario
+                    _usuario = nuevoUsuario;
+                    AplicarPermisos();
+                    LimpiarYRefrescarControles();
+
+                    MessageBox.Show($"Usuario cambiado a: {_usuario.NombreCompleto}",
+                             "Usuario cambiado",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void LimpiarYRefrescarControles()
+        {
+            // Limpiamos el panel central
+            panelCentral.Controls.Clear();
+
+            // Dispose de los controles de usuario existentes
+            _ucProductos?.Dispose();
+            _ucClientes?.Dispose();
+            _ucUsuarios?.Dispose();
+            _ucCategorias?.Dispose();
+            _UcVentas?.Dispose();
+            _ucdashBoard?.Dispose();
+            _ucReportes?.Dispose();
+
+            // Reiniciamos las referencias
+            _ucProductos = null;
+            _ucClientes = null;
+            _ucUsuarios = null;
+            _ucCategorias = null;
+            _UcVentas = null;
+            _ucdashBoard = null;
+            _ucReportes = null;
+
+            // Mostramos la vista por defecto (productos)
+            ibtnProductos_Click(null, EventArgs.Empty);
+        }
 
     }
 }
