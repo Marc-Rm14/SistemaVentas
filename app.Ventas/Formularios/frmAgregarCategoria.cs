@@ -20,12 +20,12 @@ namespace app.Ventas.Formularios
             this._estadoOriginalActivo = true;
         }
 
-        public frmAgregarCategoria(int categoriaId, string nombre, bool activo, string textoCheck)
+        public frmAgregarCategoria(int categoriaId, string nombre, bool activo)
         {
 
             InitializeComponent();
             chkActivo.Enabled = true;   
-            chkActivo.Content = textoCheck;
+            
             
             txtId.Text = categoriaId.ToString();
             txtAgCategoria.Text = nombre;

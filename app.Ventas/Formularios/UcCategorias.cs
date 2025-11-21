@@ -34,13 +34,13 @@ namespace app.Ventas.Formularios
                 {
                     int categoriaId = Convert.ToInt32(dgvCategorias.Rows[e.RowIndex].Cells["CategoriaID"].Value);
                     string nombre = Convert.ToString(dgvCategorias.Rows[e.RowIndex].Cells["Categoria"].Value);
-                    string textoCheck = "Un check es activo y viceversa";
+                    
                     bool activo = false;
                     var activoVal = dgvCategorias.Rows[e.RowIndex].Cells["Activo"].Value;
                     if (activoVal != null && activoVal != DBNull.Value)
                         activo = Convert.ToBoolean(activoVal);
 
-                    frmAgregarCategoria frm = new frmAgregarCategoria(categoriaId, nombre, activo, textoCheck);
+                    frmAgregarCategoria frm = new frmAgregarCategoria(categoriaId, nombre, activo);
                     frm.registroAgregado += refrescarDatos;
                     MostrarModal.MostrarConCapa(this, frm);
                 }

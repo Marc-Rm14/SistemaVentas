@@ -43,7 +43,9 @@ namespace app.Ventas.Formularios
             if (_usuario.Rol == "Vendedor") 
             {
                 ibtnAgregar.Enabled = false;
+                ibtnAgregar.Visible = false;
                 ibtnEliminar.Enabled = false;
+                ibtnEliminar.Visible = false;
                 dgvProductos.ReadOnly = true;
                 dgvProductos.ClearSelection();
                 dgvProductos.CellDoubleClick -= dgvProductos_CellDoubleClick;

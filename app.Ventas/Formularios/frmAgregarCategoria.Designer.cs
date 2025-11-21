@@ -192,10 +192,10 @@
             // 
             this.chkActivo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkActivo.Checked = false;
-            this.chkActivo.CheckedForeground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.chkActivo.CheckedOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.chkActivo.CheckedForeground = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
+            this.chkActivo.CheckedOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
             this.chkActivo.CheckedSymbolColor = System.Drawing.Color.White;
-            this.chkActivo.Content = "Por Defecto es Activo";
+            this.chkActivo.Content = "Activo";
             this.chkActivo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkActivo.Enabled = false;
             this.chkActivo.Location = new System.Drawing.Point(97, 91);

@@ -22,7 +22,6 @@ namespace app.Ventas.Formularios
         {
             InitializeComponent();
             chkActivo.Enabled = true;
-            chkActivo.Content = "Un check es activo y viceversa";
             txtId.Text = id.ToString();
             txtCedula.Text = cedula;
             txtNombre.Text = nombre;
