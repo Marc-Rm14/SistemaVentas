@@ -15,7 +15,7 @@ namespace app.Ventas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            QuestPDF.Settings.License = LicenseType.Community;
+            
 
             var conexion = AdministrarConexion.Cargar();
             if (string.IsNullOrWhiteSpace(conexion.servidor) || string.IsNullOrWhiteSpace(conexion.baseDatos))
